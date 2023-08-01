@@ -9,15 +9,15 @@ hero:
   text: 一个Vue3组件库
   tagline: 通用的vue3组件库
   image:
-    src: /logo.png
-    alt: Kitty
+    src: /yk-design.png
+    alt: Hello
   actions:
     - theme: brand
       text: 开始
       link: /guide/
     - theme: alt
       text: 在 Gitee 上查看
-      link: 
+      link: https://gitee.com/zhengdashun/yk-design
 
 features:
   - icon: 💡
