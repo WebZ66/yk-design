@@ -9,6 +9,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:vue/vue3-essential',
+    'plugin:prettier/recommended',
   ],
   overrides: [
     {
@@ -32,5 +33,6 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
+    '@typescript-eslint/no-explicit-any': ['off'],
   },
 }
