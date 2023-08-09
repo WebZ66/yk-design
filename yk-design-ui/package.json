@@ -1,21 +1,29 @@
 {
-    "name": "yk-design-ui",
-    "private": true,
-    "version": "0.0.0",
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "vue-tsc && vite build",
-        "preview": "vite preview",
-        "preinstall": "node ./scripts/preinstall.js"
-    },
-    "dependencies": {
-        "vue": "^3.3.4"
-    },
-    "devDependencies": {
-        "@vitejs/plugin-vue": "^4.2.3",
-        "typescript": "^5.0.2",
-        "vite": "^4.4.5",
-        "vue-tsc": "^1.8.5"
-    }
+  "name": "yk-design-ui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "preinstall": "node ./scripts/preinstall.js",
+    "lint": "eslint src",
+    "fix": "eslint src --fix"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.9",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "eslint": "^8.46.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "prettier": "^3.0.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vue-tsc": "^1.8.5"
+  }
 }
