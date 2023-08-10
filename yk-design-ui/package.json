@@ -12,6 +12,7 @@
     "fix": "eslint src --fix"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {
@@ -26,6 +27,7 @@
     "prettier": "^3.0.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
+    "vite-plugin-svg-icons": "^2.0.1",
     "vue-tsc": "^1.8.5"
   }
 }
