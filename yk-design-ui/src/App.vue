@@ -2,6 +2,7 @@
   <div>
     <yk-icon color="red"></yk-icon>
     <yk-icon name="cha" color="pink"></yk-icon>
+    <yk-test></yk-test>
   </div>
 </template>
 
