@@ -1,13 +1,10 @@
+import { YkIcon } from './components/icon/src/index'
 import { createApp } from 'vue'
 import '@/assets/style/normalize.css'
 import 'virtual:svg-icons-register'
 import App from './App.vue'
 
-import TestVue from '@/components/test/src/TestVue.vue'
-TestVue.install = () => {
-  console.log('123')
-}
-
+console.log(YkIcon)
 const app = createApp(App)
-TestVue.install()
+app.use(YkIcon)
 app.mount('#app')

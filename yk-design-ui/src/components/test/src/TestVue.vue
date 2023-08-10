@@ -3,6 +3,7 @@
 </template>
 
 <script lang="ts" setup>
+import type { IProps } from './type'
 import { ref, reactive } from 'vue'
 defineOptions({
   name: 'YkTest',
