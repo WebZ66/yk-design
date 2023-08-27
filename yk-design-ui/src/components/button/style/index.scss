@@ -124,42 +124,34 @@ $btn-outline-color-hover_danger: $ecolor-1;
   cursor: pointer;
   user-select: none;
   color: $btn-primary-color-text;
-
-  circle {
-    stroke: $btn-primary-color-text;
+  position: relative;
+  .circle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border-width: 2px;
+    border-top-color: transparent;
+    border-right-color: $btn-primary-color-text;
+    border-bottom-color: $btn-primary-color-text;
+    border-left-color: transparent;
+    border-style: solid;
+    left: 2px;
+    animation: rotate 0.9s linear infinite;
   }
-
-  @mixin btn-type($type) {
-
-    // 使用@mixin关键字定义混入
-    .normal {
-      color: $btn-#{$type}-color-text;
-
-      circle {
-        stroke: $btn-#{$type}-color-text;
-      }
-
-      background-color: $btn-#{$type}-color-bg;
-      border-color: $btn-#{$type}-color-border;
-
-      &:not(:disabled):hover {
-        background-color: $btn-#{$type}-color-hover;
-      }
-
-      &:not(:disabled):active {
-        background-color: $btn-#{$type}-color-bg;
-      }
-    }
-
-    &--#{$type} {
-      @include normal(); // 使用@include关键字引入混入
-    }
+  &--primary {
+    border-color: $btn-primary-color-border_primary;
   }
-
-
-
-
-
+  &--secondary {
+    color: #fff;
+    background-color: $btn-secondary-color-bg;
+    border-color: $btn-secondary-color-border;
+  }
+  &--outline {
+    color: $font-color-l;
+    background-color: $btn-outline-color-bg;
+    border-color: $btn-outline-color-border;
+  }
 
   // 尺寸 size
 
@@ -172,10 +164,11 @@ $btn-outline-color-hover_danger: $ecolor-1;
   }
 
   &--m {
-    padding: 0px $space-l;
+    padding: 0px $space-m;
     min-width: 32px;
     height: 32px;
     border-radius: $radius-s;
+    font-size: $size-ss;
   }
 
   &--l {
@@ -186,7 +179,7 @@ $btn-outline-color-hover_danger: $ecolor-1;
   }
 
   &--xl {
-    padding: 0px 3px;
+    padding: 0px $space-xl;
     min-width: 48px;
     height: 48px;
     font-size: $size-m;
@@ -209,6 +202,15 @@ $btn-outline-color-hover_danger: $ecolor-1;
   }
 
   &--square {
-    padding: 0;
+    border-radius: 0;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

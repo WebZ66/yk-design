@@ -1,5 +1,6 @@
 <template>
   <button :class="ykButtonClass" :disabled="props.loading || props.disabled">
+    <div :class="{ circle: props.loading }"></div>
     <slot name="icon"></slot>
     <slot></slot>
   </button>
@@ -7,14 +8,14 @@
 
 <script setup lang="ts">
 import type { ButtonProps } from './type'
-import { ref, reactive, computed, onMounted, watch } from 'vue'
+import { computed } from 'vue'
 defineOptions({
   name: 'YkButton',
 })
 const props = withDefaults(defineProps<ButtonProps>(), {
   type: 'primary',
   status: 'primary',
-  size: 'l',
+  size: 's',
   shape: 'default',
   long: false,
   loading: false,

@@ -9,7 +9,7 @@ export type SFCWithInstallType<T> = Plugin & T
 
 export const withInstall = <T extends { name: string }>(main: T) => {
   ;(main as SFCWithInstallType<T>).install = (app: App) => {
-    app.component(main.name as string, main)
+    app.component(main.name, main)
   }
   return main as SFCWithInstallType<T>
 }
