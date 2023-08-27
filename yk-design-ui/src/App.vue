@@ -2,7 +2,7 @@
   <div>
     <h1>测试</h1>
     <hr />
-    <yk-button></yk-button>
+    <yk-button status="success">123</yk-button>
   </div>
 </template>
 

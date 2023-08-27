@@ -158,14 +158,9 @@ $btn-outline-color-hover_danger: $ecolor-1;
 
 
 
-  @mixin btn-status($type: primary, $status: primary) {
-    .normal {
-      color: $btn-#{$type}-color-text_#{$status};
 
-    }
-  }
 
-  @include btn-status(primary, primary);
+
   // 尺寸 size
 
   &--s {
