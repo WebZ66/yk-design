@@ -1,0 +1,138 @@
+.yk-switch {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  outline: none;
+
+  transition: background-color 0.2s ease-in-out;
+  box-sizing: border-box;
+  vertical-align: middle;
+  cursor: pointer;
+
+  .yk-switch__dot {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
+
+
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: translate(-50%, 0) rotate(0deg);
+    }
+
+    100% {
+      transform: translate(-50%, 0) rotate(360deg);
+    }
+  }
+
+
+  &--s.yk-switch--isChecked .yk-switch__dot {
+    left: calc(100% - 17px);
+  }
+
+  &--m.yk-switch--isChecked .yk-switch__dot {
+    left: calc(100% - 21px);
+  }
+
+  &--m .yk-switch__dot .circle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border-width: 2px;
+    border-top-color: transparent;
+    border-right-color: rgb(104, 104, 245);
+    border-bottom-color: rgb(104, 104, 245);
+    border-left-color: transparent;
+    border-style: solid;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: rotate 0.9s ease-in infinite;
+  }
+
+  &--s .yk-switch__dot .circle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border-width: 2px;
+    border-top-color: transparent;
+    border-right-color: rgb(104, 104, 245);
+    border-bottom-color: rgb(104, 104, 245);
+    border-left-color: transparent;
+    border-style: solid;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: rotate 0.9s ease-in infinite;
+  }
+
+  /* size */
+  &--m {
+    min-width: 44px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 11px;
+  }
+
+  &--M {
+    min-width: 50px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 11px;
+  }
+
+  &--m .yk-switch__dot {
+    width: 18px;
+    height: 18px;
+  }
+
+  &--M .yk-switch__dot {
+    width: 18px;
+    height: 18px;
+  }
+
+  &--s {
+    min-width: 35px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 10px;
+  }
+
+  &--S {
+    min-width: 35px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 10px;
+  }
+
+  &--s .yk-switch__dot {
+    width: 14px;
+    height: 14px;
+  }
+
+  &--S .yk-switch__dot {
+    width: 14px;
+    height: 14px;
+  }
+
+
+
+
+  &--disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed;
+  }
+
+
+}
