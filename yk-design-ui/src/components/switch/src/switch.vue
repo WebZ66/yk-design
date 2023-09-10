@@ -62,7 +62,7 @@ const ykSwitchClass = computed(() => {
     'yk-switch--isChecked': isChecked.value,
     'yk-switch--loading': props.loading,
     'yk-switch--disabled': props.disabled || props.loading,
-    [`yk-switch--${props.size}`]: props.size,
+    [`yk-switch--${props.size}`]: true,
   }
 })
 
