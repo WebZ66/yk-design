@@ -39,6 +39,7 @@
         <YkAvatar v-for="item in 2" :key="item" :imgUrl="img2"></YkAvatar>
       </AvatarGroup>
     </div>
+    <hr />
   </div>
 </template>
 
