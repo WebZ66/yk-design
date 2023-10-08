@@ -1,16 +1,13 @@
-import Test from '@/components/test/src/index'
-import Icon from '@/components/icon/src/index'
-import Button from '@/components/button/src/index'
+import YkIcon from '@/components/icon/src/index'
+
 import type { App } from 'vue'
 
 interface IComponents<T> {
   [propName: string]: T
 }
 
-const components: IComponents<typeof Test> = {
-  YkTest: Test,
-  YkIcon: Icon,
-  YkButton: Button,
+const components: IComponents<typeof YkIcon> = {
+  YkIcon: YkIcon,
 }
 
 export default {

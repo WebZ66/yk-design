@@ -208,9 +208,11 @@ $btn-outline-color-hover_danger: $ecolor-1;
 
 @keyframes rotate {
   from {
+    opacity: 1;
     transform: rotate(0);
   }
   to {
+    opacity: 0;
     transform: rotate(360deg);
   }
 }
