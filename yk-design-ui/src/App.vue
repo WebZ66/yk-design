@@ -2,8 +2,10 @@
   <div class="test-container">
     <h1>测试</h1>
     <hr />
-    <yk-button type="secondary">+</yk-button>
+    <YkTest />
   </div>
+
+  <div class="son"></div>
 </template>
 
 <script lang="ts" setup>

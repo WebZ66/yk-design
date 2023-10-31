@@ -39,7 +39,7 @@ watch(
 )
 const handleClick = (e: Event) => {
   if (isDisabled.value) return
-  //每次点击后取反，然后传递的默认选中值给currentValue
+  //每次点击后取反，然后传递的默认选中值或非选中值给currentValue
   if (!currentValue.value) {
     currentValue.value = props.checkedValue
   } else {
@@ -62,7 +62,7 @@ const ykSwitchClass = computed(() => {
     'yk-switch--isChecked': isChecked.value,
     'yk-switch--loading': props.loading,
     'yk-switch--disabled': props.disabled || props.loading,
-    [`yk-switch--${props.size}`]: props.size,
+    [`yk-switch--${props.size}`]: true,
   }
 })
 
