@@ -4,8 +4,6 @@
     <hr />
     <YkTest />
   </div>
-
-  <div class="son"></div>
 </template>
 
 <script lang="ts" setup>

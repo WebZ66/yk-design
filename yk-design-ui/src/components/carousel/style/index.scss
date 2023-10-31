@@ -1,0 +1,72 @@
+.yk-carousel {
+
+  --size: 32px;
+  position: relative;
+  overflow: hidden;
+
+  .carousel-list {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    //不能用transform了，因为之后移动就是靠该元素transform，会导致之前定义的被覆盖
+    margin-left: -100%;
+
+
+    .carousel-item {
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        background-color: red;
+      }
+    }
+  }
+
+
+  .carousel-arrow {
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &-left {
+      left: 10px;
+
+    }
+
+    &-right {
+      right: 10px;
+    }
+  }
+
+  .indicator {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translate(-50%, 0);
+
+    span {
+      width: calc(var(--size)/4);
+      height: calc(var(--size)/4);
+      border: 2px solid #ccc;
+      margin: 0 3px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .actived {
+      background-color: #fff;
+    }
+  }
+}

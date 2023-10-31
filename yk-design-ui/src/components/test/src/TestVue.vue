@@ -41,6 +41,13 @@
     </div>
     <hr />
     <div title="yk-upload">
+      <YkUpload />
+    </div>
+    <hr />
+    <div title="yk-carousel">
+      <YkCarousel :size="'l'" :carousel-list="[i1, i2, i3, i4]" />
+    </div>
+    <div title="yk-upload">
       <YkUpload></YkUpload>
     </div>
   </div>
@@ -52,6 +59,11 @@ import { ref, reactive } from 'vue'
 import AvatarGroup from '@/components/avatar/src/avatar-group.vue'
 import img1 from '@/assets/images/test.png'
 import img2 from '@/assets/images/2.png'
+
+const i1 = new URL('@/assets/images/1.png', import.meta.url).href
+const i2 = new URL('@/assets/images/2.png', import.meta.url).href
+const i3 = new URL('@/assets/images/3.png', import.meta.url).href
+const i4 = new URL('@/assets/images/test.png', import.meta.url).href
 
 /* switch */
 const flag = ref(true)
