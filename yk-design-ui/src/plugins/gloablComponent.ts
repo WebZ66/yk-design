@@ -4,8 +4,6 @@ import Icon from '@/components/icon/src/YkIcon.vue'
 import Button from '@/components/button/src/YkButton.vue'
 import Avatar from '@/components/avatar/src/index.vue'
 import Upload from '@/components/upload/src/upload.vue'
-
-import Upload from '@/components/upload/src/upload.vue'
 import Carousel from '@/components/carousel/src/index.vue'
 import type { App } from 'vue'
 

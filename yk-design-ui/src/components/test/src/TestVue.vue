@@ -47,9 +47,6 @@
     <div title="yk-carousel">
       <YkCarousel :size="'l'" :carousel-list="[i1, i2, i3, i4]" />
     </div>
-    <div title="yk-upload">
-      <YkUpload></YkUpload>
-    </div>
   </div>
 </template>
 
