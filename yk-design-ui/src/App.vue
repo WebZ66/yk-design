@@ -3,11 +3,13 @@
     <h1>测试</h1>
     <hr />
     <YkTest />
+    <Radio />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
+import Radio from '@/components/radio/src/index.vue'
 </script>
 
 <style scoped>
