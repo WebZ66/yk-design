@@ -1,5 +1,6 @@
 <template>
   <label :class="bem([size], { disabled })" role="radio">
+    <!-- 原生的radio想要实现同一组，必须绑定相同的name，在vue中v-model就简化了这个操作，只需要绑定相同的modelValue即可 -->
     <input
       type="radio"
       v-model="modelValue"
@@ -36,7 +37,7 @@ const props = withDefaults(defineProps<RadioProps>(), {
   type: 'radio',
   size: 'l',
 })
-
+console.log('props', props.modelValue) //props自身是响应式变量，属性值从来不是，它是shallowRef。因此需要子通知父，才能修改props
 const emits = defineEmits(radioEmits)
 const { modelValue } = useRadio(props, emits)
 //通过v-model的绑定modelValue和预订值label判断是否选中
