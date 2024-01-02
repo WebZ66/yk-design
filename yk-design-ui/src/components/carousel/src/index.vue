@@ -66,15 +66,24 @@ function moveTo(index: number) {
 }
 
 function moveLeft() {
+  console.log(document.body.children.length)
+
   if (activeIndex.value == 0) {
     //快速的跳到最后一个，然后再往前滑动
     carouselListRef.value!.style.transition = 'none'
 
     carouselListRef.value!.style.transform = `translateX(-${count.value}00%)`
-    //等待浏览器渲染执行,并不是DOM更新渲染结束，所以用nextTick无效
-    // carouselListRef.value!.clientHeight
-    requestAnimationFrame(() => {
+
+    // carouselListRef.value!.clientHeight 浏览器立刻进行一次渲染
+    //nextTick是在DOM更新结束后调用，它本身不会导致浏览器重新渲染，本质上是将其封装成微任务(宏任务),推入到微任务队列等待执行
+    //requestAnimation会在浏览器渲染前执行，通常在浏览器的下一个渲染帧前执行
+    nextTick(() => {
+      console.log('nextTick')
       moveTo(count.value - 1)
+    })
+    console.log('执行')
+    Promise.resolve(1).then(() => {
+      console.log('promise')
     })
   } else {
     //如果不是第一张，那么就activeIndex-1然后移动
