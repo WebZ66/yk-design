@@ -1,5 +1,11 @@
 <template>
-  <div :class="bem('label', ['s'], { disabled: true, solid: false })">123</div>
+  <div :class="bem()">
+    <label>
+      <input type="radio" />
+      <span :class="bem('label', ['s'])">特殊的</span>
+    </label>
+    <div class="s">123</div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -13,4 +19,10 @@ defineOptions({
 })
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+@use '../style/radio.scss' as radio;
+.s {
+  color: #fff;
+  background-color: radio.$radio-color;
+}
+</style>

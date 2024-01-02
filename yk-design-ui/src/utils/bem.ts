@@ -1,4 +1,4 @@
-const isString = (val: unknown): val is string => {
+const isString = (val: unknown): boolean => {
   return typeof val === 'string'
 }
 const isObject = (val: unknown): val is object => {
@@ -29,6 +29,7 @@ const createModifier = (prefixClass: string, modifierObject: object) => {
         return `${prefixClass}--${modifier}`
       })
       .filter(Boolean)
+    /* arr.filter(Boolean) 可以去除掉数组中的空字符串 */
   } else if (isObject(modifierObject)) {
     /*
      * bem([type, status, shape, size], {loading: loading,long: long,disabled: disabled}),
@@ -69,6 +70,7 @@ export const createCssScope = (prefix: string, identity = 'yk') => {
     //bem() 如果不传入元素或者状态，直接返回块名
     if (!elementOrModifier) return prefixClass
     //如果首个元素是字符，那么确定传入的是元素，需要配合__拼接
+    //bem('content') 返回 块名__元素 快名__元素--状态
     if (isString(elementOrModifier)) {
       const element = `${prefixClass}__${elementOrModifier}`
       //如果没有状态 直接返回
@@ -91,7 +93,7 @@ export const createCssScope = (prefix: string, identity = 'yk') => {
     else {
       return [
         prefixClass,
-        ...createModifier(prefixClass, elementOrModifier),
+        ...createModifier(prefixClass, elementOrModifier as BEMModifier),
         ...createModifier(prefixClass, modifier!),
       ]
     }
