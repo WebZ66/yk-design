@@ -42,7 +42,9 @@ const { modelValue } = useRadio(props, emits)
 //通过v-model的绑定modelValue和预订值label判断是否选中
 const isChecked = computed(() => modelValue.value === props.label)
 
-const handleChange = () => {}
+const handleChange = () => {
+  console.log('modelValue', modelValue)
+}
 </script>
 
 <style scoped></style>
