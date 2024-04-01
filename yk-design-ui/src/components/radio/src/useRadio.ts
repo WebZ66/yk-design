@@ -2,9 +2,9 @@ import { UPDATE_MODEL_EVENT, CHANGE_EVENT, provideKey } from './constant'
 import { RadioProps } from './radio'
 import { computed, inject } from 'vue'
 
-export const useRadio = (props: RadioProps, emits: any) => {
+export const useRadio = (props: any, emits: any) => {
   /* 判断是否是radio-groups */
-  const radioProps = inject(provideKey, undefined)
+  const radioProps = inject<any>(provideKey, undefined)
   const isGroup = computed(() => !!radioProps)
 
   const modelValue = computed({

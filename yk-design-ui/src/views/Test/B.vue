@@ -1,6 +1,6 @@
 <template>
   <div>
-    我是B组件
+    我是B组件 {{ modelValue }}
     <hr />
     <div>B组件的插槽内容</div>
     <slot></slot>
@@ -13,6 +13,7 @@ import { ref, reactive, provide } from 'vue'
 const props = defineProps<{ modelValue: number }>()
 const emits = defineEmits(['update:modelValue'])
 const a = ref(props.modelValue)
+
 provide('radioProps', a)
 provide('changeEvent', (newValue: any) => {
   emits('update:modelValue', newValue)

@@ -5,6 +5,7 @@
       <C :label="1"></C>
       <C :label="2"></C>
     </B>
+    <C v-model="radio1" :label="1"></C>
   </div>
 </template>
 
@@ -14,8 +15,7 @@ import B from './B.vue'
 import C from './C.vue'
 
 const radio = ref(0)
-const radio2 = ref(1)
-
+const radio1 = ref(1)
 watch(radio, (newValue) => {
   console.log('radio', newValue)
 })
