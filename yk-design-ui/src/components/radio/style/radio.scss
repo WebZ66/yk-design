@@ -75,6 +75,26 @@
       color: #409eff;
     }
   }
+
+  &--disabled {
+    .yk-radio__inner {
+      background-color: #f5f7fa;
+      border-color: #e4e7ed;
+      &::after {
+        background-color: transparent;
+      }
+      .yk-radio__label {
+        color: #c0c4cc;
+      }
+    }
+    .yk-radio__inner {
+      cursor: not-allowed;
+    }
+    .yk-radio__label {
+      color: #c0c4cc;
+      cursor: not-allowed;
+    }
+  }
   &--disabled.isChecked {
     .yk-radio__inner {
       background-color: #f5f7fa;

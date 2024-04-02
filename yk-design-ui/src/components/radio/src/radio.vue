@@ -2,7 +2,14 @@
   <label role="radio" :class="bem([], { disabled, solid }, { isChecked })">
     <span :class="bem('input', [], {}, { isChecked })">
       <span :class="bem('inner')"></span>
-      <input type="radio" :class="bem('original')" />
+      <input
+        v-model="compVModel"
+        :value="props.value"
+        :disabled="disabled"
+        type="radio"
+        :class="bem('original')"
+        @change="handleChange"
+      />
     </span>
     <span :class="bem('label')">
       <slot></slot>
@@ -11,26 +18,25 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, computed } from 'vue'
 import { RadioProps, radioEmits } from './radio'
 import { createCssScope } from '@/utils/bem'
+import { useRadio } from './useRadio'
 
 defineOptions({
   name: 'YkRadio',
 })
 const bem = createCssScope('radio')
-const emits = defineEmits(['update:modelValue', 'change'])
+const emits = defineEmits(radioEmits)
 const props = withDefaults(defineProps<RadioProps>(), {
   solid: false,
   type: 'radio',
   size: 'l',
   disabled: false,
 })
-function handleClick() {
-  isChecked.value = !isChecked.value
-}
 
-const isChecked = ref(true)
+const { compVModel, disabled, isChecked } = useRadio(props, emits)
+
+function handleChange() {}
 </script>
 
 <style lang="scss" scoped>
