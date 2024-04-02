@@ -1,39 +1,14 @@
 <template>
   <div>
-    <radio-group v-model="radio" @change="handleChange">
-      <yk-radio :label="1"></yk-radio>
-      <yk-radio :label="2"></yk-radio>
-    </radio-group>
-    <button @click="addClick">点击</button>
-
+    <yk-radio :label="1">备选项1</yk-radio>
+    <yk-radio disabled :label="2">备选项2</yk-radio>
     <hr />
-    <!-- <yk-radio v-model="radio2" :label="3"></yk-radio>
-    <yk-radio v-model="radio2" :label="4"></yk-radio> -->
-    <D :person="person" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, reactive, provide, watch } from 'vue'
-import RadioGroup from './B.vue'
-import YkRadio from './C.vue'
-import D from './D.vue'
-
-const radio = ref(0)
-const radio2 = ref(3)
-
-const person = reactive({
-  name: 'zds',
-  age: 18,
-})
-
-function addClick() {
-  person.age++
-}
-
-function handleChange(newValue) {
-  console.log(newValue)
-}
+import YkRadio from '@/components/radio/src/radio.vue'
 </script>
 
 <style scoped></style>
