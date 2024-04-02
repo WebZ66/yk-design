@@ -7,11 +7,11 @@ import App from './App.vue'
 
 import { YkIcon } from './packages'
 
-import gloablComponent from './plugins/gloablComponent'
+import globalComponent from './plugins/gloablComponent'
 
 const app = createApp(App)
 
 app.use(router)
 app.use(YkIcon)
-app.use(gloablComponent)
+app.use(globalComponent)
 app.mount('#app')

@@ -1,5 +1,17 @@
 <template>
   <div>
+    <div title="yk-radio">
+      <YkRadio v-model="radio1" :value="'1'" disabled>选项一</YkRadio>
+      <YkRadio v-model="radio1" :value="'2'" disabled>选项二</YkRadio>
+
+      <div :style="{ padding: '10px 0' }"></div>
+
+      <yk-radio-group v-model="radio2">
+        <YkRadio :value="'1'">选项一</YkRadio>
+        <YkRadio :value="'2'">选项二</YkRadio>
+      </yk-radio-group>
+    </div>
+    <hr />
     <div title="yk-switch">
       <YkSwitch v-model="flag" @update:model-value="handleClick" />
       <YkSwitch
@@ -47,11 +59,11 @@
     <div title="yk-carousel">
       <YkCarousel :size="'l'" :carousel-list="[i1, i2, i3, i4]" />
     </div>
+    <hr />
   </div>
 </template>
 
 <script lang="ts" setup>
-import type { IProps } from './type'
 import { ref, reactive } from 'vue'
 import AvatarGroup from '@/components/avatar/src/avatar-group.vue'
 import img1 from '@/assets/images/test.png'
@@ -69,6 +81,10 @@ const handleClick = function () {}
 defineOptions({
   name: 'YkTest',
 })
+
+/* radio */
+const radio1 = ref('1')
+const radio2 = ref('0')
 </script>
 
 <style scoped></style>
