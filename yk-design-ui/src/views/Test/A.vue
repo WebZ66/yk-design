@@ -1,23 +1,17 @@
 <template>
   <div>
-    <YkRadioGroup v-model="radio2">
-      <yk-radio :value="1">备选项1</yk-radio>
-      <yk-radio :value="2">备选项2</yk-radio>
-    </YkRadioGroup>
-
-    <yk-radio disabled v-model="radio" :value="1">备选项3</yk-radio>
-    <yk-radio v-model="radio" :value="2">备选项4</yk-radio>
     <hr />
+    <checkbox v-model="checked1" />
+    <checkbox v-model="checked2" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, reactive, provide, watch } from 'vue'
-import YkRadio from '@/components/radio/src/radio.vue'
-import YkRadioGroup from '@/components/radio/src/radio-group.vue'
-const radio = ref('2')
+import checkbox from '@/components/checkbox/src/checkbox.vue'
 
-const radio2 = ref('1')
+const checked1 = ref(true)
+const checked2 = ref(0)
 </script>
 
 <style scoped></style>
