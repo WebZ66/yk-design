@@ -1,7 +1,6 @@
 <template>
   <div>
     我是B组件 {{ modelValue }}
-
     <div>B组件的插槽内容</div>
     <slot></slot>
     <hr />

@@ -10,16 +10,8 @@
     <div></div>
     <button id="btn">+</button>
     <script>
-      let props = {
-        name: 'zds',
-      }
-      let div = document.querySelector('div')
-      div.innerHTML = props.name
-      let btn = document.querySelector('#btn')
-      btn.onclick = function () {
-        props.name = 'xqq'
-        console.log(props)
-      }
+      let arr = [1, 2, 3]
+      console.log(arr.findIndex((item) => item == 1))
     </script>
   </body>
 </html>

@@ -16,6 +16,7 @@ defineOptions({
 const props = withDefaults(defineProps<RadioGroupProps>(), {
   disabled: false,
 })
+
 const emits = defineEmits({
   'update:modelValue': (val) => val,
 })
