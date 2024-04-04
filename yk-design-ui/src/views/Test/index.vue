@@ -19,7 +19,6 @@ const input2 = ref()
 const handleClick = function () {
   const r1 = document.querySelector('#radio1')
   const r2 = document.querySelector('#radio2')
-  console.log(r1.name == r2.name)
 }
 const radio = reactive({
   flag: 1,

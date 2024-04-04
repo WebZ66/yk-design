@@ -1,32 +1,28 @@
-import { UPDATE_MODEL_EVENT, CHANGE_EVENT, provideKey } from './constant'
-import { RadioProps } from './radio'
-import { computed, inject } from 'vue'
-
-export const useRadio = (props: RadioProps, emits: any) => {
-  /* 判断是否是radio-groups */
-  const radioProps = inject(provideKey, undefined)
-  const isGroup = computed(() => !!radioProps)
-
-  const modelValue = computed({
+import { computed, SetupContext, inject } from 'vue'
+import { RadioProps, radioEmits } from './radio'
+import type { RadioGroupInject } from './radio-group'
+export const useRadio = (
+  props: RadioProps,
+  emits: SetupContext<typeof radioEmits>['emit']
+) => {
+  const radioGroupObj = inject<RadioGroupInject>('propsByRadioGroup', undefined)
+  const isGroup = computed(() => !!radioGroupObj)
+  const isChecked = computed(() => props.value == compVModel.value)
+  const disabled = computed(
+    () => radioGroupObj?.props.disabled || props.disabled
+  )
+  const compVModel = computed({
     get() {
-      return isGroup.value ? radioProps.value : props.modelValue
+      //如果是group 那么返回group的modelValue 不是，返回接收到的modelValue
+      return isGroup.value ? radioGroupObj?.props.modelValue : props.modelValue
     },
-    set(val) {
-      if (isGroup.value) {
-        console.log('修改radio-group的逻辑')
+    set(newValue) {
+      if (!isGroup.value) {
+        emits('update:modelValue', newValue)
       } else {
-        emits && emits(UPDATE_MODEL_EVENT, val)
+        radioGroupObj?.changeEvent(newValue)
       }
     },
   })
-  const disabled = computed(() => {
-    return props.disabled
-  })
-  return {
-    modelValue,
-    disabled: disabled.value,
-    type: radioProps?.type ?? props.type,
-    size: radioProps?.size ?? props.size,
-    solid: radioProps?.solid ?? props.solid,
-  }
+  return { compVModel, isChecked, disabled }
 }

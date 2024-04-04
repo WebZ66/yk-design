@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 import { ref, reactive, inject, computed, nextTick } from 'vue'
 const props = defineProps(['label', 'modelValue'])
-const radioGroupProps = inject('radioGroupProps', undefined)
+const radioGroupProps = inject<any>('radioGroupProps', undefined)
 const changeRadio = inject<any>('changeRadio', undefined)
 
 const emits = defineEmits(['update:modelValue', 'change'])
@@ -23,6 +23,8 @@ const isGroup = computed(() => {
   return radioGroupProps && radioGroupProps.isGroup
 })
 
+console.log(radioGroupProps)
+
 const compValue = computed({
   get() {
     /*  if (isGroup.value) {
@@ -31,6 +33,7 @@ const compValue = computed({
     } else {
       return props.modelValue
     } */
+    console.log('radioGroup', radioGroupProps.modelValue)
     return radioGroupProps.modelValue
   },
   set(newValue) {

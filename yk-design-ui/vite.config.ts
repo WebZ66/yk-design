@@ -24,7 +24,7 @@ export default defineConfig({
     cors: true,
   },
   build: {
-    outDir: 'my-test-lib/dist',
+    outDir: 'my-test-lib/lib',
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: path.resolve(__dirname, './src/packages/index.ts'),
@@ -34,12 +34,33 @@ export default defineConfig({
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖
       external: ['vue'],
-      output: {
-        // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-        globals: {
-          vue: 'Vue',
+      output: [
+        {
+          dir: path.resolve(__dirname, './my-test-lib/lib'),
+          formats: ['umd', 'iife'],
+          fileName: '[name].js',
         },
-      },
+        {
+          dir: path.resolve(__dirname, './my-test-lib/lib/es'),
+          //打包格式
+          format: 'es',
+          //打包后文件名
+          entryFileNames: '[name].mjs',
+          //让打包目录和我们目录对应
+          preserveModules: true,
+          exports: 'named',
+        },
+        {
+          dir: path.resolve(__dirname, './my-test-lib/lib/lib'),
+          //打包格式
+          format: 'cjs',
+          //打包后文件名
+          entryFileNames: '[name].js',
+          //让打包目录和我们目录对应
+          preserveModules: true,
+          exports: 'named',
+        },
+      ],
     },
   },
 })

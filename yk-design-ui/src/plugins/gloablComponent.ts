@@ -5,13 +5,10 @@ import Button from '@/components/button/src/YkButton.vue'
 import Avatar from '@/components/avatar/src/index.vue'
 import Upload from '@/components/upload/src/upload.vue'
 import Carousel from '@/components/carousel/src/index.vue'
-import type { App } from 'vue'
+import { YkRadio, YkRadioGroup } from './../components/radio/src'
+import type { App, Component } from 'vue'
 
-interface IComponents<T> {
-  [propName: string]: T | any
-}
-
-const components: IComponents<any> = {
+const components: Component = {
   YkTest: Test,
   YkIcon: Icon,
   YkButton: Button,
@@ -19,6 +16,8 @@ const components: IComponents<any> = {
   YkAvatar: Avatar,
   YkUpload: Upload,
   YkCarousel: Carousel,
+  YkRadio,
+  YkRadioGroup,
 }
 
 export default {

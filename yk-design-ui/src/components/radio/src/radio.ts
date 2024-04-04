@@ -3,7 +3,7 @@ import { Size } from '@/utils/constant'
 
 export type RadioBaseProps = {
   size?: Size
-  label: number | string | boolean
+  value: number | string | boolean
   disabled?: boolean
 }
 

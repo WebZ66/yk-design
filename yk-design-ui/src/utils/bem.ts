@@ -14,14 +14,21 @@ type BEMModifier =
   | (string | undefined | number)[]
   | Record<string, boolean | undefined | number | string>
 
+type ExtraStatus = Record<string, boolean | undefined | string>
+
 /**
  * @description:
  * @param prefixClass:接收的类名前缀
  * @param modifierObject:状态对象 (可以是数组也可以是对象)
  * @return {*}
  */
-const createModifier = (prefixClass: string, modifierObject: object) => {
+const createModifier = (
+  prefixClass: string,
+  modifierObject: object,
+  extraStatus?: ExtraStatus
+) => {
   let modifiers: string[] = []
+
   if (isArray(modifierObject)) {
     modifiers = modifierObject
       .map((modifier) => {
@@ -41,6 +48,15 @@ const createModifier = (prefixClass: string, modifierObject: object) => {
         return `${prefixClass}--${modifier}`
       })
       .filter(Boolean)
+  }
+  if (isObject(extraStatus)) {
+    const extra = Object.entries(extraStatus)
+      .map(([key, value]) => {
+        if (!value) return ''
+        return key
+      })
+      .filter(Boolean)
+    modifiers.push(...extra)
   }
   return modifiers
 }
@@ -65,7 +81,8 @@ export const createCssScope = (prefix: string, identity = 'yk') => {
   return (
     elementOrModifier?: BEMElement | BEMModifier,
     modifier?: BEMModifier,
-    modifierLater?: BEMModifier
+    modifierLater?: BEMModifier,
+    extraStatus?: ExtraStatus
   ) => {
     //bem() 如果不传入元素或者状态，直接返回块名
     if (!elementOrModifier) return prefixClass
@@ -84,17 +101,19 @@ export const createCssScope = (prefix: string, identity = 'yk') => {
         element,
         ...createModifier(element, modifier),
         ...createModifier(element, modifierLater!),
+        ...createModifier(element, {}, extraStatus),
       ]
     }
     /*
      * bem({ disabled }) // button button--disabled
      */
-    //如果首个元素不是字符，确定传入的是状态，需要返回块名 + 块名--状态名
+    //如果首个元素不是字符，确定传入的是状态，需要返回块名 + 块名--状态名 可能是[] 或者是 {}
     else {
       return [
         prefixClass,
         ...createModifier(prefixClass, elementOrModifier as BEMModifier),
         ...createModifier(prefixClass, modifier!),
+        ...createModifier(prefixClass, {}, modifierLater as ExtraStatus),
       ]
     }
   }
