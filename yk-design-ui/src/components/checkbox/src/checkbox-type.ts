@@ -4,3 +4,7 @@ export type CheckboxProps = {
   indeterminate?: boolean
   value?: string | number
 }
+
+export const CheckboxEmits = {
+  'update:modelValue': (val: CheckboxProps['modelValue']) => val,
+}
