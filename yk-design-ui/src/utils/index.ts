@@ -1,15 +1,20 @@
-import type { Plugin, App } from 'vue'
+import type { Plugin } from 'vue'
 
-export type SFCWithInstallType<T> = Plugin & T
-
-/**
- * @description 给组件添加全局注册插件功能
- * @param main 传入的组件
- */
-
-export const withInstall = <T extends { name: string }>(main: T) => {
-  ;(main as SFCWithInstallType<T>).install = (app: App) => {
-    app.component(main.name, main)
+export type SFCWithInstall<T> = T & Plugin
+export const withInstall = <T, E extends Record<string, any>>(
+  main: T,
+  extra?: E
+) => {
+  ;(main as SFCWithInstall<T>).install = (app): void => {
+    for (const comp of [main, ...Object.values(extra ?? {})]) {
+      app.component(comp.name, comp)
+    }
   }
-  return main as SFCWithInstallType<T>
+
+  if (extra) {
+    for (const [key, comp] of Object.entries(extra)) {
+      ;(main as any)[key] = comp
+    }
+  }
+  return main as SFCWithInstall<T> & E
 }
