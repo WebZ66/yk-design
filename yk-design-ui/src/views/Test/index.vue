@@ -5,7 +5,12 @@
     <button @click="handleClick">点击</button>
     <hr />
     <!-- 确实分成了两组 -->
-    <A></A>
+    <A>
+      <div>123</div>
+      <template #test1>
+        <h1>test1</h1>
+      </template>
+    </A>
   </div>
 </template>
 

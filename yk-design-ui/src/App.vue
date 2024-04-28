@@ -2,12 +2,15 @@
   <div class="test-container">
     <h1>测试</h1>
     <hr />
+
     <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, useSlots } from 'vue'
+const $slots = useSlots()
+console.log('slot', $slots)
 </script>
 
 <style scoped>
