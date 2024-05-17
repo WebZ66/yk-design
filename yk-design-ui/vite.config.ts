@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,6 +12,10 @@ export default defineConfig({
     createSvgIconsPlugin({
       iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
       symbolId: 'icon-[dir]-[name]',
+    }),
+    dts({
+      tsconfigPath: './tsconfig.build.json',
+      outDir: ['./dist/es', './dist/lib'],
     }),
   ],
   resolve: {
@@ -24,7 +29,7 @@ export default defineConfig({
     cors: true,
   },
   build: {
-    outDir: 'my-test-lib/lib',
+    outDir: 'dist',
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: path.resolve(__dirname, './src/packages/index.ts'),
@@ -36,12 +41,12 @@ export default defineConfig({
       external: ['vue'],
       output: [
         {
-          dir: path.resolve(__dirname, './my-test-lib/lib'),
+          dir: path.resolve(__dirname, './dist'),
           formats: ['umd', 'iife'],
           fileName: '[name].js',
         },
         {
-          dir: path.resolve(__dirname, './my-test-lib/lib/es'),
+          dir: path.resolve(__dirname, './dist/es'),
           //打包格式
           format: 'es',
           //打包后文件名
@@ -51,11 +56,11 @@ export default defineConfig({
           exports: 'named',
         },
         {
-          dir: path.resolve(__dirname, './my-test-lib/lib/lib'),
+          dir: path.resolve(__dirname, './dist/lib'),
           //打包格式
           format: 'cjs',
           //打包后文件名
-          entryFileNames: '[name].js',
+          entryFileNames: '[name].cjs',
           //让打包目录和我们目录对应
           preserveModules: true,
           exports: 'named',
