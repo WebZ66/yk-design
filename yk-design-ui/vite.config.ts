@@ -13,10 +13,6 @@ export default defineConfig({
       iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
       symbolId: 'icon-[dir]-[name]',
     }),
-    dts({
-      tsconfigPath: './tsconfig.build.json',
-      outDir: ['./dist/es', './dist/lib'],
-    }),
   ],
   resolve: {
     alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
@@ -33,8 +29,8 @@ export default defineConfig({
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: path.resolve(__dirname, './src/packages/index.ts'),
-      name: 'MyTestLib', // the proper extensions will be added
-      fileName: 'my-test-lib',
+      name: 'yk-design', // the proper extensions will be added
+      fileName: 'index',
     },
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖
