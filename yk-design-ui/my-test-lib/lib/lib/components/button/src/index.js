@@ -1,1 +1,0 @@
-"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const t=require("./YkButton.vue.js"),e=require("../../../utils/index.js"),u=e.withInstall(t.default);exports.default=t.default;exports.YkButton=u;
