@@ -29,10 +29,12 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'vue'],
   rules: {
-    indent: ['error', 2],
-    'linebreak-style': ['off', 'windows'],
+    indent: ['off', 0],
+    'linebreak-style': 'off',
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
     '@typescript-eslint/no-explicit-any': ['off'],
+    'vue/multi-word-component-names': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
   },
 }

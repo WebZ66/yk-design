@@ -7,5 +7,8 @@
         "docs:build": "vitepress build docs",
         "docs:preview": "vitepress preview docs",
         "preinstall": "node ./scripts/preinstall.js"
+    },
+    "dependencies": {
+        "element-plus": "^2.4.1"
     }
 }

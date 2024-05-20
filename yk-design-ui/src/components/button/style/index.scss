@@ -1,0 +1,218 @@
+@import '../../../assets/style/base.scss';
+@import '../../../assets/style/mix.scss';
+
+$btn-primary-color-text: #fff;
+$btn-primary-color-text_primary: #fff;
+$btn-primary-color-text_success: #fff;
+$btn-primary-color-text_warning: #fff;
+$btn-primary-color-text_danger: #fff;
+$btn-primary-color-bg: $pcolor;
+$btn-primary-color-bg_primary: $pcolor;
+$btn-primary-color-bg_success: $scolor;
+$btn-primary-color-bg_warning: $wcolor;
+$btn-primary-color-bg_danger: $ecolor;
+$btn-primary-color-border: $pcolor;
+$btn-primary-color-hover: $pcolor-6;
+$btn-primary-color-border_primary: $pcolor;
+$btn-primary-color-border_success: $scolor;
+$btn-primary-color-border_warning: $wcolor;
+$btn-primary-color-border_danger: $ecolor;
+$btn-primary-color-hover_primary: $pcolor-6;
+$btn-primary-color-hover_success: $scolor-6;
+$btn-primary-color-hover_warning: $wcolor-6;
+$btn-primary-color-hover_danger: $ecolor-6;
+
+$btn-secondary-color-text: $font-color-l;
+$btn-secondary-color-text_primary: $pcolor;
+$btn-secondary-color-text_success: $scolor;
+$btn-secondary-color-text_warning: $wcolor;
+$btn-secondary-color-text_danger: $ecolor;
+$btn-secondary-color-bg: $gray;
+$btn-secondary-color-hover: $gray;
+$btn-secondary-color-bg_primary: $pcolor-1;
+$btn-secondary-color-bg_success: $scolor-1;
+$btn-secondary-color-bg_warning: $wcolor-1;
+$btn-secondary-color-bg_danger: $ecolor-1;
+$btn-secondary-color-hover_primary: $pcolor-2;
+$btn-secondary-color-hover_success: $scolor-2;
+$btn-secondary-color-hover_warning: $wcolor-2;
+$btn-secondary-color-hover_danger: $ecolor-2;
+$btn-secondary-color-border: transparent;
+$btn-secondary-color-border_primary: transparent;
+$btn-secondary-color-border_success: transparent;
+$btn-secondary-color-border_warning: transparent;
+$btn-secondary-color-border_danger: transparent;
+
+$btn-outline-color-text: $font-color-l;
+$btn-outline-color-text_primary: $pcolor;
+$btn-outline-color-text_success: $scolor;
+$btn-outline-color-text_warning: $wcolor;
+$btn-outline-color-text_danger: $ecolor;
+$btn-outline-color-bg: transparent;
+$btn-outline-color-hover: $gray;
+$btn-outline-color-bg_primary: transparent;
+$btn-outline-color-bg_success: transparent;
+$btn-outline-color-bg_warning: transparent;
+$btn-outline-color-bg_danger: transparent;
+$btn-outline-color-border: $gray;
+$btn-outline-color-border_primary: $pcolor-3;
+$btn-outline-color-border_success: $scolor-3;
+$btn-outline-color-border_warning: $wcolor-3;
+$btn-outline-color-border_danger: $ecolor-3;
+$btn-outline-color-hover_primary: $pcolor-1;
+$btn-outline-color-hover_success: $scolor-1;
+$btn-outline-color-hover_warning: $wcolor-1;
+$btn-outline-color-hover_danger: $ecolor-1;
+
+.yk-button--loading {
+  opacity: 0.7 !important;
+
+  svg {
+    margin-right: 4px;
+    width: 16px;
+    transform-origin: center;
+    animation: rotate4 2s linear infinite;
+  }
+
+  circle {
+    fill: none;
+    stroke: hsl(227, 16%, 89%);
+    stroke-width: 3;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash4 1.5s ease-in-out infinite;
+  }
+
+  @keyframes rotate4 {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes dash4 {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+
+    50% {
+      stroke-dasharray: 90, 200;
+      stroke-dashoffset: -35px;
+    }
+
+    100% {
+      stroke-dashoffset: -125px;
+    }
+  }
+}
+
+.yk-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 16px;
+  white-space: nowrap;
+  // 默认按钮状态
+  color: $btn-primary-color-text; // 使用$符号声明变量
+  background-color: $btn-primary-color-bg;
+  outline: none;
+  transition: all $animatb ease-in-out;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  user-select: none;
+  color: $btn-primary-color-text;
+  position: relative;
+  .circle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border-width: 2px;
+    border-top-color: transparent;
+    border-right-color: $btn-primary-color-text;
+    border-bottom-color: $btn-primary-color-text;
+    border-left-color: transparent;
+    border-style: solid;
+    left: 2px;
+    animation: rotate 0.9s linear infinite;
+  }
+  &--primary {
+    border-color: $btn-primary-color-border_primary;
+  }
+  &--secondary {
+    color: #fff;
+    background-color: $btn-secondary-color-bg;
+    border-color: $btn-secondary-color-border;
+  }
+  &--outline {
+    color: $font-color-l;
+    background-color: $btn-outline-color-bg;
+    border-color: $btn-outline-color-border;
+  }
+
+  // 尺寸 size
+
+  &--s {
+    padding: 0px $space-s;
+    min-width: 24px;
+    height: 24px;
+    font-size: $size-ss;
+    border-radius: $radius-s;
+  }
+
+  &--m {
+    padding: 0px $space-m;
+    min-width: 32px;
+    height: 32px;
+    border-radius: $radius-s;
+    font-size: $size-ss;
+  }
+
+  &--l {
+    padding: 0px $space-l;
+    min-width: 36px;
+    height: 36px;
+    border-radius: $radius-m;
+  }
+
+  &--xl {
+    padding: 0px $space-xl;
+    min-width: 48px;
+    height: 48px;
+    font-size: $size-m;
+    border-radius: $radius-m;
+  }
+
+  &--long {
+    display: block;
+    width: 100%;
+  }
+
+  // 圆角样式
+  &--round {
+    border-radius: $radius-r;
+  }
+
+  &--circle {
+    padding: 0;
+    border-radius: $radius-r;
+  }
+
+  &--square {
+    border-radius: 0;
+  }
+}
+
+@keyframes rotate {
+  from {
+    opacity: 1;
+    transform: rotate(0);
+  }
+  to {
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+}

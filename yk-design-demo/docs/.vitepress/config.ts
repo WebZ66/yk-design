@@ -6,9 +6,10 @@ export default defineConfig({
     description: '一个通用的vue3组件库',
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
+
         nav: [
             { text: '指南', link: '/guild/installation' },
-            { text: '组件', link: '/examples' },
+            { text: '组件', link: '/examples/button' },
         ],
 
         sidebar: {
@@ -36,8 +37,24 @@ export default defineConfig({
                     ],
                 },
             ],
+            '/examples/': [
+                {
+                    text: '基础组件',
+                    items: [
+                        {
+                            text: 'Button按钮',
+                            link: '/examples/button',
+                        },
+                        {
+                            text: 'Icon图标',
+                            link: '/examples/icon',
+                        },
+                    ],
+                },
+            ],
         },
 
         socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
     },
 })
+

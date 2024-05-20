@@ -1,0 +1,140 @@
+:root {
+  color-scheme: light;
+  --yk-color-white: #ffffff;
+  --yk-color-black: #000000;
+  --yk-color-primary: #409eff;
+  --yk-color-primary-light-3: #79bbff;
+  --yk-color-primary-light-5: #a0cfff;
+  --yk-color-primary-light-7: #c6e2ff;
+  --yk-color-primary-light-8: #d9ecff;
+  --yk-color-primary-light-9: #ecf5ff;
+  --yk-color-primary-dark-2: #337ecc;
+  --yk-color-success: #67c23a;
+  --yk-color-success-light-3: #95d475;
+  --yk-color-success-light-5: #b3e19d;
+  --yk-color-success-light-7: #d1edc4;
+  --yk-color-success-light-8: #e1f3d8;
+  --yk-color-success-light-9: #f0f9eb;
+  --yk-color-success-dark-2: #529b2e;
+  --yk-color-warning: #e6a23c;
+  --yk-color-warning-light-3: #eebe77;
+  --yk-color-warning-light-5: #f3d19e;
+  --yk-color-warning-light-7: #f8e3c5;
+  --yk-color-warning-light-8: #faecd8;
+  --yk-color-warning-light-9: #fdf6ec;
+  --yk-color-warning-dark-2: #b88230;
+  --yk-color-danger: #f56c6c;
+  --yk-color-danger-light-3: #f89898;
+  --yk-color-danger-light-5: #fab6b6;
+  --yk-color-danger-light-7: #fcd3d3;
+  --yk-color-danger-light-8: #fde2e2;
+  --yk-color-danger-light-9: #fef0f0;
+  --yk-color-danger-dark-2: #c45656;
+  --yk-color-error: #f56c6c;
+  --yk-color-error-light-3: #f89898;
+  --yk-color-error-light-5: #fab6b6;
+  --yk-color-error-light-7: #fcd3d3;
+  --yk-color-error-light-8: #fde2e2;
+  --yk-color-error-light-9: #fef0f0;
+  --yk-color-error-dark-2: #c45656;
+  --yk-color-info: #909399;
+  --yk-color-info-light-3: #b1b3b8;
+  --yk-color-info-light-5: #c8c9cc;
+  --yk-color-info-light-7: #dedfe0;
+  --yk-color-info-light-8: #e9e9eb;
+  --yk-color-info-light-9: #f4f4f5;
+  --yk-color-info-dark-2: #73767a;
+  --yk-bg-color: #ffffff;
+  --yk-bg-color-page: #f2f3f5;
+  --yk-bg-color-overlay: #ffffff;
+  --yk-text-color-primary: #303133;
+  --yk-text-color-regular: #606266;
+  --yk-text-color-secondary: #909399;
+  --yk-text-color-placeholder: #a8abb2;
+  --yk-text-color-disabled: #c0c4cc;
+  --yk-border-color: #dcdfe6;
+  --yk-border-color-light: #e4e7ed;
+  --yk-border-color-lighter: #ebeef5;
+  --yk-border-color-extra-light: #f2f6fc;
+  --yk-border-color-dark: #d4d7de;
+  --yk-border-color-darker: #cdd0d6;
+  --yk-fill-color: #f0f2f5;
+  --yk-fill-color-light: #f5f7fa;
+  --yk-fill-color-lighter: #fafafa;
+  --yk-fill-color-extra-light: #fafcff;
+  --yk-fill-color-dark: #ebedf0;
+  --yk-fill-color-darker: #e6e8eb;
+  --yk-fill-color-blank: #ffffff;
+  --yk-box-shadow: 0px 12px 32px 4px rgba(0, 0, 0, 0.04),
+    0px 8px 20px rgba(0, 0, 0, 0.08);
+  --yk-box-shadow-light: 0px 0px 12px rgba(0, 0, 0, 0.12);
+  --yk-box-shadow-lighter: 0px 0px 6px rgba(0, 0, 0, 0.12);
+  --yk-box-shadow-dark: 0px 16px 48px 16px rgba(0, 0, 0, 0.08),
+    0px 12px 32px rgba(0, 0, 0, 0.12), 0px 8px 16px -8px rgba(0, 0, 0, 0.16);
+  --yk-disabled-bg-color: var(--yk-fill-color-light);
+  --yk-disabled-text-color: var(--yk-text-color-placeholder);
+  --yk-disabled-border-color: var(--yk-border-color-light);
+  --yk-overlay-color: rgba(0, 0, 0, 0.8);
+  --yk-overlay-color-light: rgba(0, 0, 0, 0.7);
+  --yk-overlay-color-lighter: rgba(0, 0, 0, 0.5);
+  --yk-mask-color: rgba(255, 255, 255, 0.9);
+  --yk-mask-color-extra-light: rgba(255, 255, 255, 0.3);
+  --yk-border-width: 1px;
+  --yk-border-style: solid;
+  --yk-border-color-hover: var(--yk-text-color-disabled);
+  --yk-border: var(--yk-border-width) var(--yk-border-style)
+    var(--yk-border-color);
+  --yk-svg-monochrome-grey: var(--yk-border-color);
+  --yk-color-white: #ffffff;
+  --yk-color-black: #000000;
+  --yk-color-primary-rgb: 64, 158, 255;
+  --yk-color-success-rgb: 103, 194, 58;
+  --yk-color-warning-rgb: 230, 162, 60;
+  --yk-color-danger-rgb: 245, 108, 108;
+  --yk-color-error-rgb: 245, 108, 108;
+  --yk-color-info-rgb: 144, 147, 153;
+  --yk-font-size-extra-large: 20px;
+  --yk-font-size-large: 18px;
+  --yk-font-size-medium: 16px;
+  --yk-font-size-base: 14px;
+  --yk-font-size-small: 13px;
+  --yk-font-size-extra-small: 12px;
+  --yk-font-family: 'Hykvetica Neue', Hykvetica, 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  --yk-font-weight-primary: 500;
+  --yk-font-line-height-primary: 24px;
+  --yk-index-normal: 1;
+  --yk-index-top: 1000;
+  --yk-index-popper: 2000;
+  --yk-border-radius-base: 4px;
+  --yk-border-radius-small: 2px;
+  --yk-border-radius-round: 20px;
+  --yk-border-radius-circle: 100%;
+  --yk-transition-duration: 0.3s;
+  --yk-transition-duration-fast: 0.2s;
+  --yk-transition-function-ease-in-out-bezier: cubic-bezier(
+    0.645,
+    0.045,
+    0.355,
+    1
+  );
+  --yk-transition-function-fast-bezier: cubic-bezier(0.23, 1, 0.32, 1);
+  --yk-transition-all: all var(--yk-transition-duration)
+    var(--yk-transition-function-ease-in-out-bezier);
+  --yk-transition-fade: opacity var(--yk-transition-duration)
+    var(--yk-transition-function-fast-bezier);
+  --yk-transition-md-fade: transform var(--yk-transition-duration)
+      var(--yk-transition-function-fast-bezier),
+    opacity var(--yk-transition-duration)
+      var(--yk-transition-function-fast-bezier);
+  --yk-transition-fade-linear: opacity var(--yk-transition-duration-fast) linear;
+  --yk-transition-border: border-color var(--yk-transition-duration-fast)
+    var(--yk-transition-function-ease-in-out-bezier);
+  --yk-transition-box-shadow: box-shadow var(--yk-transition-duration-fast)
+    var(--yk-transition-function-ease-in-out-bezier);
+  --yk-transition-color: color var(--yk-transition-duration-fast)
+    var(--yk-transition-function-ease-in-out-bezier);
+  --yk-component-size-large: 40px;
+  --yk-component-size: 32px;
+  --yk-component-size-small: 24px;
+}

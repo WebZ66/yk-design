@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <!-- <img src="./test.png" alt="" /> -->
+    <div class="box select">
+      <div class="upload-select">
+        +
+        <input type="file" />
+      </div>
+      <div class="upload-progress">
+        <div class="progress-liner"></div>
+        <div class="cancel-btn">取消上传</div>
+        <div class="mask"></div>
+      </div>
+      <div class="upload-result">
+        <div class="del-btn">x</div>
+      </div>
+      <img class="preview" src="" alt="" />
+    </div>
+    <script>
+      const upload = document.querySelector('.box')
+      const progress = document.querySelector('.progress-liner')
+      const select = document.querySelector('.upload-select')
+      const selectFile = document.querySelector('input')
+      //选择的文件
+      const img = document.querySelector('.preview')
+      const cancelBtn = document.querySelector('.cancel-btn')
+      const deletBtn = document.querySelector('.del-btn')
+
+      const showArea = function (areaName) {
+        upload.className = `box ${areaName}`
+      }
+      const setProgress = value => {
+        progress.style.setProperty('--progress', 2 * value + 'px')
+      }
+      select.onclick = function () {
+        selectFile.click()
+      }
+
+      //定义一个全局变量接收中断上传
+      let cancelUpload = null
+
+      selectFile.onchange = function (files) {
+        //this指向input   this.files即上传的文件
+        console.log(this.files)
+        if (this.files.length === 0) {
+          return
+        }
+        const file = this.files[0]
+        if (!validateFile(file)) {
+          return
+        }
+        //切换界面
+        showArea('progress')
+        //显示预览图   FileReader:文件读取器
+        const reader = new FileReader()
+        //传入文件，返回二进制数据base64格式数据,可直接用于图片的src
+        //readAsText返回txt格式
+        //从而得到dataURL，注意该过程是异步的,需要通过onload事件监听完成
+        reader.readAsDataURL(file)
+        reader.onload = e => {
+          //返回的结果在e.target.result
+          img.src = e.target.result
+        }
+
+        /* 实现上传  高阶函数*/
+        cancelUpload = uploadFile(
+          file,
+          p => {
+            setProgress(p)
+          },
+          resp => {
+            //完成之后切换界面
+            showArea('result')
+          }
+        )
+      }
+
+      //验证图片是否有效，比如图片文件名后缀，文件大小等等
+      function validateFile(file) {
+        return true
+      }
+
+      function uploadFile(file, onProgress, onFinish) {
+        /*  console.log('上传')
+        setProgress(0)
+        const xhr = new XMLHttpRequest()
+        xhr.onload = function () {
+          const resp = JSON.parse(xhr.responseText)
+          onFinish(resp)
+        }
+        xhr.upload.onprogress = e => {
+          console.log(e)
+        }
+        xhr.open('POST', 'http://test.com:9527/upload/single')
+        //把请求头中的Content-type转化为form-data
+        const form = new FormData()
+        form.append('avatar', file)
+        xhr.send()
+        return function () {
+          xhr.abort()
+        } */
+
+        // 模拟请求
+        let p = 0
+        setProgress(0)
+        const timerId = setInterval(() => {
+          p++
+          onProgress(p)
+          if (p === 100) {
+            onFinish('服务器的响应结果')
+            clearInterval(timerId)
+          }
+        }, 50)
+        //返回中断上传的功能
+        return function () {
+          clearInterval(timerId)
+        }
+      }
+
+      cancelBtn.onclick = deletBtn.onclick = function () {
+        cancel()
+      }
+      function cancel() {
+        cancelUpload && cancelUpload()
+        showArea('select')
+        //清空选择的文件。注意：files是获取上传的文件，要清空是value
+        //这是因为用的display:none，只是让其显示隐藏，并没有真的重新创建对应的DOM，所以需要清空
+        //用了v-if就不需要了，每次都是重新创建
+        selectFile.value = null
+      }
+    </script>
+  </body>
+</html>
