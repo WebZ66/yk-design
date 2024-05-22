@@ -36,11 +36,6 @@ export default defineConfig({
       external: ['vue'],
       output: [
         {
-          dir: path.resolve(__dirname, './my-test-lib/lib'),
-          formats: ['umd', 'iife'],
-          fileName: '[name].js',
-        },
-        {
           dir: path.resolve(__dirname, './my-test-lib/lib/es'),
           //打包格式
           format: 'es',

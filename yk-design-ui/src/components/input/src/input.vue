@@ -1,33 +1,25 @@
 <template>
-  <div :class="bem()" v-bind="$attrs">
-    <span v-if="$slots.prepend" :class="bem('prepend')">
-      <slot name="prepend" />
-    </span>
-
-    <div :class="[bem('inner'), bem({}), bem([])]">
-      <slot name="prefix" />
-      <input ref="inputRef" />
-      <div :class="bem('buttons')"></div>
-
-      <slot name="suffix" />
-    </div>
-    <span v-if="$slots.append" :class="bem('append')">
-      <slot name="append" />
-    </span>
+  <div :class="[type === 'textarea' ? 'el-textarea' : 'el-input']">
+    <!-- 单行文本输入框 -->
+    <template v-if="type !== 'textarea'">
+      <!-- 输入框前置内容 -->
+      <div class="el-input-group__prepend"></div>
+      <!-- 表单输入控件 -->
+      <input />
+      <!-- 输入框头部内容 -->
+      <span class="el-input__prefix"></span>
+      <!-- 输入框尾部内容 -->
+      <span class="el-input__suffix"></span>
+      <!-- 输入框后置内容 -->
+      <div class="el-input-group__append"></div>
+    </template>
+    <!-- 多行文本输入的文本域 -->
+    <textarea></textarea>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { createCssScope } from '@/utils/bem'
-import { ref, reactive, useSlots } from 'vue'
-import '../style'
-const $slots = useSlots()
-console.log('$slots', $slots)
-
-defineOptions({
-  name: 'YkInput',
-})
-const bem = createCssScope('input')
+import { ref, reactive } from 'vue'
 </script>
 
 <style scoped></style>
