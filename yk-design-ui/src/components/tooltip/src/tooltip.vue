@@ -52,7 +52,6 @@ watch(
   isOpen,
   (newValue) => {
     if (newValue) {
-      console.log('props', props.placement)
       if (triggerNode.value && popperNode.value) {
         // 打开状态，创建popperInstance实例
         const arrow = document.querySelector('#arrow')
@@ -62,7 +61,7 @@ watch(
             {
               name: 'offset',
               options: {
-                offset: [0, 15],
+                offset: [0, 0],
               },
             },
             {
@@ -71,6 +70,9 @@ watch(
             },
             {
               name: 'arrow',
+              options: {
+                element: arrow,
+              },
             },
           ],
         })

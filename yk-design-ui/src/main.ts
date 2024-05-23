@@ -9,11 +9,13 @@ import App from './App.vue'
 import { YkIcon } from './packages'
 
 import globalComponent from './plugins/gloablComponent'
+import { YkTooltip } from './components/tooltip/src'
 
 const app = createApp(App)
 
 app.use(router)
 app.use(YkIcon)
+app.use(YkTooltip)
 app.use(globalComponent)
 
 app.mount('#app')

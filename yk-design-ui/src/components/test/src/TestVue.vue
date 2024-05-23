@@ -12,6 +12,11 @@
       </yk-radio-group>
     </div>
     <hr />
+    <div>
+      <YkTooltip content="测试上方文本" placement="top"> top </YkTooltip>
+      <YkTooltip content="测试下方文本" placement="bottom"> bottom </YkTooltip>
+    </div>
+    <hr />
     <div title="yk-switch">
       <YkSwitch v-model="flag" @update:model-value="handleClick" />
       <YkSwitch
@@ -24,7 +29,7 @@
       <YkSwitch v-model="myFlag2" size="m"></YkSwitch>
     </div>
     <hr />
-    <div title="yk-button">
+    <div title="yk-button" :style="{ display: 'flex', alignItems: 'center' }">
       <YkButton type="primary" size="s">小型按钮</YkButton>
       <span :style="{ 'margin-right': '20px' }"></span>
       <YkButton type="primary" size="m" :loading="true">加载按钮</YkButton>
@@ -59,6 +64,7 @@
     <div title="yk-carousel">
       <YkCarousel :size="'l'" :carousel-list="[i1, i2, i3, i4]" />
     </div>
+
     <hr />
   </div>
 </template>
@@ -68,6 +74,7 @@ import { ref, reactive } from 'vue'
 import AvatarGroup from '@/components/avatar/src/avatar-group.vue'
 import img1 from '@/assets/images/test.png'
 import img2 from '@/assets/images/2.png'
+import { YkTooltip } from '@/components/tooltip/src'
 
 const i1 = new URL('@/assets/images/1.png', import.meta.url).href
 const i2 = new URL('@/assets/images/2.png', import.meta.url).href
