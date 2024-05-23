@@ -1,6 +1,6 @@
 <template>
   <div>
-    <YkToolTip>
+    <YkToolTip :placement="'top'">
       <span :style="{ width: '300px' }">一段文字</span>
     </YkToolTip>
   </div>

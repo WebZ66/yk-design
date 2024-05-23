@@ -5,8 +5,10 @@
       <slot></slot>
     </div>
     <!-- 展示区域 -->
-    <div v-if="isOpen" :class="bem('popper')" ref="popperNode">
-      <slot name="content">content</slot>
+    <div v-if="isOpen" ref="popperNode">
+      <div :class="bem('popper')">
+        <div name="content">{{ content }}</div>
+      </div>
       <div id="arrow" data-popper-arrow></div>
     </div>
   </div>
@@ -15,7 +17,7 @@
 <script lang="ts" setup>
 import { ref, reactive, onMounted, watch } from 'vue'
 import { createCssScope } from '@/utils/bem'
-import { createPopper, Instance } from '@popperjs/core'
+import { createPopper, Instance, Placement } from '@popperjs/core'
 import type { TooltipProps, TooltipEmits } from './tooltip'
 import '../style/index'
 
@@ -29,9 +31,10 @@ let popperInstance: Instance | null = null
 
 // props属性
 const props = withDefaults(defineProps<TooltipProps>(), {
-  placement: 'bottom',
+  placement: 'top',
   // 默认是hover触发
   trigger: 'hover',
+  content: '触发的一段文字',
 })
 const $emits = defineEmits<TooltipEmits>()
 
@@ -49,14 +52,25 @@ watch(
   isOpen,
   (newValue) => {
     if (newValue) {
+      console.log('props', props.placement)
       if (triggerNode.value && popperNode.value) {
         // 打开状态，创建popperInstance实例
+        const arrow = document.querySelector('#arrow')
         popperInstance = createPopper(triggerNode.value, popperNode.value, {
-          placement: 'left',
+          placement: props.placement as Placement,
           modifiers: [
             {
+              name: 'offset',
+              options: {
+                offset: [0, 15],
+              },
+            },
+            {
               name: 'flip',
-              options: { allowedAutoPlacements: ['top'] },
+              options: { allowedAutoPlacements: ['bottom'] },
+            },
+            {
+              name: 'arrow',
             },
           ],
         })

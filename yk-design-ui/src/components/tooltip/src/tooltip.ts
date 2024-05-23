@@ -1,4 +1,5 @@
 export interface TooltipProps {
+  placement: string
   // 显示内容
   content?: string
   // 触发方式
