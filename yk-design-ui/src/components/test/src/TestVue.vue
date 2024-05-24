@@ -12,7 +12,9 @@
       </yk-radio-group>
     </div>
     <hr />
-    <div>
+    <div title="yk-checkbox"></div>
+    <hr />
+    <div title="yk-tooltip">
       <YkTooltip content="测试上方文本" placement="top"> top </YkTooltip>
       <YkTooltip content="测试下方文本" placement="bottom"> bottom </YkTooltip>
     </div>
