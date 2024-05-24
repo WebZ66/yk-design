@@ -20,6 +20,7 @@ const components: Component = {
   YkCarousel: Carousel,
   YkRadio,
   YkRadioGroup,
+  YkCheckbox,
 }
 
 export default {

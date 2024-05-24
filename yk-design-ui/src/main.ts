@@ -5,6 +5,7 @@ import 'virtual:svg-icons-register'
 import '@/assets/style/theme.less'
 import router from './router'
 import App from './App.vue'
+import '@/packages/global.d.ts'
 
 import { YkIcon } from './packages'
 import globalComponent from './plugins/gloablComponent'

@@ -12,7 +12,9 @@
       </yk-radio-group>
     </div>
     <hr />
-    <div title="yk-checkbox"></div>
+    <div title="yk-checkbox">
+      <YkCheckbox disabled />
+    </div>
     <hr />
     <div title="yk-tooltip">
       <YkTooltip content="测试上方文本" placement="top"> top </YkTooltip>
@@ -76,7 +78,6 @@ import { ref, reactive } from 'vue'
 import AvatarGroup from '@/components/avatar/src/avatar-group.vue'
 import img1 from '@/assets/images/test.png'
 import img2 from '@/assets/images/2.png'
-import { YkTooltip } from '@/components/tooltip/src'
 
 const i1 = new URL('@/assets/images/1.png', import.meta.url).href
 const i2 = new URL('@/assets/images/2.png', import.meta.url).href
