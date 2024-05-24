@@ -1,14 +1,12 @@
 <template>
   <div>
-    <YkToolTip :placement="'bottom'">
-      <span :style="{ width: '300px' }">一段文字</span>
-    </YkToolTip>
+    <YkInput />
   </div>
 </template>
 
 <script setup lang="ts">
+import YkInput from '@/components/input/src/input.vue'
 import { ref, reactive, isRef } from 'vue'
-import YkToolTip from '@/components/tooltip/src/tooltip.vue'
 </script>
 
 <style scoped></style>
