@@ -1,12 +1,15 @@
 <template>
   <div>
-    <YkInput />
+    <YkInput v-model="str" :style="{ width: '300px' }" />
+    {{ str }}
   </div>
 </template>
 
 <script setup lang="ts">
 import YkInput from '@/components/input/src/input.vue'
 import { ref, reactive, isRef } from 'vue'
+
+const str = ref('')
 </script>
 
 <style scoped></style>

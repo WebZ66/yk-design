@@ -16,11 +16,8 @@ export interface InputProps {
   form?: string
 }
 
-export const InputEmits = {
-  'update:modelValue': (val: InputProps['modelValue']) => val,
-  input: (value: string) => null,
-  change: (value: string) => value,
-  focus: (value: FocusEvent) => null,
-  blur: (value: FocusEvent) => null,
-  clear: () => null,
+export const InputEmits = {}
+
+export interface InputEmits {
+  (e: 'update:modelValue', value: InputProps['modelValue']): void
 }
