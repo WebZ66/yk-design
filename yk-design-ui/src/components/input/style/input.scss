@@ -1,4 +1,5 @@
 .yk-input {
+  position: relative;
   &__inner {
     -webkit-appearance: none;
     background-color: #fff;
@@ -27,6 +28,16 @@
       color: #c0c4cc;
     }
   }
+  &.yk-input--prefix {
+    .yk-input__inner {
+      padding-left: 30px;
+    }
+  }
+  &.yk-input--suffix {
+    .yk-input__inner {
+      padding-right: 30px;
+    }
+  }
   &.disabled {
     .yk-input__inner {
       background-color: #f5f7fa;
@@ -34,6 +45,34 @@
       color: #c0c4cc;
       cursor: not-allowed;
       pointer-events: none;
+    }
+  }
+
+  &__prefix {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    color: #c0c4cc;
+    display: block;
+    line-height: 40px;
+    width: 25px;
+    text-align: center;
+  }
+  &__suffix {
+    position: absolute;
+    height: 100%;
+    right: 5px;
+    top: 0;
+    text-align: center;
+    color: #c0c4cc;
+    transition: all 0.3s;
+    pointer-events: none;
+    display: block;
+    line-height: 40px;
+    width: 25px;
+    &-inner {
+      pointer-events: all;
+      cursor: pointer;
     }
   }
 }
