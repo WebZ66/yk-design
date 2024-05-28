@@ -4,7 +4,12 @@
       bem(
         [],
         { prefix: !!$slots.prefix, suffix: !!$slots.suffix },
-        { disabled: false }
+        {
+          disabled: false,
+          'yk-input-group': !!$slots.prepend || !!$slots.append,
+          'yk-input-group--prepend': !!$slots.prepend,
+          'yk-input-group--append': !!$slots.append,
+        }
       ),
     ]"
   >

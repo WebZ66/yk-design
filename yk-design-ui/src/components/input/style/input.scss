@@ -28,6 +28,48 @@
       color: #c0c4cc;
     }
   }
+
+  &.yk-input-group {
+    display: flex;
+    align-items: center;
+    .yk-input-group__prepend,
+    .yk-input-group__append {
+      background-color: #f5f7fa;
+      color: #909399;
+      position: relative;
+      border: 1px solid #dcdfe6;
+      border-radius: 4px;
+      padding: 0 20px;
+      height: 40px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .yk-input-group__prepend {
+      border-right: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .yk-input-group__append {
+      border-left: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  &.yk-input-group--prepend {
+    .yk-input__inner {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  &.yk-input-group--append {
+    .yk-input__inner {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
   &.yk-input--prefix {
     .yk-input__inner {
       padding-left: 30px;

@@ -1,6 +1,13 @@
 <template>
   <div>
-    <YkInput v-model="str" :style="{ width: '300px' }" showPassword> </YkInput>
+    <YkInput v-model="str" :style="{ width: '300px' }" showPassword>
+      <template #prepend>
+        <div>1323</div>
+      </template>
+      <template #append>
+        <span>123</span>
+      </template>
+    </YkInput>
   </div>
 </template>
 
