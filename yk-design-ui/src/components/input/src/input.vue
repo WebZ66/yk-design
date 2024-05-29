@@ -19,10 +19,14 @@
     </div>
     <!-- 表单输入控件 -->
     <input
+      ref="inputRef"
       :type="isPassword"
       v-model="compValue"
       :class="[bem('inner')]"
       placeholder="请输入内容"
+      @focus="handleFocus"
+      @blur="handleBlur"
+      @change="handleChange"
     />
     <!-- 输入框头部内容 -->
     <span v-if="$slots.prefix" :class="bem('prefix')">
@@ -84,7 +88,15 @@ const {
   passwordVisible,
   isPassword,
   togglePasswordVisible,
+  handleFocus,
+  handleBlur,
+  handleChange,
 } = useInput(props, $emits)
+
+const inputRef = ref<HTMLInputElement>()
+defineExpose({
+  ref: inputRef,
+})
 </script>
 
 <style scoped></style>

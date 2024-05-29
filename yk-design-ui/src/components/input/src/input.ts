@@ -21,4 +21,8 @@ export const InputEmits = {}
 export interface InputEmits {
   (e: 'update:modelValue', value: InputProps['modelValue']): void
   (e: 'clear'): void
+  (e: 'change', value: InputProps['modelValue']): void
+  (e: 'input', value: InputProps['modelValue']): void
+  (e: 'focus', event: FocusEvent): void
+  (e: 'blur', event: FocusEvent): void
 }

@@ -6,6 +6,7 @@ export const useInput = (props: InputProps, $emits: InputEmits) => {
       return props.modelValue
     },
     set(newValue) {
+      $emits('input', newValue)
       $emits('update:modelValue', newValue)
     },
   })
@@ -27,11 +28,24 @@ export const useInput = (props: InputProps, $emits: InputEmits) => {
       : 'text'
   })
 
+  function handleFocus(e: FocusEvent) {
+    $emits('focus', e)
+  }
+  function handleBlur(e: FocusEvent) {
+    $emits('blur', e)
+  }
+  function handleChange() {
+    $emits('change', compValue.value)
+  }
+
   return {
     compValue,
     clearValue,
     passwordVisible,
     isPassword,
     togglePasswordVisible,
+    handleFocus,
+    handleBlur,
+    handleChange,
   }
 }
