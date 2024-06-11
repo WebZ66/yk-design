@@ -63,7 +63,7 @@
     </div>
     <hr />
     <div title="yk-avatar">
-      <YkAvatar :size="'xl'"></YkAvatar>
+      <YkAvatar :size="'xl'"> </YkAvatar>
     </div>
     <div title="yk-avatar-group">
       <AvatarGroup :max="4">

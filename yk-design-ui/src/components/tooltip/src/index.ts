@@ -3,4 +3,4 @@ import { withInstall } from '@/utils'
 
 export const YkTooltip = withInstall(toolTip)
 
-export default toolTip
+export default YkTooltip
