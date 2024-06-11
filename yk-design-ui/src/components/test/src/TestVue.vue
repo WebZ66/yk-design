@@ -1,13 +1,28 @@
 <template>
   <div>
     <div title="yk-input">
-      <YkInput :style="{ width: '300px' }" ref="inputRef">
+      <YkInput v-model="inputValue1" :style="{ width: '300px' }" ref="inputRef">
         <template #prepend>
           <div>前置</div>
         </template>
+        <template #append>
+          <div>后置</div>
+        </template>
       </YkInput>
-
-      <YkInput :style="{ width: '300px' }" ref="inputRef" type="password">
+      <YkInput
+        v-model="inputValue2"
+        :style="{ width: '300px' }"
+        ref="inputRef"
+        type="password"
+        :show-password="true"
+      >
+      </YkInput>
+      <YkInput
+        v-model="inputValue3"
+        :style="{ width: '300px' }"
+        ref="inputRef"
+        clearable
+      >
       </YkInput>
     </div>
     <hr />
@@ -106,6 +121,11 @@ defineOptions({
 /* radio */
 const radio1 = ref('1')
 const radio2 = ref('0')
+
+/* input */
+const inputValue1 = ref('inputValue1')
+const inputValue2 = ref('inputValue2')
+const inputValue3 = ref('inputValue3')
 </script>
 
 <style scoped></style>

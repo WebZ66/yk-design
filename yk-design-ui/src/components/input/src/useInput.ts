@@ -23,8 +23,8 @@ export const useInput = (props: InputProps, $emits: InputEmits) => {
   const isPassword = computed(() => {
     return props.showPassword
       ? passwordVisible.value
-        ? 'text'
-        : 'password'
+        ? 'password'
+        : 'text'
       : 'text'
   })
 
