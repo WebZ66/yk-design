@@ -21,6 +21,7 @@ const components: Component = {
   YkRadio,
   YkRadioGroup,
   YkCheckbox,
+  YkTooltip,
 }
 
 export default {
