@@ -1,2 +1,1 @@
-import './input.less'
- 
+import './input.scss'

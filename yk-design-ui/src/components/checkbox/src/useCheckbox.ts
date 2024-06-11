@@ -25,7 +25,7 @@ export const useCheckbox = (
       if (!isGroup.value) {
         emits('update:modelValue', newValue)
       } else {
-        const newModelValue = [...CheckboxGroupObj?.props.modelValue]
+        const newModelValue = [...(CheckboxGroupObj?.props.modelValue as any)]
         if (newValue) {
           newModelValue.push(props.value)
         } else {

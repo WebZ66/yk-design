@@ -1,0 +1,121 @@
+.yk-input {
+  position: relative;
+  &__inner {
+    -webkit-appearance: none;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    color: #606266;
+    display: inline-block;
+    font-size: inherit;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    padding: 0 15px;
+    transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 100%;
+
+    &:hover {
+      border-color: #c0c4cc;
+    }
+    &:focus {
+      outline: none;
+      border-color: #409eff;
+    }
+    &::placeholder {
+      color: #c0c4cc;
+    }
+  }
+
+  &.yk-input-group {
+    display: flex;
+    align-items: center;
+    .yk-input-group__prepend,
+    .yk-input-group__append {
+      box-sizing: border-box;
+      background-color: #f5f7fa;
+      color: #909399;
+      position: relative;
+      border: 1px solid #dcdfe6;
+      border-radius: 4px;
+      padding: 0 20px;
+      height: 40px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .yk-input-group__prepend {
+      border-right: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .yk-input-group__append {
+      border-left: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  &.yk-input-group--prepend {
+    .yk-input__inner {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  &.yk-input-group--append {
+    .yk-input__inner {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &.yk-input--prefix {
+    .yk-input__inner {
+      padding-left: 30px;
+    }
+  }
+  &.yk-input--suffix {
+    .yk-input__inner {
+      padding-right: 30px;
+    }
+  }
+  &.disabled {
+    .yk-input__inner {
+      background-color: #f5f7fa;
+      border-color: #e4e7ed;
+      color: #c0c4cc;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  &__prefix {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    color: #c0c4cc;
+    display: block;
+    line-height: 40px;
+    width: 25px;
+    text-align: center;
+  }
+  &__suffix {
+    position: absolute;
+    height: 100%;
+    right: 5px;
+    top: 0;
+    text-align: center;
+    color: #c0c4cc;
+    transition: all 0.3s;
+    pointer-events: none;
+    display: block;
+    line-height: 40px;
+    width: 25px;
+    &-inner {
+      pointer-events: all;
+      cursor: pointer;
+    }
+  }
+}

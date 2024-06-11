@@ -1,14 +1,24 @@
 <template>
   <div>
-    <YkToolTip :placement="'bottom'">
-      <span :style="{ width: '300px' }">一段文字</span>
-    </YkToolTip>
+    <YkInput v-model="str" :style="{ width: '300px' }" ref="inputRef">
+      <template #prepend>
+        <div>1323</div>
+      </template>
+    </YkInput>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, isRef } from 'vue'
-import YkToolTip from '@/components/tooltip/src/tooltip.vue'
+import YkInput from '@/components/input/src/input.vue'
+
+import { ref, reactive, isRef, onMounted } from 'vue'
+
+const str = ref('')
+
+const inputRef = ref()
+onMounted(() => {
+  console.log(inputRef.value)
+})
 </script>
 
 <style scoped></style>

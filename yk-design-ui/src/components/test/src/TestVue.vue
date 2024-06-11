@@ -1,5 +1,16 @@
 <template>
   <div>
+    <div title="yk-input">
+      <YkInput :style="{ width: '300px' }" ref="inputRef">
+        <template #prepend>
+          <div>前置</div>
+        </template>
+      </YkInput>
+
+      <YkInput :style="{ width: '300px' }" ref="inputRef" type="password">
+      </YkInput>
+    </div>
+    <hr />
     <div title="yk-radio">
       <YkRadio v-model="radio1" :value="'1'" disabled>选项一</YkRadio>
       <YkRadio v-model="radio1" :value="'2'" disabled>选项二</YkRadio>
@@ -13,7 +24,7 @@
     </div>
     <hr />
     <div title="yk-checkbox">
-      <YkCheckbox disabled />
+      <YkCheckbox disabled></YkCheckbox>
     </div>
     <hr />
     <div title="yk-tooltip">
