@@ -1,16 +1,10 @@
 <template>
   <div>
-    <YkInput v-model="str" :style="{ width: '300px' }" ref="inputRef">
-      <template #prepend>
-        <div>1323</div>
-      </template>
-    </YkInput>
+    <YkCheckbox>123</YkCheckbox>
   </div>
 </template>
 
 <script setup lang="ts">
-import YkInput from '@/components/input/src/input.vue'
-
 import { ref, reactive, isRef, onMounted } from 'vue'
 
 const str = ref('')
