@@ -24,7 +24,6 @@ const components: Component = {
   YkInput,
   YkTooltip,
   YkCheckbox,
-  YkTooltip,
 }
 
 export default {
