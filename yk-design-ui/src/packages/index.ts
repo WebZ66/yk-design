@@ -1,2 +1,4 @@
 import { YkButton } from '../components/button/src/index'
-export { YkButton }
+import { YkSwitch } from '@/components/switch/src'
+import { YkCheckbox } from '@/components/checkbox/src'
+export { YkButton, YkSwitch, YkCheckbox }
