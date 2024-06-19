@@ -5,3 +5,7 @@ declare module '*.vue' {
   export default component
 }
 
+declare module 'vue-popperjs' {
+  const Popper: DefineComponent<object, object, any>
+  export default Popper
+}

@@ -27,6 +27,7 @@
       @focus="handleFocus"
       @blur="handleBlur"
       @change="handleChange"
+      :readonly="props.readonly"
     />
     <!-- 输入框头部内容 -->
     <span v-if="$slots.prefix" :class="bem('prefix')">
@@ -39,9 +40,8 @@
       v-if="$slots.suffix || clearable || showPassword"
       :class="bem('suffix')"
     >
-      <slot name="suffix"></slot>
-
       <span class="yk-input__suffix-inner">
+        <slot name="suffix"></slot>
         <YkIcon
           v-if="compValue.length && clearable"
           name="cha_1"
