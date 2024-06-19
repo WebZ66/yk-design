@@ -12,6 +12,7 @@
     "fix": "eslint src --fix"
   },
   "dependencies": {
+    "@floating-ui/vue": "^1.0.6",
     "@popperjs/core": "^2.11.8",
     "axios": "^1.4.0",
     "vite-plugin-dts": "3.9.1",
