@@ -7,24 +7,27 @@ const floating = ref(null)
 const floatingArrow = ref(null)
 
 const { floatingStyles, middlewareData } = useFloating(reference, floating, {
-  placement: 'top-start',
-  middleware: [offset(10), flip(), arrow({ element: floatingArrow })],
+  placement: 'top-end',
+  middleware: [offset(0), flip(), arrow({ element: floatingArrow })],
 })
 
 watch(
   middlewareData,
   (newValue) => {
-    console.log(floating.value.offsetHeight)
-    console.log('newValue', newValue)
+    let offsetHei = floating.value.offsetHeight
+    let arrowHei = floatingArrow.value.offsetHeight
+    floatingArrow.value.style.top = `${offsetHei - 1}px`
   },
   { deep: true }
 )
+
+const flagShow = ref(false)
 </script>
 
 <template>
-  <div class="main">
+  <div class="main" @mouseenter="flagShow = true">
     <span ref="reference">Reference</span>
-    <div ref="floating" :style="floatingStyles">
+    <div class="bottom" v-if="flagShow" ref="floating" :style="floatingStyles">
       <div
         ref="floatingArrow"
         class="arrow"
@@ -34,7 +37,6 @@ watch(
             middlewareData.arrow?.x != null
               ? `${middlewareData.arrow.x}px`
               : '',
-          top: `70px`,
         }"
       ></div>
       <div class="content">
@@ -50,20 +52,26 @@ watch(
   top: 30%;
   left: 25%;
 }
+.bottom {
+  margin-bottom: 12px;
+}
 .content {
-  width: 100px;
-  height: 80px;
+  width: 200px;
+  height: 180px;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 20px;
 }
 .c {
+  width: 100%;
   height: 100%;
-  border: 1px solid black;
+  border: 1px solid #000;
   box-sizing: border-box;
 }
 .arrow {
-  width: 10px;
-  height: 10px;
-  background-color: red;
+  width: 0;
+  height: 0;
+  border-top: 8px solid #000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
 }
 </style>
