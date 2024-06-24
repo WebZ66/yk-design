@@ -47,6 +47,19 @@
       <YkTooltip content="测试下方文本" placement="bottom"> bottom </YkTooltip>
     </div>
     <hr />
+
+    <div title="yk-popover">
+      <YkPopover>
+        <div>title</div>
+        <template #reference><YkButton>hover触发</YkButton></template>
+      </YkPopover>
+
+      <YkPopover :trigger="'hover'" :placement="'right'">
+        <div>title</div>
+        <template #reference><YkButton>click触发</YkButton></template>
+      </YkPopover>
+    </div>
+    <hr />
     <div title="yk-switch">
       <YkSwitch v-model="flag" @update:model-value="handleClick" />
       <YkSwitch

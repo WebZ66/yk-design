@@ -1,7 +1,6 @@
 .main {
-  position: absolute;
-  top: 30%;
-  left: 25%;
+  position: relative;
+  width: fit-content;
 }
 
 .content {
@@ -21,18 +20,17 @@
   word-break: break-all;
 }
 
-.content[x-placement^="bottom"] {
+.content[x-placement^='bottom'] {
   margin-top: 12px;
 }
 
-.content[x-placement^="right"] {
+.content[x-placement^='right'] {
   margin-left: 12px;
 }
 
-.content[x-placement^="left"] {
+.content[x-placement^='left'] {
   margin-right: 12px;
 }
-
 
 .arrow {
   width: 0;
@@ -40,10 +38,9 @@
   border-width: 6px;
   border-style: solid;
   border-color: transparent;
-
 }
 
-.arrow[x-placement^="top"] {
+.arrow[x-placement^='top'] {
   bottom: 8px;
   border-top-color: #fff;
   border-bottom-width: 0;

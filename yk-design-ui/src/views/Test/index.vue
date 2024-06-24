@@ -1,7 +1,8 @@
 <template>
   <div>
-    <YkPopover @show="handleShow">
-      <YkButton>第一个按钮</YkButton>
+    <YkPopover>
+      <div>title</div>
+      <template #reference><YkButton>hover触发</YkButton></template>
     </YkPopover>
   </div>
 </template>

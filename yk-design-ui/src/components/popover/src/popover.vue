@@ -1,7 +1,7 @@
 <template>
   <div class="main" :x-placement="props.placement" v-on="outerEvents">
     <div data-reference="reference" ref="reference">
-      <slot name="reference">reference</slot>
+      <slot name="reference"></slot>
     </div>
     <div ref="floating" v-if="show" :style="floatingStyles">
       <div
@@ -24,7 +24,7 @@
 </template>
 <script lang="ts" setup>
 import { arrow, useFloating, offset, flip, shift } from '@floating-ui/vue'
-import { onMounted, ref, watch, reactive } from 'vue'
+import { onMounted, ref, watch, reactive, useSlots } from 'vue'
 import type { PopoverProps, PopoverEmit } from './popover'
 import '../style/index'
 const reference = ref(null)
@@ -35,6 +35,8 @@ const props = withDefaults(defineProps<PopoverProps>(), {
   width: '150px',
   trigger: 'click',
 })
+const $slot = useSlots()
+
 const $emit = defineEmits<PopoverEmit>()
 const show = ref(false)
 const outerEvents = reactive<Record<string, any>>({})
@@ -44,8 +46,9 @@ function attachEvents() {
     outerEvents['mouseleave'] = hidePopover
   } else {
     outerEvents['click'] = (e: Event) => {
-      const element = e.target as HTMLDivElement
-      if (element.dataset.reference) {
+      const element = e.target as any
+      const parentNode = element.parentNode as HTMLDivElement
+      if (parentNode!.dataset.reference) {
         show.value = !show.value
         if (show.value) {
           $emit('show')
