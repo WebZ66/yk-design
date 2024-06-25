@@ -54,7 +54,7 @@
         <template #reference><YkButton>hover触发</YkButton></template>
       </YkPopover>
 
-      <YkPopover :trigger="'hover'" :placement="'right'">
+      <YkPopover :trigger="'click'" :placement="'right'">
         <div>title</div>
         <template #reference><YkButton>click触发</YkButton></template>
       </YkPopover>
