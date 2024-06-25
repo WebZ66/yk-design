@@ -3,23 +3,25 @@
     <div data-reference="reference" ref="reference">
       <slot name="reference"></slot>
     </div>
-    <div ref="floating" v-if="show" :style="floatingStyles">
-      <div
-        ref="floatingArrow"
-        class="arrow"
-        :x-placement="props.placement"
-        :style="{
-          position: 'absolute',
-        }"
-      ></div>
-      <div
-        class="content"
-        :x-placement="props.placement"
-        :style="{ width: props.width }"
-      >
-        <slot></slot>
+    <Transition name="fade">
+      <div ref="floating" v-if="show" :style="floatingStyles">
+        <div
+          ref="floatingArrow"
+          class="arrow"
+          :x-placement="props.placement"
+          :style="{
+            position: 'absolute',
+          }"
+        ></div>
+        <div
+          class="content"
+          :x-placement="props.placement"
+          :style="{ width: props.width }"
+        >
+          <slot></slot>
+        </div>
       </div>
-    </div>
+    </Transition>
   </div>
 </template>
 <script lang="ts" setup>
@@ -27,7 +29,7 @@ import { arrow, useFloating, offset, flip, shift } from '@floating-ui/vue'
 import { onMounted, ref, watch, reactive, useSlots } from 'vue'
 import type { PopoverProps, PopoverEmit } from './popover'
 import '../style/index'
-const reference = ref(null)
+const reference = ref<HTMLDivElement>()
 const floating = ref(null)
 const floatingArrow = ref<HTMLDivElement>()
 const props = withDefaults(defineProps<PopoverProps>(), {
@@ -44,19 +46,14 @@ function attachEvents() {
   if (props.trigger == 'hover') {
     outerEvents['mouseover'] = openPopover
     outerEvents['mouseleave'] = hidePopover
-  } else {
+  } else if (props.trigger == 'click') {
     outerEvents['click'] = (e: Event) => {
-      const element = e.target as any
-      const parentNode = element.parentNode as HTMLDivElement
-      if (parentNode!.dataset.reference) {
-        show.value = !show.value
-        if (show.value) {
-          $emit('show')
-        } else {
-          $emit('hide')
-        }
-      }
+      const element = e.target as Element
+      if (reference.value!.contains(element)) show.value = !show.value
+      show.value ? $emit('show') : $emit('hide')
     }
+  } else {
+    console.log('manual')
   }
 }
 attachEvents()
@@ -82,6 +79,4 @@ watch(
   },
   { deep: true }
 )
-
-const flagShow = ref(false)
 </script>

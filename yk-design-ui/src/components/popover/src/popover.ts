@@ -1,8 +1,8 @@
 export interface PopoverProps {
-  title: string
-  content: string
-  width: string | number
-  placement:
+  title?: string
+  content?: string
+  width?: string | number
+  placement?:
     | 'top'
     | 'top-start'
     | 'top-end'
@@ -15,7 +15,7 @@ export interface PopoverProps {
     | 'right'
     | 'right-start'
     | 'right-end'
-  trigger: 'hover' | 'click'
+  trigger?: 'hover' | 'click' | 'manual'
 }
 
 export interface PopoverEmit {
