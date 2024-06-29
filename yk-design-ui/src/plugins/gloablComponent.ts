@@ -1,3 +1,4 @@
+import { YkPopover } from '@/components/popover/src/index'
 import { YkCheckbox } from '@/components/checkbox/src'
 import { YkTooltip } from '@/components/tooltip/src/index'
 import { YkInput } from './../components/input/src/index'
@@ -24,6 +25,7 @@ const components: Component = {
   YkInput,
   YkTooltip,
   YkCheckbox,
+  YkPopover,
 }
 
 export default {
