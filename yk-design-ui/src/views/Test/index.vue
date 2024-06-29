@@ -1,6 +1,6 @@
 <template>
   <div>
-    <YkPopover @show="handleShow">
+    <YkPopover trigger="hover" @show="handleShow">
       <YkButton>第一个按钮</YkButton>
     </YkPopover>
   </div>
