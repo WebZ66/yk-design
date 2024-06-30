@@ -54,12 +54,9 @@ function attachEvents() {
     outerEvents['mouseover'] = openPopover
     outerEvents['mouseleave'] = hidePopover
   } else if (props.trigger == 'click') {
-    outerEvents['click'] = (e: Event) => {
-      const element = e.target as Element
-      if (floating.value && floating.value.contains(element)) {
-        return
-      }
+    outerEvents['click'] = () => {
       show.value = !show.value
+      show.value ? $emit('show') : $emit('hide')
     }
   } else {
     outerEvents['click'] = (e: Event) => {

@@ -1,3 +1,4 @@
+import { YkPopover } from '@/components/popover/src/index'
 import { YkButton } from '@/components/button/src/index'
 import { YkSwitch } from '@/components/switch/src'
 import { YkRadio } from '@/components/radio/src'
@@ -13,5 +14,6 @@ declare module 'vue' {
     YkRadio: typeof YkRadio
     YkSwitch: typeof YkSwitch
     YkButton: typeof YkButton
+    YkPopover: typeof YkPopover
   }
 }
