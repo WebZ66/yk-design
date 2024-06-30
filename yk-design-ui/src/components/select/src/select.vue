@@ -50,6 +50,7 @@ const $emit = defineEmits<SelectEmits>()
 const { show, changeShow, compValue } = useSelect(props, $emit)
 const popoverRef = ref<any>()
 function handleBlur() {
+  changeShow()
   popoverRef.value.hide()
 }
 
