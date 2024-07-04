@@ -10,6 +10,7 @@ import Avatar from '@/components/avatar/src/index.vue'
 import Upload from '@/components/upload/src/upload.vue'
 import Carousel from '@/components/carousel/src/index.vue'
 import { YkRadio, YkRadioGroup } from './../components/radio/src'
+
 import type { App, Component } from 'vue'
 
 const components: Component = {

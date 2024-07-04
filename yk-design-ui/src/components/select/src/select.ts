@@ -8,7 +8,7 @@ export type CustomFilterRemoteFunc = (value: string) => Promise<SelectOption[]>
 
 export interface SelectOption {
   label: string
-  value: string
+  value: string | number
   disabled?: boolean
 }
 
@@ -37,7 +37,7 @@ export interface SelectEmits {
   // 选项改变时
   (e: 'change', value: string): void
   // 与modelValue结合支持v-model
-  (e: 'update:modelValue', value: string): void
+  (e: 'update:modelValue', value: string | number): void
   // 菜单展示隐藏
   (e: 'visible-change', value: boolean): void
   // 清除选项

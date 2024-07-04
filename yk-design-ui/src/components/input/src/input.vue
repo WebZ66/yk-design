@@ -23,7 +23,7 @@
       :type="isPassword"
       v-model="compValue"
       :class="[bem('inner')]"
-      placeholder="请输入内容"
+      :placeholder="props.placeholder"
       @focus="handleFocus"
       @blur="handleBlur"
       @change="handleChange"
@@ -80,7 +80,9 @@ const bem = createCssScope('input')
 defineOptions({
   name: 'YkInput',
 })
-const props = withDefaults(defineProps<InputProps>(), {})
+const props = withDefaults(defineProps<InputProps>(), {
+  placeholder: '请输入内容',
+})
 const $emits = defineEmits<InputEmits>()
 const {
   compValue,

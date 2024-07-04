@@ -1,14 +1,24 @@
 .yk-select {
+  .main {
+    width: 240px;
+  }
+
   .yk-input__inner {
     cursor: pointer;
   }
+
   .yk-icon__cart {
     transform: rotate(0deg);
     transition: transform 0.3s;
   }
+
   &.is-expanded {
     .is-reverse {
       transform: rotate(-180deg);
     }
   }
+}
+
+.yk-scrollbar {
+  padding: 6px 0;
 }
