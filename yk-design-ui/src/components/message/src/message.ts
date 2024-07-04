@@ -31,7 +31,7 @@ export interface Message extends MessageFn {
 export interface MessageProps {
   // 信息文本，可以是简单字符串，也可以是复杂节点
   message?: string | VNode
-  type?: string
+  type?: messageType
   icon?: string
   // 信息显示持续时间
   duration?: number

@@ -1,0 +1,50 @@
+.yk-message {
+  min-width: 380px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #ebeef5;
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  background-color: #edf2fc;
+  transition:
+    opacity 0.3s,
+    transform 0.4s,
+    top 0.4s;
+  overflow: hidden;
+  padding: 15px 15px 15px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  &__icon {
+    margin-right: 10px;
+  }
+  &--success {
+    background-color: #f0f9eb;
+    border-color: #e1f3d8;
+    .yk-message__content {
+      color: #67c23a;
+    }
+  }
+  &--danger {
+    background-color: #fef0f0;
+    border-color: #fde2e2;
+    .yk-message__content {
+      color: #f56c6c;
+    }
+  }
+  &--warning,
+  &--error {
+    background-color: #fdf6ec;
+    border-color: #faecd8;
+    .yk-message__content {
+      color: #e6a23c;
+    }
+  }
+  &--info {
+    .yk-message__content {
+      color: #909399;
+    }
+  }
+}

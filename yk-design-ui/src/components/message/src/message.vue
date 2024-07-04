@@ -3,27 +3,37 @@
     <div
       v-show="visible"
       ref="messageRef"
-      :class="{ [`yk-message--${type}`]: type, 'is-close': showClose }"
+      :class="{
+        'yk-message': true,
+        [`yk-message--${type}`]: type,
+        'is-close': showClose,
+      }"
       role="alert"
-    ></div>
+    >
+      <YkIcon :class="bem('icon')" :name="iconName" :color="iconColor"></YkIcon>
+      <div :class="bem('content')">恭喜你</div>
+    </div>
   </Transition>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, onMounted, watch } from 'vue'
+import { ref, reactive, onMounted, watch, computed } from 'vue'
 import { createCssScope } from '@/utils/bem'
 import type { MessageProps } from './message'
+import { iconNameMap } from '@/utils/shape'
 import '../style/index'
 const bem = createCssScope('message')
 
 defineOptions({ name: 'YkMessage' })
 
 const props = withDefaults(defineProps<MessageProps>(), {
-  type: 'info',
+  type: 'success',
   duration: 3000,
   offset: 10,
   transitionName: 'fade-up',
 })
+const iconName = computed(() => iconNameMap[props.type].name)
+const iconColor = computed(() => iconNameMap[props.type].color)
 
 const visible = ref(false)
 const messageRef = ref<HTMLDivElement>()

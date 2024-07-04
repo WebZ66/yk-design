@@ -9,13 +9,16 @@
         :value="item.value"
       ></YkOption>
     </YkSelect>
+
+    <hr />
+    <YkMessage :duration="0" />
   </div>
 </template>
 
 <script setup lang="ts">
-import YkPopover from '@/components/popover/src/popover.vue'
 import YkSelect from '@/components/select/src/select.vue'
 import YkOption from '@/components/select/src/option.vue'
+import YkMessage from '@/components/message/src/message.vue'
 import { ref, reactive, isRef, onMounted } from 'vue'
 const inputValue = ref('')
 
