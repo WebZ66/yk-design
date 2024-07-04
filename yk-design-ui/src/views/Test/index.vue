@@ -11,7 +11,7 @@
     </YkSelect>
 
     <hr />
-    <YkMessage :duration="0" />
+    <YkMessage :duration="0" type="danger" />
   </div>
 </template>
 
