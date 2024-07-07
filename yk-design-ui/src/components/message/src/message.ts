@@ -7,18 +7,26 @@ export const MessageType = [
   'error',
 ] as const
 
-export type messageType = (typeof MessageType)[number]
-
+export type MessageType = (typeof MessageType)[number]
+export const messageTypeList: MessageType[] = [
+  'info',
+  'success',
+  'warning',
+  'danger',
+  'error',
+]
 export interface MessageHandler {
   close(): void
 }
 
 export type MessageFn = {
-  (props: MessageParams): MessageHandler
-  closeAll(type: messageType): void
+  (props: CreateMessageProps | MessageParams): MessageHandler
+  closeAll(type: MessageType): void
 }
 
-export type MessageTypeFn = (props: MessageParams) => MessageHandler
+export type MessageTypeFn = (
+  props: CreateMessageProps | MessageParams
+) => MessageHandler
 
 export interface Message extends MessageFn {
   success: MessageTypeFn
@@ -31,7 +39,7 @@ export interface Message extends MessageFn {
 export interface MessageProps {
   // 信息文本，可以是简单字符串，也可以是复杂节点
   message?: string | VNode
-  type?: messageType
+  type?: MessageType
   icon?: string
   // 信息显示持续时间
   duration?: number

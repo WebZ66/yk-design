@@ -11,7 +11,8 @@
     </YkSelect>
 
     <hr />
-    <YkMessage :duration="0" type="danger" />
+
+    <YkButton @click="handleClick">点击</YkButton>
   </div>
 </template>
 
@@ -19,6 +20,7 @@
 import YkSelect from '@/components/select/src/select.vue'
 import YkOption from '@/components/select/src/option.vue'
 import YkMessage from '@/components/message/src/message.vue'
+import message from '@/components/message/src/methods'
 import { ref, reactive, isRef, onMounted } from 'vue'
 const inputValue = ref('')
 
@@ -44,6 +46,8 @@ const options = ref([
     label: '北京烤鸭',
   },
 ])
-</script>
 
-<style scoped></style>
+function handleClick() {
+  message.warning('1123')
+}
+</script>

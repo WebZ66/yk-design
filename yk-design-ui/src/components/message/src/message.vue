@@ -11,7 +11,11 @@
       role="alert"
     >
       <YkIcon :class="bem('icon')" :name="iconName" :color="iconColor"></YkIcon>
-      <div :class="bem('content')">恭喜你</div>
+      <div :class="bem('content')">
+        <slot>
+          <RenderVnode v-if="message" :vNode="message"></RenderVnode>
+        </slot>
+      </div>
     </div>
   </Transition>
 </template>
@@ -21,6 +25,7 @@ import { ref, reactive, onMounted, watch, computed } from 'vue'
 import { createCssScope } from '@/utils/bem'
 import type { MessageProps } from './message'
 import { iconNameMap } from '@/utils/shape'
+import { RenderVnode } from '@/utils/renderVnode'
 import '../style/index'
 const bem = createCssScope('message')
 
@@ -32,6 +37,11 @@ const props = withDefaults(defineProps<MessageProps>(), {
   offset: 10,
   transitionName: 'fade-up',
 })
+
+defineExpose({
+  close,
+})
+
 const iconName = computed(() => iconNameMap[props.type].name)
 const iconColor = computed(() => iconNameMap[props.type].color)
 
