@@ -26,6 +26,7 @@ import { createCssScope } from '@/utils/bem'
 import type { MessageProps } from './message'
 import { iconNameMap } from '@/utils/shape'
 import { RenderVnode } from '@/utils/renderVnode'
+import { YkIcon } from '@/components/icon/src/index'
 import '../style/index'
 const bem = createCssScope('message')
 

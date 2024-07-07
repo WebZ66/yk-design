@@ -48,6 +48,9 @@ const options = ref([
 ])
 
 function handleClick() {
-  message.warning('1123')
+  message.success({
+    duration: 0,
+    message: '123',
+  })
 }
 </script>
