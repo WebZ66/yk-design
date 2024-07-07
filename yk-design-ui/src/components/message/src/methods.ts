@@ -78,7 +78,7 @@ export const message: MessageFn & Partial<Message> = (options = '') => {
 messageTypeList.forEach((type) => {
   message[type] = (opts: MessageParams | CreateMessageProps) => {
     const normalized = normalizeOptions(opts)
-    return message({ ...normalized, type } as any)
+    return message({ ...normalized, type })
   }
 })
 
