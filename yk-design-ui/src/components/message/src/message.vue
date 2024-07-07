@@ -16,6 +16,13 @@
           <RenderVnode v-if="message" :vNode="message"></RenderVnode>
         </slot>
       </div>
+      <YkIcon
+        class="yk-icon__close"
+        v-if="showClose"
+        name="cha"
+        :color="iconColor"
+        @click="close"
+      ></YkIcon>
     </div>
   </Transition>
 </template>

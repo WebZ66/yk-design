@@ -17,34 +17,48 @@
   display: flex;
   align-items: center;
   font-size: 14px;
+
   &__icon {
     margin-right: 10px;
   }
+
   &--success {
     background-color: #f0f9eb;
     border-color: #e1f3d8;
+
     .yk-message__content {
       color: #67c23a;
     }
   }
+
   &--danger {
     background-color: #fef0f0;
     border-color: #fde2e2;
+
     .yk-message__content {
       color: #f56c6c;
     }
   }
+
   &--warning,
   &--error {
     background-color: #fdf6ec;
     border-color: #faecd8;
+
     .yk-message__content {
       color: #e6a23c;
     }
   }
+
   &--info {
     .yk-message__content {
       color: #909399;
     }
+  }
+
+  .yk-icon__close {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
   }
 }

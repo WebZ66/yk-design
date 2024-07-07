@@ -21,7 +21,7 @@ import YkSelect from '@/components/select/src/select.vue'
 import YkOption from '@/components/select/src/option.vue'
 import YkMessage from '@/components/message/src/message.vue'
 import message from '@/components/message/src/methods'
-import { ref, reactive, isRef, onMounted } from 'vue'
+import { ref, reactive, isRef, onMounted, h, render } from 'vue'
 const inputValue = ref('')
 
 const options = ref([
@@ -48,9 +48,15 @@ const options = ref([
 ])
 
 function handleClick() {
-  message.success({
+  let div = document.createElement('div')
+  const _props = {
+    type: 'warning',
+    message: '警告',
     duration: 0,
-    message: '123',
-  })
+    showClose: true,
+  }
+  const vNode = h(YkMessage, _props as any)
+  render(vNode, div)
+  document.body.appendChild(div.firstElementChild!)
 }
 </script>

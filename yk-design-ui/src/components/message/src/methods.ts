@@ -51,7 +51,6 @@ const createMessage = (props: CreateMessageProps): MessageInstance => {
     zIndex: 200,
   }
   const vnode = h(MessageVue, _props)
-  console.log('vnode', vnode)
   render(vnode, container)
   document.body.appendChild(container.firstElementChild!)
 
