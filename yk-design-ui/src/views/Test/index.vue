@@ -50,7 +50,7 @@ const options = ref([
 function handleClick() {
   message({
     type: 'info',
-    duration: 1000,
+    duration: 3000,
     message: '测试案例',
   })
 }

@@ -12,6 +12,7 @@ import type {
   MessageType,
 } from './message'
 import { messageTypeList } from './message'
+import { nextTick } from 'vue'
 let seed = 0
 const instances: MessageInstance[] = []
 
@@ -51,21 +52,20 @@ const createMessage = (props: CreateMessageProps): MessageInstance => {
     zIndex: 200,
   }
   const vnode = h(MessageVue, _props)
-  render(vnode, container)
-  document.body.appendChild(container.firstElementChild!)
-
-  const vm = vnode.component!
   const handler: MessageHandler = {
-    close: () => vm.exposed!.close(),
+    close: () => vnode.component!.exposed!.close(),
   }
   const instance: MessageInstance = {
     props: _props,
     id,
-    vm,
+    vm: vnode.component!,
     vnode,
     handler,
   }
+  //注意instance必须在渲染前推入
   instances.push(instance)
+  render(vnode, container)
+  document.body.appendChild(container.firstElementChild!)
   return instance
 }
 
@@ -94,11 +94,12 @@ function closeAll(type?: MessageType) {
 message.closeAll = closeAll
 
 export function getLastBottomOffset(this: MessageProps) {
-  return 0
-  // const index = Number(this.id.split('_')[1])
-  // if (index <= 0) return 0
-  // //返回上一个实例的底部offset值
-  // return instances[index - 1].vm.exposed?.bottomOffset.value
+  const idx = instances.findIndex((item) => item.id == this.id)
+  if (idx <= 0) {
+    return 0
+  } else {
+    return instances[idx - 1].vnode.component?.exposed!.bottomOffset.value
+  }
 }
 
 export default message as Message
