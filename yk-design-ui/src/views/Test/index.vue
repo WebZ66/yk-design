@@ -48,15 +48,10 @@ const options = ref([
 ])
 
 function handleClick() {
-  let div = document.createElement('div')
-  const _props = {
-    type: 'warning',
-    message: '警告',
-    duration: 0,
-    showClose: true,
-  }
-  const vNode = h(YkMessage, _props as any)
-  render(vNode, div)
-  document.body.appendChild(div.firstElementChild!)
+  message({
+    type: 'info',
+    duration: 1000,
+    message: '测试案例',
+  })
 }
 </script>

@@ -93,4 +93,12 @@ function closeAll(type?: MessageType) {
 }
 message.closeAll = closeAll
 
+export function getLastBottomOffset(this: MessageProps) {
+  return 0
+  // const index = Number(this.id.split('_')[1])
+  // if (index <= 0) return 0
+  // //返回上一个实例的底部offset值
+  // return instances[index - 1].vm.exposed?.bottomOffset.value
+}
+
 export default message as Message

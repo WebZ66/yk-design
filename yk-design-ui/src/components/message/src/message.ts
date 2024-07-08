@@ -1,4 +1,4 @@
-import type { VNode, ComponentInternalInstance } from 'vue'
+import type { VNode, ComponentInternalInstance, Ref } from 'vue'
 export const MessageType = [
   'info',
   'success',
@@ -65,6 +65,11 @@ export interface MessageInstance {
   props: MessageProps
   vm: ComponentInternalInstance
   handler: MessageHandler
+}
+
+export interface MessageCompInstance {
+  close(): void
+  bottomOffset: Ref<number>
 }
 
 // 用户创建Message时，被过滤掉的属性是必选的，但是不是由用户添加，而是由内部处理
