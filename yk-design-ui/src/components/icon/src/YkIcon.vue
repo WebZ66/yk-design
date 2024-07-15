@@ -7,6 +7,7 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import type { IIconProp } from './type'
+import '../style/index'
 defineOptions({
   name: 'YkIcon',
 })
@@ -15,12 +16,3 @@ const props = withDefaults(defineProps<IIconProp>(), {
   color: 'black',
 })
 </script>
-
-<style lang="scss" scoped>
-.yk-icon {
-  width: 1em;
-  height: 1em;
-  font-size: 16px;
-  vertical-align: -0.15em;
-}
-</style>

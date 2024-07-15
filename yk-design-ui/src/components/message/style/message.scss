@@ -10,8 +10,7 @@
   background-color: #edf2fc;
   transition:
     opacity 0.3s,
-    transform 0.4s,
-    top 0.4s;
+    transform 0.4s;
   overflow: hidden;
   padding: 15px 15px 15px 20px;
   display: flex;
@@ -60,5 +59,11 @@
     cursor: pointer;
     position: absolute;
     right: 15px;
+  }
+
+  &.fade-up-enter-from,
+  &.fade-up-leave-to {
+    opacity: 0;
+    transform: translate(-50%, -100%);
   }
 }
