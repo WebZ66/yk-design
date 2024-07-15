@@ -51,6 +51,7 @@ const props = withDefaults(defineProps<MessageProps>(), {
   duration: 3000,
   offset: 10,
   transitionName: 'fade-up',
+  showClose: false,
 })
 
 const iconName = computed(() => iconNameMap[props.type].name)
