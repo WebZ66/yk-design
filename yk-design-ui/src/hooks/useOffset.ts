@@ -6,7 +6,7 @@
 import type { MessageProps } from '@/components/message/src/message'
 import { computed, type Ref } from 'vue'
 interface UseOffsetOptions {
-  offset: MessageProps['offset']
+  offset: number
   boxHeight: Ref<number>
   getLastBottomOffset(): number
 }

@@ -52,6 +52,7 @@ import { YkIcon } from '@/components/icon/src/index'
 import { useOffset } from '@/hooks'
 
 import '../style/index'
+import { getLastBottomOffset } from './methods'
 
 const bem = createCssScope('notification')
 
@@ -78,6 +79,7 @@ const notifyRef = ref<HTMLDivElement>()
 const boxHeight = ref(0)
 function handleEnter() {
   boxHeight.value = notifyRef.value!.getBoundingClientRect().height
+  console.log('boxHeight', boxHeight.value)
 }
 watch(visible, (val) => {
   //这步是可以省略的，使得退出动画更加丝滑
@@ -89,7 +91,7 @@ watch(visible, (val) => {
 const { topOffset, bottomOffset } = useOffset({
   offset: props.offset,
   boxHeight,
-  getLastBottomOffset: () => 0,
+  getLastBottomOffset: getLastBottomOffset.bind(props),
 })
 
 //自动关闭

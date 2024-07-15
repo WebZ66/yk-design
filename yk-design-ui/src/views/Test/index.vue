@@ -11,7 +11,6 @@
     </YkSelect>
     <hr />
     <YkButton @click="handleClick">点击</YkButton>
-    <YkNotification title="标题"></YkNotification>
   </div>
 </template>
 
@@ -19,7 +18,7 @@
 import YkSelect from '@/components/select/src/select.vue'
 import YkOption from '@/components/select/src/option.vue'
 import message from '@/components/message/src/methods'
-import YkNotification from '@/components/notification/src/notification.vue'
+import notification from '@/components/notification/src/methods'
 import { ref, reactive, isRef, onMounted, h, render } from 'vue'
 const inputValue = ref('')
 
@@ -47,10 +46,11 @@ const options = ref([
 ])
 
 function handleClick() {
-  message({
-    type: 'info',
+  notification({
+    type: 'success',
+    title: '标题',
+    position: 'bottom-left',
     duration: 3000,
-    message: '测试案例',
   })
 }
 </script>

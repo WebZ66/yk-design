@@ -57,13 +57,13 @@ export type NotificationOptions = Partial<Omit<NotificationProps, 'id'>>
 export type NotificationParams = string | VNode
 
 export type NotificationFn = {
-  (props: NotificationParams): NotificationHandler
+  (props: NotificationParams | CreateNotificationProps): NotificationHandler
   closeAll(type?: NotificationType): void
 }
 
 /* 返回close方法 */
 export type NotificationTypeFn = (
-  props: NotificationParams
+  props: NotificationParams | CreateNotificationProps
 ) => NotificationHandler
 
 /* 通过method.success 调用 */

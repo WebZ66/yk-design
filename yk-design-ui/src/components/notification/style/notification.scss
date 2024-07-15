@@ -6,11 +6,12 @@
   box-sizing: border-box;
   border: 1px solid #ebeef5;
   position: fixed;
+  right: 40px;
   background-color: #fff;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
   transition: opacity .3s, transform .3s, left .3s, right .3s, top .4s, bottom .3s;
   overflow: hidden;
-  position: relative;
+
 
   &__icon {
     font-size: 20px;
@@ -41,8 +42,5 @@
     position: absolute;
     right: 26px;
     cursor: pointer;
-
-    &:hover {}
   }
-
 }
