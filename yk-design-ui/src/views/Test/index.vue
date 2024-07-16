@@ -9,9 +9,7 @@
         :value="item.value"
       ></YkOption>
     </YkSelect>
-
     <hr />
-
     <YkButton @click="handleClick">点击</YkButton>
   </div>
 </template>
@@ -19,8 +17,8 @@
 <script setup lang="ts">
 import YkSelect from '@/components/select/src/select.vue'
 import YkOption from '@/components/select/src/option.vue'
-import YkMessage from '@/components/message/src/message.vue'
 import message from '@/components/message/src/methods'
+import notification from '@/components/notification/src/methods'
 import { ref, reactive, isRef, onMounted, h, render } from 'vue'
 const inputValue = ref('')
 
@@ -48,10 +46,11 @@ const options = ref([
 ])
 
 function handleClick() {
-  message({
-    type: 'info',
+  notification({
+    type: 'success',
+    title: '标题',
+    position: 'bottom-left',
     duration: 3000,
-    message: '测试案例',
   })
 }
 </script>

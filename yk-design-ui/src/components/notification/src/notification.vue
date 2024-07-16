@@ -6,68 +6,80 @@
   >
     <div
       v-show="visible"
-      ref="messageRef"
+      ref="notifyRef"
       :class="{
-        'yk-message': true,
-        [`yk-message--${type}`]: type,
+        'yk-notification': true,
+        [`yk-notification--${type}`]: type,
         'is-close': showClose,
       }"
       role="alert"
       :style="customStyle"
     >
-      <YkIcon :class="bem('icon')" :name="iconName" :color="iconColor"></YkIcon>
-      <div :class="bem('content')">
-        <slot>
-          <RenderVnode v-if="message" :vNode="message"></RenderVnode>
-        </slot>
+      <YkIcon
+        v-if="type"
+        :class="bem('icon')"
+        :name="iconName"
+        :color="iconColor"
+      ></YkIcon>
+      <div :class="bem('text')">
+        <div :class="bem('title')">{{ title }}</div>
+        <div :class="bem('content')">
+          <slot>
+            <RenderVnode v-if="message" :vNode="message" />
+          </slot>
+        </div>
       </div>
       <YkIcon
-        class="yk-icon__close"
+        class="yk-notification__icon--close"
         v-if="showClose"
         name="cha"
-        :color="iconColor"
+        color="#909399"
         @click="close"
       ></YkIcon>
     </div>
   </Transition>
 </template>
-
-<script lang="ts" setup>
-import { ref, reactive, onMounted, watch, computed } from 'vue'
+<script setup lang="ts">
+import { ref, onMounted, watch, computed } from 'vue'
 import { createCssScope } from '@/utils/bem'
-import type { MessageProps, MessageCompInstance } from './message'
+import type {
+  NotificationProps,
+  NotificationTypeComInstance,
+} from './notification'
 import { iconNameMap } from '@/utils/shape'
 import { RenderVnode } from '@/utils/renderVnode'
 import { YkIcon } from '@/components/icon/src/index'
 import { useOffset } from '@/hooks'
-import { getLastBottomOffset } from './methods'
+
 import '../style/index'
-const bem = createCssScope('message')
+import { getLastBottomOffset } from './methods'
 
-defineOptions({ name: 'YkMessage' })
+const bem = createCssScope('notification')
 
-const props = withDefaults(defineProps<MessageProps>(), {
-  type: 'success',
-  duration: 3000,
-  offset: 10,
-  transitionName: 'fade-up',
-  showClose: false,
+defineOptions({ name: 'YkNotification' })
+
+const props = withDefaults(defineProps<NotificationProps>(), {
+  message: '123',
+  duration: 0,
+  offset: 20,
+  transitionName: 'fade',
+  showClose: true,
 })
-
-const iconName = computed(() => iconNameMap[props.type].name)
-const iconColor = computed(() => iconNameMap[props.type].color)
+const iconName = computed(() => props.type && iconNameMap[props.type].name)
+const iconColor = computed(() => props.type && iconNameMap[props.type].color)
 const customStyle = computed(() => {
   return { top: topOffset.value + 'px' }
 })
 
 const visible = ref(false)
-const messageRef = ref<HTMLDivElement>()
+const notifyRef = ref<HTMLDivElement>()
 
 /* 计算偏移量 */
 //容器高度
 const boxHeight = ref(0)
 function handleEnter() {
-  boxHeight.value = messageRef.value!.getBoundingClientRect().height
+  boxHeight.value = notifyRef.value!.getBoundingClientRect().height
+  console.log('boxHeight', boxHeight.value)
 }
 watch(visible, (val) => {
   //这步是可以省略的，使得退出动画更加丝滑
@@ -95,13 +107,14 @@ function clearTimer() {
 
 function close() {
   visible.value = false
+  clearTimer()
 }
 onMounted(() => {
   visible.value = true
   startTimer()
 })
 
-defineExpose<MessageCompInstance>({
+defineExpose<NotificationTypeComInstance>({
   close,
   bottomOffset,
 })

@@ -12,7 +12,6 @@ import type {
   MessageType,
 } from './message'
 import { messageTypeList } from './message'
-import { nextTick } from 'vue'
 let seed = 0
 const instances: MessageInstance[] = []
 
