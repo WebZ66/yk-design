@@ -19,7 +19,7 @@ import YkSelect from '@/components/select/src/select.vue'
 import YkOption from '@/components/select/src/option.vue'
 import message from '@/components/message/src/methods'
 import notification from '@/components/notification/src/methods'
-import { ref, reactive, isRef, onMounted, h, render } from 'vue'
+import { ref } from 'vue'
 const inputValue = ref('')
 
 const options = ref([
@@ -46,11 +46,17 @@ const options = ref([
 ])
 
 function handleClick() {
+  /*   message({
+    type: 'success',
+    message: '测试',
+    duration: 0,
+    showClose: true,
+  }) */
   notification({
     type: 'success',
-    title: '标题',
+    title: '提示',
     position: 'bottom-left',
-    duration: 3000,
+    duration: 0,
   })
 }
 </script>

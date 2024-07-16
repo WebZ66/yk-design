@@ -79,7 +79,6 @@ const notifyRef = ref<HTMLDivElement>()
 const boxHeight = ref(0)
 function handleEnter() {
   boxHeight.value = notifyRef.value!.getBoundingClientRect().height
-  console.log('boxHeight', boxHeight.value)
 }
 watch(visible, (val) => {
   //这步是可以省略的，使得退出动画更加丝滑

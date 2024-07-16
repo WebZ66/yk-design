@@ -8,10 +8,15 @@
   position: fixed;
   right: 40px;
   background-color: #fff;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-  transition: opacity .3s, transform .3s, left .3s, right .3s, top .4s, bottom .3s;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  transition:
+    opacity 0.3s,
+    transform 0.3s,
+    left 0.3s,
+    right 0.3s,
+    top 0.4s,
+    bottom 0.3s;
   overflow: hidden;
-
 
   &__icon {
     font-size: 20px;
@@ -42,5 +47,12 @@
     position: absolute;
     right: 26px;
     cursor: pointer;
+  }
+  &.fade-enter-to {
+    opacity: 0;
+    right: -100px;
+  }
+  &.fade-enter-leave {
+    opacity: 0;
   }
 }

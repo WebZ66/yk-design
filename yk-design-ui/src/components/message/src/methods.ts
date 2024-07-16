@@ -1,5 +1,5 @@
 /* 以指令方式将message挂载至页面 */
-import { isVNode, render, h, shallowReactive } from 'vue'
+import { isVNode, render, h, shallowReactive, nextTick } from 'vue'
 import MessageVue from './message.vue'
 import type {
   CreateMessageProps,
@@ -12,6 +12,7 @@ import type {
   MessageType,
 } from './message'
 import { messageTypeList } from './message'
+
 let seed = 0
 const instances: MessageInstance[] = []
 
@@ -51,6 +52,12 @@ const createMessage = (props: CreateMessageProps): MessageInstance => {
     zIndex: 200,
   }
   const vnode = h(MessageVue, _props)
+
+  nextTick(() => {
+    render(vnode, container)
+    document.body.appendChild(container.firstElementChild!)
+  })
+
   const handler: MessageHandler = {
     close: () => vnode.component!.exposed!.close(),
   }
@@ -63,8 +70,7 @@ const createMessage = (props: CreateMessageProps): MessageInstance => {
   }
   //注意instance必须在渲染前推入
   instances.push(instance)
-  render(vnode, container)
-  document.body.appendChild(container.firstElementChild!)
+
   return instance
 }
 
