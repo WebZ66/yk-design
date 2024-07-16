@@ -16,6 +16,7 @@
     right 0.3s,
     top 0.4s,
     bottom 0.3s;
+
   overflow: hidden;
 
   &__icon {
@@ -48,11 +49,13 @@
     right: 26px;
     cursor: pointer;
   }
-  &.fade-enter-to {
+
+  &.fade-up-enter-from {
     opacity: 0;
-    right: -100px;
+    right: 0;
   }
-  &.fade-enter-leave {
+
+  &.fade-up-leave-to {
     opacity: 0;
   }
 }

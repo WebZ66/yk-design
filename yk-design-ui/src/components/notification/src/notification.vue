@@ -62,7 +62,7 @@ const props = withDefaults(defineProps<NotificationProps>(), {
   message: '123',
   duration: 0,
   offset: 20,
-  transitionName: 'fade',
+  transitionName: 'fade-up',
   showClose: true,
 })
 const iconName = computed(() => props.type && iconNameMap[props.type].name)

@@ -17,7 +17,7 @@ export const notificationDefaults = {
   duration: 3000,
   message: '123',
   offset: 20,
-  transitionName: 'fade',
+  transitionName: 'fade-up',
   showClose: true,
 }
 
