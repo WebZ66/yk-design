@@ -1,6 +1,7 @@
 import { computed, ref } from 'vue'
 import { InputProps, InputEmits } from './input'
 export const useInput = (props: InputProps, $emits: InputEmits) => {
+  const isDisabled = computed(() => props.disabled)
   const compValue = computed({
     get() {
       return props.modelValue
@@ -10,6 +11,7 @@ export const useInput = (props: InputProps, $emits: InputEmits) => {
       $emits('update:modelValue', newValue)
     },
   })
+  const showClear = computed(() => props.clearable && !!compValue.value.length&&!isDisabled.value)
 
   function clearValue() {
     $emits('update:modelValue', '')
@@ -39,6 +41,7 @@ export const useInput = (props: InputProps, $emits: InputEmits) => {
   }
 
   return {
+    isDisabled,
     compValue,
     clearValue,
     passwordVisible,

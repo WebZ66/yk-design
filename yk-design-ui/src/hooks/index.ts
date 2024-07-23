@@ -1,3 +1,4 @@
 import useOffset from './useOffset'
+import useFocusController from './useFocusController'
 
-export { useOffset }
+export { useOffset, useFocusController }

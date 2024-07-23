@@ -1,4 +1,7 @@
+import { Ref } from 'vue'
+
 export interface InputProps {
+  id?: string
   type?: string
   // 实现v-model必备的
   modelValue: string
@@ -16,8 +19,6 @@ export interface InputProps {
   form?: string
 }
 
-export const InputEmits = {}
-
 export interface InputEmits {
   (e: 'update:modelValue', value: InputProps['modelValue']): void
   (e: 'clear'): void
@@ -25,4 +26,11 @@ export interface InputEmits {
   (e: 'input', value: InputProps['modelValue']): void
   (e: 'focus', event: FocusEvent): void
   (e: 'blur', event: FocusEvent): void
+}
+
+export interface InputInstance {
+  ref: Ref<HTMLInputElement | HTMLTextAreaElement | void>
+  focus(): Promise<void>
+  blur(): void
+  clear(): void
 }

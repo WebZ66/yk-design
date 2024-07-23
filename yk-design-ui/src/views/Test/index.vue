@@ -1,6 +1,6 @@
 <template>
   <div>
-    对于的modelValue:{{ inputValue }}
+    <!--     对于的modelValue:{{ inputValue }}
     <YkSelect v-model="inputValue" :placeholder="'请选择'">
       <YkOption
         v-for="item in options"
@@ -10,14 +10,15 @@
       ></YkOption>
     </YkSelect>
     <hr />
-    <YkButton @click="handleClick">点击</YkButton>
+    <YkButton @click="handleClick">点击</YkButton> -->
+    <YkInput v-model="inputValue" clearable />
   </div>
 </template>
 
 <script setup lang="ts">
 import YkSelect from '@/components/select/src/select.vue'
 import YkOption from '@/components/select/src/option.vue'
-import message from '@/components/message/src/methods'
+import YkInput from '@/components/input/src/input.vue'
 import notification from '@/components/notification/src/methods'
 import { ref } from 'vue'
 const inputValue = ref('')
