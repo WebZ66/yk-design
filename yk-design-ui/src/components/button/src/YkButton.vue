@@ -9,6 +9,7 @@
 <script setup lang="ts">
 import type { ButtonProps } from './type'
 import { computed } from 'vue'
+import '../style/index'
 defineOptions({
   name: 'YkButton',
 })
@@ -34,7 +35,3 @@ const ykButtonClass = computed(() => {
   }
 })
 </script>
-
-<style lang="scss" scoped>
-@import '../style/index.scss';
-</style>

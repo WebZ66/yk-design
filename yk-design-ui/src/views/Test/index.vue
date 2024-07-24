@@ -1,26 +1,14 @@
 <template>
   <div>
-    <!--     对于的modelValue:{{ inputValue }}
-    <YkSelect v-model="inputValue" :placeholder="'请选择'">
-      <YkOption
-        v-for="item in options"
-        :key="item.label"
-        :label="item.label"
-        :value="item.value"
-      ></YkOption>
-    </YkSelect>
-    <hr />
-    <YkButton @click="handleClick">点击</YkButton> -->
-    <YkInput v-model="inputValue" clearable />
+    <YkButton @click="handleClick">测试组件库</YkButton>
+    <YkInput />
   </div>
 </template>
 
 <script setup lang="ts">
-import YkSelect from '@/components/select/src/select.vue'
-import YkOption from '@/components/select/src/option.vue'
-import YkInput from '@/components/input/src/input.vue'
-import notification from '@/components/notification/src/methods'
 import { ref } from 'vue'
+import { YkButton, YkSwitch, YkInput, Message } from 'yk-design'
+import 'yk-design/style'
 const inputValue = ref('')
 
 const options = ref([
@@ -47,17 +35,9 @@ const options = ref([
 ])
 
 function handleClick() {
-  /*   message({
+  Message({
     type: 'success',
-    message: '测试',
-    duration: 0,
-    showClose: true,
-  }) */
-  notification({
-    type: 'success',
-    title: '提示',
-    position: 'bottom-left',
-    duration: 0,
+    message: '成功的消息提示',
   })
 }
 </script>
