@@ -1,7 +1,7 @@
-const isString = (val: unknown): boolean => {
+export const isString = (val: unknown): boolean => {
   return typeof val === 'string'
 }
-const isObject = (val: unknown): val is object => {
+export const isObject = (val: unknown): val is object => {
   return val !== null && typeof val === 'object'
 }
 

@@ -68,9 +68,11 @@
   left: 2px;
   animation: rotate 0.9s linear infinite;
 }
+
 .yk-button--primary {
   border-color: #2b5aed;
 }
+
 .yk-button--secondary {
   color: #fff;
   background-color: #1e2025;
@@ -112,16 +114,20 @@
   display: block;
   width: 100%;
 }
+
 .yk-button--round {
   border-radius: 800px;
 }
+
 .yk-button--circle {
   padding: 0;
   border-radius: 800px;
 }
+
 .yk-button--square {
   border-radius: 0;
 }
+
 @keyframes rotate {
   from {
     transform: rotate(0);

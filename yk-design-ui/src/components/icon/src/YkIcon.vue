@@ -1,5 +1,5 @@
 <template>
-  <svg class="icon" aria-hidden="true">
+  <svg class="yk-icon" aria-hidden="true">
     <use :xlink:href="`#icon-${props.name}`" :fill="props.color"></use>
   </svg>
 </template>
