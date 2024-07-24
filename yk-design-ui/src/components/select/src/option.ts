@@ -1,6 +1,6 @@
 export interface OptionProps {
-  label: number | string
-  value: number | string
+  label: string
+  value: string
 }
 
 export interface OptionEmits {

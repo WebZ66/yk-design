@@ -1,9 +1,5 @@
 <template>
-  <Transition
-    :name="transitionName"
-    @enter="handleEnter"
-    @after-leave="!visible && onDestroy()"
-  >
+  <Transition :name="transitionName" @enter="handleEnter" @after-leave="!visible && onDestroy()">
     <div
       v-show="visible"
       ref="notifyRef"
@@ -15,12 +11,7 @@
       role="alert"
       :style="customStyle"
     >
-      <YkIcon
-        v-if="type"
-        :class="bem('icon')"
-        :name="iconName"
-        :color="iconColor"
-      ></YkIcon>
+      <YkIcon v-if="type" :class="bem('icon')" :name="iconName" :color="iconColor"></YkIcon>
       <div :class="bem('text')">
         <div :class="bem('title')">{{ title }}</div>
         <div :class="bem('content')">
@@ -29,23 +20,14 @@
           </slot>
         </div>
       </div>
-      <YkIcon
-        class="yk-notification__icon--close"
-        v-if="showClose"
-        name="cha"
-        color="#909399"
-        @click="close"
-      ></YkIcon>
+      <YkIcon class="yk-notification__icon--close" v-if="showClose" name="cha" color="#909399" @click="close"></YkIcon>
     </div>
   </Transition>
 </template>
 <script setup lang="ts">
 import { ref, onMounted, watch, computed } from 'vue'
 import { createCssScope } from '@/utils/bem'
-import type {
-  NotificationProps,
-  NotificationTypeComInstance,
-} from './notification'
+import type { NotificationProps, NotificationTypeComInstance } from './notification'
 import { iconNameMap } from '@/utils/shape'
 import { RenderVnode } from '@/utils/renderVnode'
 import { YkIcon } from '@/components/icon/src/index'

@@ -1,4 +1,5 @@
 import { YkButton } from '@/components/button/src/index'
+import { YkIcon } from '@/components/icon/src'
 import { YkSwitch } from '@/components/switch/src'
 import { YkRadio } from '@/components/radio/src'
 import { YkCheckbox } from '@/components/checkbox/src'
@@ -11,6 +12,7 @@ import Notification from '@/components/notification/src/methods'
 
 export {
   YkButton,
+  YkIcon,
   YkSwitch,
   YkCheckbox,
   YkInput,
