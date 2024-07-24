@@ -1,14 +1,12 @@
 .yk-button--loading {
   opacity: 0.7 !important;
 }
-
 .yk-button--loading svg {
   margin-right: 4px;
   width: 16px;
   transform-origin: center;
   animation: rotate4 2s linear infinite;
 }
-
 .yk-button--loading circle {
   fill: none;
   stroke: #dee0e7;
@@ -18,29 +16,24 @@
   stroke-linecap: round;
   animation: dash4 1.5s ease-in-out infinite;
 }
-
 @keyframes rotate4 {
   100% {
     transform: rotate(360deg);
   }
 }
-
 @keyframes dash4 {
   0% {
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
   }
-
   50% {
     stroke-dasharray: 90, 200;
     stroke-dashoffset: -35px;
   }
-
   100% {
     stroke-dashoffset: -125px;
   }
 }
-
 .yk-button {
   display: inline-flex;
   justify-content: center;
@@ -61,7 +54,6 @@
   color: #fff;
   position: relative;
 }
-
 .yk-button .circle {
   position: absolute;
   width: 8px;
@@ -86,13 +78,11 @@
   background-color: #1e2025;
   border-color: rgba(0, 0, 0, 0);
 }
-
 .yk-button--outline {
   color: var(--fontcolorl, rgb(30, 32, 37));
   background-color: rgba(0, 0, 0, 0);
   border-color: #1e2025;
 }
-
 .yk-button--s {
   padding: 0px 12px;
   min-width: 24px;
@@ -100,7 +90,6 @@
   font-size: 12px;
   border-radius: 4px;
 }
-
 .yk-button--m {
   padding: 0px 16px;
   min-width: 32px;
@@ -108,14 +97,12 @@
   border-radius: 4px;
   font-size: 12px;
 }
-
 .yk-button--l {
   padding: 0px 18px;
   min-width: 36px;
   height: 36px;
   border-radius: 8px;
 }
-
 .yk-button--xl {
   padding: 0px 24px;
   min-width: 48px;
@@ -123,7 +110,6 @@
   font-size: 16px;
   border-radius: 8px;
 }
-
 .yk-button--long {
   display: block;
   width: 100%;
@@ -146,7 +132,6 @@
   from {
     transform: rotate(0);
   }
-
   to {
     transform: rotate(360deg);
   }

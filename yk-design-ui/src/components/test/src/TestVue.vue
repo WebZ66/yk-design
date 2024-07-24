@@ -29,9 +29,7 @@
     <div title="yk-radio">
       <YkRadio v-model="radio1" :value="'1'" disabled>选项一</YkRadio>
       <YkRadio v-model="radio1" :value="'2'" disabled>选项二</YkRadio>
-
       <div :style="{ padding: '10px 0' }"></div>
-
       <yk-radio-group v-model="radio2">
         <YkRadio :value="'1'">选项一</YkRadio>
         <YkRadio :value="'2'">选项二</YkRadio>
@@ -95,8 +93,8 @@
     </div>
     <div title="yk-avatar-group">
       <AvatarGroup :max="4">
-        <YkAvatar v-for="item in 3" :key="item" :imgUrl="img1"></YkAvatar>
-        <YkAvatar v-for="item in 2" :key="item" :imgUrl="img2"></YkAvatar>
+        <YkAvatar v-for="item in 3" :key="item" :imgUrl="i1"></YkAvatar>
+        <YkAvatar v-for="item in 2" :key="item" :imgUrl="i2"></YkAvatar>
       </AvatarGroup>
     </div>
     <hr />
@@ -115,8 +113,6 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
 import AvatarGroup from '@/components/avatar/src/avatar-group.vue'
-import img1 from '@/assets/images/test.png'
-import img2 from '@/assets/images/2.png'
 
 const i1 = new URL('@/assets/images/1.png', import.meta.url).href
 const i2 = new URL('@/assets/images/2.png', import.meta.url).href

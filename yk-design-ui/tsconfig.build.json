@@ -19,20 +19,14 @@
     /* resolve */
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     }
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
+    "src/components/**/*.ts",
+    "src/components/**/*.vue",
+    "src/packages/index.ts",
+    "src/utils/*.ts",
+    "src/plugins/*.ts"
   ]
 }

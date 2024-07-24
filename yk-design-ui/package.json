@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
+    "build:only": "build:es&&build:umd",
+    "build:umd": "vite build --config vite.umd.config.ts",
+    "build:es": "vite build --config vite.es.config.ts",
     "preview": "vite preview",
     "preinstall": "node ./scripts/preinstall.js",
     "lint": "eslint src",
@@ -28,11 +31,11 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-vue": "^9.17.0",
-    "less": "^4.2.0",
     "prettier": "^3.0.1",
     "sass": "^1.65.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.9.1",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue-tsc": "^1.8.5"
   }
