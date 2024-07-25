@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div><YkButton>123</YkButton></div>
 </template>
 
 <script setup lang="ts">

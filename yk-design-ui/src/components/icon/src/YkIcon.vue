@@ -5,7 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
 import type { IIconProp } from './type'
 import '../style/index'
 defineOptions({

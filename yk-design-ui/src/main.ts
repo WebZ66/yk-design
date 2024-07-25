@@ -6,12 +6,11 @@ import '@/assets/style/theme.less'
 import router from './router'
 import App from './App.vue'
 
-import globalComponent from './plugins/gloablComponent'
+import YkDesign from '@/packages/index'
 
 const app = createApp(App)
 
+app.use(YkDesign)
 app.use(router)
-
-app.use(globalComponent)
 
 app.mount('#app')
