@@ -1,18 +1,8 @@
 <template>
   <div :class="bem({}, [], { 'is-expanded': show })" @click="changeShow">
-    <YkPopover
-      :width="'240px'"
-      ref="popoverRef"
-      :trigger="'click'"
-      :placement="'bottom-end'"
-    >
+    <YkPopover :width="'240px'" ref="popoverRef" :trigger="'click'" :placement="'bottom-end'">
       <template #reference>
-        <yk-input
-          @blur="handleBlur"
-          :placeholder="props.placeholder"
-          v-model="compValue"
-          readonly
-        >
+        <yk-input @blur="handleBlur" :placeholder="props.placeholder" v-model="compValue" readonly>
           <template #suffix>
             <YkIcon
               :class="{ 'is-reverse': show, 'yk-icon__cart': true }"

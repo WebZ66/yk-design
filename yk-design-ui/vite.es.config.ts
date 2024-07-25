@@ -47,9 +47,6 @@ export default defineConfig({
           if (id.includes('/src/utils')) {
             return 'utils'
           }
-          if (id.includes('YkButton')) {
-            return 'YkButton'
-          }
         },
       },
     },

@@ -1,14 +1,10 @@
 <template>
-  <div>
-    <YkButton @click="handleClick">测试组件库</YkButton>
-    <YkInput />
-  </div>
+  <div><YkButton>123</YkButton></div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { YkButton, YkSwitch, YkInput, Message } from 'yk-design'
-import 'yk-design/style'
+
 const inputValue = ref('')
 
 const options = ref([
@@ -34,10 +30,5 @@ const options = ref([
   },
 ])
 
-function handleClick() {
-  Message({
-    type: 'success',
-    message: '成功的消息提示',
-  })
-}
+function handleClick() {}
 </script>
