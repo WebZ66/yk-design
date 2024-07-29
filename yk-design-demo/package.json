@@ -9,6 +9,7 @@
         "preinstall": "node ./scripts/preinstall.js"
     },
     "dependencies": {
-        "element-plus": "^2.4.1"
+        "element-plus": "^2.4.1",
+        "yk-design-zds": "^1.0.0"
     }
 }
