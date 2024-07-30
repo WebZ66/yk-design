@@ -44,7 +44,6 @@ import {
   withCtx,
   withDirectives
 } from "./chunk-IUZBPNKP.js";
-import "./chunk-UXIASGQL.js";
 
 // node_modules/.pnpm/yk-design-zds@1.0.0/node_modules/yk-design-zds/es/utils-e5a4f070.js
 var $ = (n, t) => {

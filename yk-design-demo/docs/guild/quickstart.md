@@ -37,7 +37,7 @@ export default defineConfig({
 ### 安装 SVG 依赖插件
 
 ```js
-pnpm add vite-plugin-svg-icons -D
+pnpm add vite-plugin-svg-icons 
 ```
 
 ### 配置 SVG 依赖插件
