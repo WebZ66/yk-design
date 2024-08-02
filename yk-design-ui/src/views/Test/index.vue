@@ -1,16 +1,10 @@
 <template>
-  <div>
-    <YkSelect>
-      <YkOption label="123" value="1"></YkOption>
-    </YkSelect>
-  </div>
+  <div><Icon /></div>
 </template>
 
 <script setup lang="ts">
-import { YkSelect, YkOption } from '@/packages'
-
 import { ref } from 'vue'
-
+import Icon from '@/components/icon2/src/icon.vue'
 const inputValue = ref('')
 
 const options = ref([

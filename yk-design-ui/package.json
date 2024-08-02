@@ -16,6 +16,9 @@
   },
   "dependencies": {
     "@floating-ui/vue": "^1.0.6",
+    "@fortawesome/fontawesome-svg-core": "6.5.1",
+    "@fortawesome/free-solid-svg-icons": "6.5.1",
+    "@fortawesome/vue-fontawesome": "3.0.6",
     "@popperjs/core": "^2.11.8",
     "axios": "^1.4.0",
     "vite-plugin-dts": "3.9.1",
