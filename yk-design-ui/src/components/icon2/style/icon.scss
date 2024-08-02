@@ -1,0 +1,12 @@
+.yk-icon {
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1;
+  vertical-align: middle;
+  color: var(--yk-icon-color);
+  @each $val in primary, info, success, warning, danger {
+    &.yk-icon--#{$val} {
+      --yk-icon-color: var(--yk-color-#{$val});
+    }
+  }
+}

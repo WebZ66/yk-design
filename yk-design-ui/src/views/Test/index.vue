@@ -1,5 +1,5 @@
 <template>
-  <div><Icon /></div>
+  <div class="test"><Icon /></div>
 </template>
 
 <script setup lang="ts">
@@ -32,3 +32,5 @@ const options = ref([
 
 function handleClick() {}
 </script>
+
+<style></style>
