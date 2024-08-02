@@ -5,12 +5,7 @@
     </div>
     <Teleport to="body">
       <Transition name="fade">
-        <div
-          class="yk-popper"
-          ref="floating"
-          v-if="show"
-          :style="floatingStyles"
-        >
+        <div class="yk-popper" :class="props.popoverClass" ref="floating" v-if="show" :style="floatingStyles">
           <div
             ref="floatingArrow"
             class="arrow"
@@ -19,11 +14,7 @@
               position: 'absolute',
             }"
           ></div>
-          <div
-            class="content"
-            :x-placement="props.placement"
-            :style="{ width: props.width }"
-          >
+          <div class="content" :x-placement="props.placement" :style="{ width: props.width }">
             <slot></slot>
           </div>
         </div>

@@ -16,6 +16,7 @@ export interface PopoverProps {
     | 'right-start'
     | 'right-end'
   trigger?: 'hover' | 'click' | 'manual'
+  popoverClass?: string
 }
 
 export interface PopoverEmit {

@@ -1,6 +1,12 @@
 <template>
   <div :class="bem({}, [], { 'is-expanded': show })" @click="changeShow">
-    <YkPopover :width="'240px'" ref="popoverRef" :trigger="'click'" :placement="'bottom-end'">
+    <YkPopover
+      popoverClass="yk-select-popover"
+      :width="'240px'"
+      ref="popoverRef"
+      :trigger="'click'"
+      :placement="'bottom-end'"
+    >
       <template #reference>
         <yk-input @blur="handleBlur" :placeholder="props.placeholder" v-model="compValue" readonly>
           <template #suffix>
@@ -40,8 +46,8 @@ const $emit = defineEmits<SelectEmits>()
 const { show, changeShow, compValue } = useSelect(props, $emit)
 const popoverRef = ref<any>()
 function handleBlur() {
-  changeShow()
-  popoverRef.value.hide()
+  // changeShow()
+  // popoverRef.value.hide()
 }
 
 function changeValue(value: OptionProps['value']) {

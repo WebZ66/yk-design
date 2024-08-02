@@ -1,8 +1,14 @@
 <template>
-  <div><YkButton>123</YkButton></div>
+  <div>
+    <YkSelect>
+      <YkOption label="123" value="1"></YkOption>
+    </YkSelect>
+  </div>
 </template>
 
 <script setup lang="ts">
+import { YkSelect, YkOption } from '@/packages'
+
 import { ref } from 'vue'
 
 const inputValue = ref('')
