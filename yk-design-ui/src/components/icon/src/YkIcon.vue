@@ -1,5 +1,5 @@
 <template>
-  <svg class="icon" aria-hidden="true">
+  <svg class="yk-icon" aria-hidden="true">
     <use :xlink:href="`#icon-${props.name}`" :fill="props.color"></use>
   </svg>
 </template>
@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<IIconProp>(), {
 </script>
 
 <style lang="scss" scoped>
-.icon {
+.yk-icon {
   width: 1em;
   height: 1em;
   font-size: 16px;
