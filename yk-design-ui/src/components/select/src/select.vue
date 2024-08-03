@@ -10,11 +10,7 @@
       <template #reference>
         <yk-input @blur="handleBlur" :placeholder="props.placeholder" v-model="compValue" readonly>
           <template #suffix>
-            <YkIcon
-              :class="{ 'is-reverse': show, 'yk-icon__cart': true }"
-              color="#c0c4cc"
-              name="jiantou-xiangxia"
-            ></YkIcon>
+            <YkIcon :class="{ 'is-reverse': show, 'yk-icon__cart': true }" :icon="['fas', 'chevron-down']"></YkIcon>
           </template>
         </yk-input>
       </template>

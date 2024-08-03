@@ -11,7 +11,7 @@
       role="alert"
       :style="customStyle"
     >
-      <YkIcon v-if="type" :class="bem('icon')" :name="iconName" :color="iconColor"></YkIcon>
+      <YkIcon v-if="type" :class="bem('icon')" v-bind="iconProp"></YkIcon>
       <div :class="bem('text')">
         <div :class="bem('title')">{{ title }}</div>
         <div :class="bem('content')">
@@ -20,7 +20,7 @@
           </slot>
         </div>
       </div>
-      <YkIcon class="yk-notification__icon--close" v-if="showClose" name="cha" color="#909399" @click="close"></YkIcon>
+      <YkIcon class="yk-notification__icon--close" v-if="showClose" :icon="['fas', 'xmark']" @click="close"></YkIcon>
     </div>
   </Transition>
 </template>
@@ -47,8 +47,8 @@ const props = withDefaults(defineProps<NotificationProps>(), {
   transitionName: 'fade-up',
   showClose: true,
 })
-const iconName = computed(() => props.type && iconNameMap[props.type].name)
-const iconColor = computed(() => props.type && iconNameMap[props.type].color)
+const iconProp = computed(() => props.type && iconNameMap[props.type])
+
 const customStyle = computed(() => {
   return { top: topOffset.value + 'px' }
 })

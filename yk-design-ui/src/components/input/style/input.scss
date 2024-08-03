@@ -1,5 +1,6 @@
 .yk-input {
   position: relative;
+
   &__inner {
     -webkit-appearance: none;
     background-color: #fff;
@@ -20,10 +21,12 @@
     &:hover {
       border-color: #c0c4cc;
     }
+
     &:focus {
       outline: none;
       border-color: #409eff;
     }
+
     &::placeholder {
       color: #c0c4cc;
     }
@@ -32,6 +35,7 @@
   &.yk-input-group {
     display: flex;
     align-items: center;
+
     .yk-input-group__prepend,
     .yk-input-group__append {
       box-sizing: border-box;
@@ -47,23 +51,27 @@
       align-items: center;
       justify-content: center;
     }
+
     .yk-input-group__prepend {
       border-right: 0;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
+
     .yk-input-group__append {
       border-left: 0;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
   }
+
   &.yk-input-group--prepend {
     .yk-input__inner {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
   }
+
   &.yk-input-group--append {
     .yk-input__inner {
       border-top-right-radius: 0;
@@ -76,11 +84,13 @@
       padding-left: 30px;
     }
   }
+
   &.yk-input--suffix {
     .yk-input__inner {
       padding-right: 30px;
     }
   }
+
   &.disabled {
     .yk-input__inner {
       background-color: #f5f7fa;
@@ -101,6 +111,7 @@
     width: 25px;
     text-align: center;
   }
+
   &__suffix {
     position: absolute;
     height: 100%;
@@ -111,11 +122,18 @@
     transition: all 0.3s;
     pointer-events: none;
     display: block;
-    line-height: 40px;
+    line-height: 36px;
     width: 25px;
+
     &-inner {
       pointer-events: all;
       cursor: pointer;
+      font-size: 12px;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #abacad;
+      }
     }
   }
 }

@@ -31,23 +31,23 @@ export const getShape = (shape: number | string) => {
 }
 export const iconNameMap = {
   info: {
-    name: 'jinggao',
+    icon: ['fas', 'circle-info'],
     color: '#909399',
   },
   success: {
-    name: 'quangou',
+    icon: ['fas', 'circle-check'],
     color: '#68c23c',
   },
   warning: {
-    name: 'jinggao3',
+    icon: ['fas', 'triangle-exclamation'],
     color: '#e6a23c',
   },
   error: {
-    name: 'quancha',
+    icon: ['fas', 'triangle-xmark'],
     color: '#f57879',
   },
   danger: {
-    name: 'quancha',
+    icon: ['fas', 'circle-exclamation'],
     color: '#f57879',
   },
 }

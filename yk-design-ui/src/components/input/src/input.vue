@@ -41,17 +41,16 @@
       <span v-if="$slots.suffix || clearable || showPassword" :class="bem('suffix')">
         <span class="yk-input__suffix-inner">
           <slot name="suffix"></slot>
-          <YkIcon v-if="compValue.length && clearable" name="cha_1" color="#c0c4cc" @click="clearValue"></YkIcon>
           <YkIcon
-            v-if="passwordVisible && showPassword"
-            name="yanjing"
-            color="#c0c4cc"
-            @click="togglePasswordVisible"
-          ></YkIcon>
+            v-if="compValue.length && clearable && !showPassword"
+            :icon="['fas', 'circle-xmark']"
+            @click="clearValue"
+          />
+
+          <YkIcon v-if="passwordVisible && showPassword" :icon="['fas', 'eye']" @click="togglePasswordVisible"></YkIcon>
           <YkIcon
             v-if="!passwordVisible && showPassword"
-            name="biyan"
-            color="#c0c4cc"
+            :icon="['fas', 'eye-low-vision']"
             @click="togglePasswordVisible"
           ></YkIcon>
         </span>

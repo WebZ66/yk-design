@@ -1,9 +1,5 @@
 <template>
-  <Transition
-    :name="transitionName"
-    @enter="handleEnter"
-    @after-leave="!visible && onDestroy()"
-  >
+  <Transition :name="transitionName" @enter="handleEnter" @after-leave="!visible && onDestroy()">
     <div
       v-show="visible"
       ref="messageRef"
@@ -15,19 +11,13 @@
       role="alert"
       :style="customStyle"
     >
-      <YkIcon :class="bem('icon')" :name="iconName" :color="iconColor"></YkIcon>
+      <YkIcon :class="bem('icon')" v-bind="iconProp"></YkIcon>
       <div :class="bem('content')">
         <slot>
           <RenderVnode v-if="message" :vNode="message"></RenderVnode>
         </slot>
       </div>
-      <YkIcon
-        class="yk-icon__close"
-        v-if="showClose"
-        name="cha"
-        :color="iconColor"
-        @click="close"
-      ></YkIcon>
+      <YkIcon class="yk-icon__close" v-if="showClose" :icon="['fas', 'xmark']" @click="close"></YkIcon>
     </div>
   </Transition>
 </template>
@@ -54,8 +44,7 @@ const props = withDefaults(defineProps<MessageProps>(), {
   showClose: false,
 })
 
-const iconName = computed(() => iconNameMap[props.type].name)
-const iconColor = computed(() => iconNameMap[props.type].color)
+const iconProp = computed(() => iconNameMap[props.type])
 const customStyle = computed(() => {
   return { top: topOffset.value + 'px' }
 })

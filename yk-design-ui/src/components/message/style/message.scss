@@ -60,12 +60,19 @@
     cursor: pointer;
     position: absolute;
     right: 15px;
+    color: #c0c4cc;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #909399;
+    }
   }
 
   &.fade-up-enter-from {
     opacity: 0;
     transform: translate(-50%, -100%);
   }
+
   &.fade-up-leave-to {
     opacity: 0;
   }

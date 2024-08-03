@@ -1,36 +1,13 @@
 <template>
-  <div class="test"><Icon /></div>
+  <div class="test">
+    <YkSelect v-model="value"></YkSelect>
+  </div>
 </template>
 
 <script setup lang="ts">
+import { YkSelect } from '@/packages'
 import { ref } from 'vue'
-import Icon from '@/components/icon2/src/icon.vue'
-const inputValue = ref('')
-
-const options = ref([
-  {
-    value: '选项1',
-    label: '黄金糕',
-  },
-  {
-    value: '选项2',
-    label: '双皮奶',
-  },
-  {
-    value: '选项3',
-    label: '蚵仔煎',
-  },
-  {
-    value: '选项4',
-    label: '龙须面',
-  },
-  {
-    value: '选项5',
-    label: '北京烤鸭',
-  },
-])
-
-function handleClick() {}
+const value = ref('')
 </script>
 
 <style></style>

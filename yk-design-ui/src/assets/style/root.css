@@ -66,12 +66,11 @@
   --yk-fill-color-dark: #ebedf0;
   --yk-fill-color-darker: #e6e8eb;
   --yk-fill-color-blank: #ffffff;
-  --yk-box-shadow: 0px 12px 32px 4px rgba(0, 0, 0, 0.04),
-    0px 8px 20px rgba(0, 0, 0, 0.08);
+  --yk-box-shadow: 0px 12px 32px 4px rgba(0, 0, 0, 0.04), 0px 8px 20px rgba(0, 0, 0, 0.08);
   --yk-box-shadow-light: 0px 0px 12px rgba(0, 0, 0, 0.12);
   --yk-box-shadow-lighter: 0px 0px 6px rgba(0, 0, 0, 0.12);
-  --yk-box-shadow-dark: 0px 16px 48px 16px rgba(0, 0, 0, 0.08),
-    0px 12px 32px rgba(0, 0, 0, 0.12), 0px 8px 16px -8px rgba(0, 0, 0, 0.16);
+  --yk-box-shadow-dark: 0px 16px 48px 16px rgba(0, 0, 0, 0.08), 0px 12px 32px rgba(0, 0, 0, 0.12),
+    0px 8px 16px -8px rgba(0, 0, 0, 0.16);
   --yk-disabled-bg-color: var(--yk-fill-color-light);
   --yk-disabled-text-color: var(--yk-text-color-placeholder);
   --yk-disabled-border-color: var(--yk-border-color-light);
@@ -99,8 +98,8 @@
   --yk-font-size-base: 14px;
   --yk-font-size-small: 13px;
   --yk-font-size-extra-small: 12px;
-  --yk-font-family: 'Hykvetica Neue', Hykvetica, 'PingFang SC',
-    'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  --yk-font-family: 'Hykvetica Neue', Hykvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial,
+    sans-serif;
   --yk-font-weight-primary: 500;
   --yk-font-line-height-primary: 24px;
   --yk-index-normal: 1;
@@ -112,22 +111,19 @@
   --yk-border-radius-circle: 100%;
   --yk-transition-duration: 0.3s;
   --yk-transition-duration-fast: 0.2s;
-  --yk-transition-function-ease-in-out-bezier: cubic-bezier(0.645,
-      0.045,
-      0.355,
-      1);
+  --yk-transition-function-ease-in-out-bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
   --yk-transition-function-fast-bezier: cubic-bezier(0.23, 1, 0.32, 1);
   --yk-transition-all: all var(--yk-transition-duration) var(--yk-transition-function-ease-in-out-bezier);
   --yk-transition-fade: opacity var(--yk-transition-duration) var(--yk-transition-function-fast-bezier);
   --yk-transition-md-fade: transform var(--yk-transition-duration) var(--yk-transition-function-fast-bezier),
     opacity var(--yk-transition-duration) var(--yk-transition-function-fast-bezier);
   --yk-transition-fade-linear: opacity var(--yk-transition-duration-fast) linear;
-  --yk-transition-border: border-color var(--yk-transition-duration-fast) var(--yk-transition-function-ease-in-out-bezier);
-  --yk-transition-box-shadow: box-shadow var(--yk-transition-duration-fast) var(--yk-transition-function-ease-in-out-bezier);
+  --yk-transition-border: border-color var(--yk-transition-duration-fast)
+    var(--yk-transition-function-ease-in-out-bezier);
+  --yk-transition-box-shadow: box-shadow var(--yk-transition-duration-fast)
+    var(--yk-transition-function-ease-in-out-bezier);
   --yk-transition-color: color var(--yk-transition-duration-fast) var(--yk-transition-function-ease-in-out-bezier);
   --yk-component-size-large: 40px;
   --yk-component-size: 32px;
   --yk-component-size-small: 24px;
-
-
 }
