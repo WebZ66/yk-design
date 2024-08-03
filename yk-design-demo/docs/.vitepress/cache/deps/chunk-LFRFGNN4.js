@@ -1,4 +1,4 @@
-// node_modules/.pnpm/vue@3.3.7/node_modules/vue/dist/vue.runtime.esm-browser.js
+// node_modules/.pnpm/registry.npmmirror.com+vue@3.3.7/node_modules/vue/dist/vue.runtime.esm-browser.js
 function makeMap(str, expectsLowerCase) {
   const map2 = /* @__PURE__ */ Object.create(null);
   const list = str.split(",");
@@ -10670,4 +10670,4 @@ export {
 vue/dist/vue.runtime.esm-browser.js:
   (*! #__NO_SIDE_EFFECTS__ *)
 */
-//# sourceMappingURL=chunk-IUZBPNKP.js.map
+//# sourceMappingURL=chunk-LFRFGNN4.js.map
