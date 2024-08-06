@@ -1,11 +1,11 @@
 <template>
   <div class="test">
-    <YkSelect v-model="value"></YkSelect>
+    <Tooltip> 123 </Tooltip>
   </div>
 </template>
 
 <script setup lang="ts">
-import { YkSelect } from '@/packages'
+import Tooltip from '@/components/tooltip/src/tooltip.vue'
 import { ref } from 'vue'
 const value = ref('')
 </script>

@@ -1,103 +1,184 @@
 <template>
-  <div :class="bem()" ref="popperContainNode" v-on="outerEvents">
-    <!-- 触发区域 -->
-    <div :class="bem('trigger')" ref="triggerNode" v-on="events">
+  <div :class="bem()" ref="containerNode" v-on="outerEvents">
+    <!-- 触发节点 -->
+    <div :class="bem('trigger')" ref="triggerNode" v-on="events" v-if="true">
       <slot></slot>
     </div>
-    <!-- 展示区域 -->
-    <div v-if="isOpen" ref="popperNode">
-      <div :class="bem('popper')">
-        <div name="content">{{ content }}</div>
-      </div>
-      <div id="arrow" data-popper-arrow></div>
-    </div>
+    <slot v-else></slot>
+    <transition :name="transition">
+      <div :class="bem('popper')" ref="popperNode" v-on="dropdownEvents" v-if="visible"></div>
+    </transition>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, onMounted, watch } from 'vue'
+import { ref, type Ref, computed, watchEffect, watch, onUnmounted } from 'vue'
+import type { TooltipProps, TooltipEmits, EventListener, TooltipInstance } from './tooltip'
 import { createCssScope } from '@/utils/bem'
-import { createPopper, Instance, Placement } from '@popperjs/core'
-import type { TooltipProps, TooltipEmits } from './tooltip'
+import { debounce, type DebouncedFunc, bind } from 'lodash-es'
+import { createPopper, type Instance } from '@popperjs/core'
 import '../style/index'
-
 const bem = createCssScope('tooltip')
 defineOptions({
   name: 'YkTooltip',
 })
-const popperNode = ref<HTMLDivElement>()
-const triggerNode = ref<Element>()
-let popperInstance: Instance | null = null
 
-// props属性
 const props = withDefaults(defineProps<TooltipProps>(), {
-  placement: 'top',
+  placement: 'right',
   // 默认是hover触发
   trigger: 'hover',
-  content: '触发的一段文字',
+  transition: 'fade-up',
+  showTimeout: 40,
+  hideTimeout: 200,
 })
 const $emits = defineEmits<TooltipEmits>()
+const visible = ref(false)
 
-const isOpen = ref(false)
-function tooltipOpen() {
-  isOpen.value = true
-  $emits('visible-change', isOpen.value)
-}
-function tooltipClose() {
-  isOpen.value = false
-  $emits('visible-change', isOpen.value)
-  console.log('value', isOpen.value)
-}
-watch(
-  isOpen,
-  (newValue) => {
-    if (newValue) {
-      if (triggerNode.value && popperNode.value) {
-        // 打开状态，创建popperInstance实例
-        const arrow = document.querySelector('#arrow')
-        popperInstance = createPopper(triggerNode.value, popperNode.value, {
-          placement: props.placement as Placement,
-          modifiers: [
-            {
-              name: 'offset',
-              options: {
-                offset: [0, 0],
-              },
-            },
-            {
-              name: 'flip',
-              options: { allowedAutoPlacements: ['bottom'] },
-            },
-            {
-              name: 'arrow',
-              options: {
-                element: arrow,
-              },
-            },
-          ],
-        })
-      } else {
-        // 关闭状态，销毁popperInstance实例
-        popperInstance?.destroy()
-      }
-    }
-  },
-  { flush: 'post' }
-)
+const events: Ref<Record<string, EventListener>> = ref({})
+const outerEvents: Ref<Record<string, EventListener>> = ref({})
+const dropdownEvents: Ref<Record<string, EventListener>> = ref({})
 
-const events = reactive<Record<string, any>>({})
-const outerEvents = reactive<Record<string, any>>({})
-const attachEvents = () => {
-  if (props.trigger === 'hover') {
-    events['mouseenter'] = tooltipOpen
-    outerEvents['mouseleave'] = tooltipClose
-  } else {
-    events['click'] = () => {}
+const containerNode = ref<HTMLElement>()
+const triggerNode = ref<HTMLElement>()
+const popperNode = ref<HTMLElement>()
+
+const popperOptions = computed(() => ({
+  placement: props.placement,
+  modifiers: [
+    {
+      name: 'offset',
+      options: {
+        offset: [0, 0],
+      },
+    },
+  ],
+  ...props.popperOptions,
+}))
+let popperInstance: null | Instance
+function destroyPopperInstance() {
+  if (popperInstance) {
+    popperInstance.destroy()
+    popperInstance = null
   }
 }
-if (!props.manual) {
+//根据trigger重置所有的方法
+function resetEvents() {
+  events.value = {}
+  outerEvents.value = {}
+  dropdownEvents.value = {}
   attachEvents()
 }
-</script>
 
-<style lang="scss" scoped></style>
+function setVisible(val: boolean) {
+  if (props.disabled) return
+  visible.value = val
+  $emits('visible-change', visible.value)
+}
+
+function togglePopper() {
+  visible.value ? closeFinal() : openFinal()
+}
+
+function attachEvents() {
+  if (props.disabled || props.manual) return
+  if (props.trigger === 'hover') {
+    events.value['mouseenter'] = openFinal
+    outerEvents.value['mouseleave'] = closeFinal
+    dropdownEvents.value['mouseenter'] = openFinal
+    return
+  }
+  if (props.trigger == 'click') {
+    events.value['click'] = togglePopper
+    return
+  }
+  if (props.trigger == 'contextmenu') {
+    events.value['contextmenu'] = (e: Event) => {
+      e.preventDefault()
+      openFinal()
+    }
+    return
+  }
+}
+
+//只有hover时才有延迟 延迟关闭是为了鼠标移动时，经过空隙不会直接关闭
+const openDelay = computed(() => (props.trigger === 'hover' ? props.showTimeout : 0))
+const closeDelay = computed(() => (props.trigger === 'hover' ? props.hideTimeout : 0))
+
+let openDebounce: DebouncedFunc<() => void> | void
+let closeDebounce: DebouncedFunc<() => void> | void
+
+//控制弹出关闭
+function openFinal() {
+  console.log('open方法')
+  //cancel防止时间太短，导致先关闭再open的情况
+  closeDebounce?.cancel()
+  openDebounce?.()
+}
+function closeFinal() {
+  console.log('close方法')
+  openDebounce?.cancel()
+  closeDebounce?.()
+}
+
+const show: TooltipInstance['show'] = openFinal
+const hide: TooltipInstance['hide'] = function () {
+  //hide需要区分手动还是hover
+  openDebounce?.cancel()
+  setVisible(false)
+}
+
+watch(
+  visible,
+  (val) => {
+    if (!val) return
+    if (triggerNode.value && popperNode.value) {
+      console.log('popperO', popperOptions.value)
+      popperInstance = createPopper(triggerNode.value, popperNode.value, popperOptions.value)
+    }
+  },
+  {
+    flush: 'post',
+  }
+)
+
+watch(
+  () => props.manual,
+  (isManual) => {
+    if (isManual) {
+      resetEvents()
+      return
+    }
+    attachEvents()
+  }
+)
+
+watch(
+  () => props.trigger,
+  (val, oldVal) => {
+    if (val === oldVal) return
+    openDebounce?.cancel()
+    visible.value = false
+    $emits('visible-change', visible.value)
+    resetEvents()
+  }
+)
+
+onUnmounted(() => {
+  destroyPopperInstance()
+})
+
+watchEffect(() => {
+  //setup时绑定所有的事件处理函数
+  if (!props.manual) {
+    attachEvents()
+  }
+  //设置带有延迟的开关方法
+  openDebounce = debounce(bind(setVisible, null, true), openDelay.value)
+  closeDebounce = debounce(bind(setVisible, null, false), closeDelay.value)
+})
+
+defineExpose<TooltipInstance>({
+  show,
+  hide,
+})
+</script>
