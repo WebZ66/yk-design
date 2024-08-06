@@ -3,7 +3,7 @@ export interface TooltipProps {
   // 显示内容
   content?: string
   // 触发方式
-  trigger?: 'hover' | 'click' | 'contextmenu'
+  trigger?: 'hover' | 'click'
   // 手动控制
   manual?: boolean
 }
