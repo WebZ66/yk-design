@@ -10,21 +10,26 @@ export type Shape = (typeof SHAPES)[number]
 export const STATUS = ['success', 'warning', 'danger', 'primary'] as const
 export type Status = (typeof STATUS)[number]
 
-export const MESSAGETYPE = [
-  'success',
-  'warning',
-  'error',
-  'primary',
-  'loading',
+export const PLACEMENTS = [
+  'top',
+  'top-start',
+  'top-end',
+  'bottom',
+  'bottom-start',
+  'bottom-end',
+  'left',
+  'left-start',
+  'left-end',
+  'right',
+  'right-start',
+  'right-end',
 ] as const
+export type Placements = (typeof PLACEMENTS)[number]
+
+export const MESSAGETYPE = ['success', 'warning', 'error', 'primary', 'loading'] as const
 export type MessageType = (typeof MESSAGETYPE)[number]
 
-export const NOTIFICATIONTYPE = [
-  'primary',
-  'success',
-  'warning',
-  'error',
-] as const
+export const NOTIFICATIONTYPE = ['primary', 'success', 'warning', 'error'] as const
 export type NotificationType = (typeof NOTIFICATIONTYPE)[number]
 
 export const SKIN = ['auto', 'light', 'dark'] as const
@@ -33,13 +38,7 @@ export type Skin = (typeof SKIN)[number]
 export const TITLETYPE = [...STATUS, 'secondary', 'default'] as const
 export type TitleType = (typeof TITLETYPE)[number]
 
-export const TEXTTYPE = [
-  ...STATUS,
-  'secondary',
-  'default',
-  'third',
-  'disabled',
-] as const
+export const TEXTTYPE = [...STATUS, 'secondary', 'default', 'third', 'disabled'] as const
 export type TextType = (typeof TEXTTYPE)[number]
 
 export const DIRECTION = ['vertical', 'horizontal'] as const
