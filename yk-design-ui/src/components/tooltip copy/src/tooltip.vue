@@ -31,7 +31,7 @@ let popperInstance: Instance | null = null
 
 // props属性
 const props = withDefaults(defineProps<TooltipProps>(), {
-  placement: 'top',
+  placement: 'bottom',
   // 默认是hover触发
   trigger: 'hover',
   content: '触发的一段文字',

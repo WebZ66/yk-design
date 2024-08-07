@@ -5,9 +5,14 @@
       <slot></slot>
     </div>
     <slot v-else></slot>
-    <transition :name="transition">
-      <div :class="bem('popper')" ref="popperNode" v-on="dropdownEvents" v-if="visible"></div>
-    </transition>
+    <teleport to="body">
+      <transition :name="transition">
+        <div :class="bem('popper')" ref="popperNode" v-on="dropdownEvents" v-if="visible">
+          {{ content }}
+          <div ref="arrowNode" data-popper-arrow :class="bem('arrow')"></div>
+        </div>
+      </transition>
+    </teleport>
   </div>
 </template>
 
@@ -24,12 +29,13 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<TooltipProps>(), {
-  placement: 'right',
+  placement: 'right-start',
   // 默认是hover触发
-  trigger: 'hover',
+  trigger: 'click',
   transition: 'fade-up',
   showTimeout: 40,
   hideTimeout: 200,
+  content: 'tooltip内容',
 })
 const $emits = defineEmits<TooltipEmits>()
 const visible = ref(false)
@@ -41,7 +47,7 @@ const dropdownEvents: Ref<Record<string, EventListener>> = ref({})
 const containerNode = ref<HTMLElement>()
 const triggerNode = ref<HTMLElement>()
 const popperNode = ref<HTMLElement>()
-
+const arrowNode = ref<HTMLElement>()
 const popperOptions = computed(() => ({
   placement: props.placement,
   modifiers: [
@@ -49,6 +55,12 @@ const popperOptions = computed(() => ({
       name: 'offset',
       options: {
         offset: [0, 0],
+      },
+    },
+    {
+      name: 'arrow',
+      options: {
+        element: arrowNode.value,
       },
     },
   ],
@@ -85,6 +97,7 @@ function attachEvents() {
     events.value['mouseenter'] = openFinal
     outerEvents.value['mouseleave'] = closeFinal
     dropdownEvents.value['mouseenter'] = openFinal
+    dropdownEvents.value['mouseleave'] = closeFinal
     return
   }
   if (props.trigger == 'click') {
@@ -109,13 +122,11 @@ let closeDebounce: DebouncedFunc<() => void> | void
 
 //控制弹出关闭
 function openFinal() {
-  console.log('open方法')
   //cancel防止时间太短，导致先关闭再open的情况
   closeDebounce?.cancel()
   openDebounce?.()
 }
 function closeFinal() {
-  console.log('close方法')
   openDebounce?.cancel()
   closeDebounce?.()
 }
@@ -137,6 +148,7 @@ watch(
     }
   },
   {
+    //等待dom更新结束后调用
     flush: 'post',
   }
 )
