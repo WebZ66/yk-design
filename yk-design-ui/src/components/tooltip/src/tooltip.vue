@@ -1,14 +1,13 @@
 <template>
   <div :class="bem()" ref="containerNode" v-on="outerEvents">
     <!-- 触发节点 -->
-    <div :class="bem('trigger')" ref="triggerNode" v-on="events" v-if="true">
+    <div :class="bem('trigger')" ref="triggerNode" v-on="events">
       <slot></slot>
     </div>
-    <slot v-else></slot>
     <teleport to="body">
       <transition :name="transition">
-        <div :class="bem('popper')" ref="popperNode" v-on="dropdownEvents" v-if="visible">
-          {{ content }}
+        <div :class="bem('popper', { [type]: true })" ref="popperNode" v-on="dropdownEvents" v-if="visible">
+          <slot name="content">{{ content }}</slot>
           <div ref="arrowNode" data-popper-arrow :class="bem('arrow')"></div>
         </div>
       </transition>
@@ -36,6 +35,7 @@ const props = withDefaults(defineProps<TooltipProps>(), {
   showTimeout: 40,
   hideTimeout: 200,
   content: 'tooltip内容',
+  type: 'dark',
 })
 const $emits = defineEmits<TooltipEmits>()
 const visible = ref(false)

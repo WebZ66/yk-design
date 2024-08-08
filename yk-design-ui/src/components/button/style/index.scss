@@ -41,7 +41,7 @@
   padding: 6px 16px;
   white-space: nowrap;
   color: #fff;
-  background-color: #2b5aed;
+  background-color: #419eff;
   outline: none;
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
@@ -70,7 +70,10 @@
 }
 
 .yk-button--primary {
-  border-color: #2b5aed;
+  border-color: #66b1ff;
+  &:hover {
+    background-color: lighten($color: #419eff, $amount: 10%);
+  }
 }
 
 .yk-button--secondary {
@@ -81,7 +84,8 @@
 .yk-button--outline {
   color: var(--fontcolorl, rgb(30, 32, 37));
   background-color: rgba(0, 0, 0, 0);
-  border-color: #1e2025;
+  border-color: #ebeef5;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
 .yk-button--s {
   padding: 0px 12px;

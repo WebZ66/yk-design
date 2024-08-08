@@ -1,13 +1,11 @@
 <template>
   <div class="test">
-    <Tooltip> 123 </Tooltip>
+    <YkPopconfirm>1233</YkPopconfirm>
   </div>
 </template>
 
 <script setup lang="ts">
-import Tooltip from '@/components/tooltip/src/tooltip.vue'
-import { ref } from 'vue'
-const value = ref('')
+import { YkPopconfirm } from '@/components/popconfirm/src'
 </script>
 
 <style></style>

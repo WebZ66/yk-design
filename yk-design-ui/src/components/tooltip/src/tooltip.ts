@@ -13,6 +13,7 @@ export interface TooltipProps {
   transition?: string
   showTimeout?: number
   hideTimeout?: number
+  type?: 'dark' | 'light'
 }
 export interface TooltipEmits {
   (e: 'visible-change', value: boolean): void

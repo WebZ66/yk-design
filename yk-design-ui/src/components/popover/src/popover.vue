@@ -14,7 +14,7 @@
               position: 'absolute',
             }"
           ></div>
-          <div class="content" :x-placement="props.placement" :style="{ width: props.width }">
+          <div class="yk-popper__content" :x-placement="props.placement" :style="{ width: props.width }">
             <slot></slot>
           </div>
         </div>
