@@ -1,5 +1,4 @@
-import '@/assets/style/normalize.css'
-import '@/assets/style/root.css'
+
 import { YkButton } from '@/components/button/src/index'
 import { YkIcon } from '@/components/icon/src'
 import { YkSwitch } from '@/components/switch/src'
