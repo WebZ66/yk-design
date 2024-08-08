@@ -40,18 +40,17 @@
   align-items: center;
   padding: 6px 16px;
   white-space: nowrap;
-  color: #fff;
-  background-color: #419eff;
+  color: #000;
+  border: 1px solid #dcdfe6;
   outline: none;
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
-  border-width: 1px;
-  border-style: solid;
+  background-color: #fff;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  color: #fff;
+
   position: relative;
 }
 .yk-button .circle {
@@ -69,24 +68,49 @@
   animation: rotate 0.9s linear infinite;
 }
 
-.yk-button--primary {
-  border-color: #66b1ff;
-  &:hover {
-    background-color: lighten($color: #419eff, $amount: 10%);
+$yk-button-type: (
+  primary: (
+    bgcolor: #419eff,
+    borderColor: #66b1ff,
+    color: #fff,
+  ),
+  success: (
+    bgcolor: #67c23a,
+    borderColor: #67c23a,
+    color: #fff,
+  ),
+  info: (
+    bgcolor: #a6a9ad,
+    borderColor: #909399,
+    color: #fff,
+  ),
+  warning: (
+    bgcolor: #ebb563,
+    borderColor: #ebb563,
+    color: #fff,
+  ),
+  danger: (
+    bgcolor: #f56c6c,
+    borderColor: #f56c6c,
+    color: #fff,
+  ),
+);
+@each $type, $map in $yk-button-type {
+  .yk-button--#{$type} {
+    background-color: map-get($map, bgcolor);
+    border-color: map-get($map, borderColor);
+    color: map-get($map, color);
+    &:hover {
+      background-color: lighten($color: map-get($map, bgcolor), $amount: 10%);
+      border-color: lighten($color: map-get($map, borderColor), $amount: 10%);
+    }
+    &:disabled {
+      background-color: lighten($color: map-get($map, bgcolor), $amount: 20%);
+      border-color: lighten($color: map-get($map, borderColor), $amount: 20%);
+    }
   }
 }
 
-.yk-button--secondary {
-  color: #fff;
-  background-color: #1e2025;
-  border-color: rgba(0, 0, 0, 0);
-}
-.yk-button--outline {
-  color: var(--fontcolorl, rgb(30, 32, 37));
-  background-color: rgba(0, 0, 0, 0);
-  border-color: #ebeef5;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-}
 .yk-button--s {
   padding: 0px 12px;
   min-width: 24px;

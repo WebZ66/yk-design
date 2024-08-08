@@ -10,6 +10,9 @@ export type Shape = (typeof SHAPES)[number]
 export const STATUS = ['success', 'warning', 'danger', 'primary'] as const
 export type Status = (typeof STATUS)[number]
 
+export const BUTTONTYPE = ['success', 'warning', 'danger', 'primary', 'info', 'text'] as const
+export type ButtonType = (typeof BUTTONTYPE)[number]
+
 export const PLACEMENTS = [
   'top',
   'top-start',

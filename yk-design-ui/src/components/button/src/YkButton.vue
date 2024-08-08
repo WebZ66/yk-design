@@ -14,8 +14,6 @@ defineOptions({
   name: 'YkButton',
 })
 const props = withDefaults(defineProps<ButtonProps>(), {
-  type: 'primary',
-  status: 'primary',
   size: 's',
   shape: 'default',
   long: false,
@@ -28,7 +26,6 @@ const ykButtonClass = computed(() => {
     'yk-button--loading': props.loading,
     'yk-button--long': props.long,
     'yk-button--disabled': props.disabled || props.loading,
-    [`yk-button--${props.status}`]: props.status,
     [`yk-button--${props.type}`]: props.type,
     [`yk-button--${props.size}`]: props.size,
     [`yk-button--${props.shape}`]: props.shape,

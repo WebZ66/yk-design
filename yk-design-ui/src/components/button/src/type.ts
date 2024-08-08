@@ -1,8 +1,7 @@
-import { Shape, Size, Status, Type } from '@/utils/constant'
+import { Shape, Size, ButtonType } from '@/utils/constant'
 
 export type ButtonProps = {
-  type?: Type
-  status?: Status
+  type?: ButtonType
   size?: Size
   shape?: Shape
   long?: boolean

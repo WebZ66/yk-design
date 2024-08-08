@@ -8,8 +8,8 @@
         </div>
 
         <div :class="bem('action')">
-          <YkButton type="outline">取消</YkButton>
-          <YkButton>确定</YkButton>
+          <YkButton>取消</YkButton>
+          <YkButton type="primary">确定</YkButton>
         </div>
       </div>
     </template>
