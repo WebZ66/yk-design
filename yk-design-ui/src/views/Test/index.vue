@@ -1,11 +1,10 @@
 <template>
   <div class="test">
-    <YkPopconfirm>1233</YkPopconfirm>
+    <YkIcon :icon="['fas', 'user']" />
+    <YkButton type="primary">123</YkButton>
   </div>
 </template>
 
-<script setup lang="ts">
-import { YkPopconfirm } from '@/components/popconfirm/src'
-</script>
+<script setup lang="ts"></script>
 
 <style></style>

@@ -33,9 +33,9 @@ export default defineConfig({
       external: ['vue', 'vite-plugin-svg-icons'],
       output: {
         entryFileNames: '[name].mjs',
-        assetFileNames: (assetInfo) => {
+        assetFileNames: (assetInfo): string => {
           if (assetInfo.name == 'style.css') return 'index.css'
-          return assetInfo.name
+          return assetInfo.name!
         },
         manualChunks(id) {
           if (id.includes('node_modules')) {
@@ -44,8 +44,8 @@ export default defineConfig({
           if (id.includes('/src/packages')) {
             return 'packages'
           }
-          if (id.includes('/src/utils')) {
-            return 'utils'
+          if (id.includes('/src/components')) {
+            return 'components'
           }
         },
       },

@@ -9,8 +9,6 @@
 
 <script lang="ts" setup>
 import { ref, reactive, useSlots } from 'vue'
-const $slots = useSlots()
-console.log('slot', $slots)
 </script>
 
 <style scoped>

@@ -9,21 +9,9 @@
           <div>后置</div>
         </template>
       </YkInput>
-      <YkInput
-        v-model="inputValue2"
-        :style="{ width: '300px' }"
-        ref="inputRef"
-        type="password"
-        :show-password="true"
-      >
+      <YkInput v-model="inputValue2" :style="{ width: '300px' }" ref="inputRef" type="password" :show-password="true">
       </YkInput>
-      <YkInput
-        v-model="inputValue3"
-        :style="{ width: '300px' }"
-        ref="inputRef"
-        clearable
-      >
-      </YkInput>
+      <YkInput v-model="inputValue3" :style="{ width: '300px' }" ref="inputRef" clearable> </YkInput>
     </div>
     <hr />
     <div title="yk-radio">
@@ -60,13 +48,7 @@
     <hr />
     <div title="yk-switch">
       <YkSwitch v-model="flag" @update:model-value="handleClick" />
-      <YkSwitch
-        v-model="flag"
-        size="m"
-        checked-color="#1f80ff"
-        unchecked-color="red"
-        :loading="true"
-      ></YkSwitch>
+      <YkSwitch v-model="flag" size="m" checked-color="#1f80ff" unchecked-color="red" :loading="true"></YkSwitch>
       <YkSwitch v-model="myFlag2" size="m"></YkSwitch>
     </div>
     <hr />
@@ -75,13 +57,13 @@
       <span :style="{ 'margin-right': '20px' }"></span>
       <YkButton type="primary" size="m" :loading="true">加载按钮</YkButton>
       <span :style="{ 'margin-right': '20px' }"></span>
-      <YkButton :type="'secondary'" size="m">深色按钮</YkButton>
+      <YkButton type="warning" size="m">深色按钮</YkButton>
       <span :style="{ 'margin-right': '20px' }"></span>
-      <YkButton :type="'outline'" size="xl">大型按钮</YkButton>
+      <YkButton :type="'danger'" size="xl">大型按钮</YkButton>
       <span :style="{ 'margin-right': '20px' }"></span>
       <YkButton :type="'primary'" size="m" shape="circle">+</YkButton>
       <span :style="{ 'margin-right': '20px' }"></span>
-      <YkButton :type="'secondary'" size="s" shape="round">
+      <YkButton :type="'info'" size="s" shape="round">
         <template #icon>
           <YkIcon name="saoma" color="#fff"></YkIcon>
         </template>

@@ -34,37 +34,41 @@ export default defineConfig({
 
 > 由于开发者能力有限，YkIcon 组件是基于 `vite-plugin-svg-icons`插件开发，但也因此，YkIcon 组件可以进行丰富的扩展。
 
-### 安装 SVG 依赖插件
+**注意：yk-design@1.0.1版本目前已废弃~~vite-plugin-svg-icons~~,转为 [fontawesome 开源图标库 ](https://fontawesome.com/search?m=free&o=r)**。详情可见[icon](../examples/icon.md)
+
+**yk-design@1.0.0版本可继续使用**
+
+安装 SVG 依赖插件
 
 ```js
-pnpm add vite-plugin-svg-icons 
+pnpm add vite-plugin-svg-icons
 ```
 
-### 配置 SVG 依赖插件
+配置 SVG 依赖插件
 
 **在`vite.config.ts`中配置插件**
 
 ```js
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import path from 'path'
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons"
+import path from "path"
 export default () => {
-  return {
-    plugins: [
-      createSvgIconsPlugin({
-        // Specify the icon folder to be cached
-        iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
-        // Specify symbolId format
-        symbolId: 'icon-[dir]-[name]'
-      })
-    ]
-  }
+    return {
+        plugins: [
+            createSvgIconsPlugin({
+                // Specify the icon folder to be cached
+                iconDirs: [path.resolve(process.cwd(), "src/assets/icons")],
+                // Specify symbolId format
+                symbolId: "icon-[dir]-[name]",
+            }),
+        ],
+    }
 }
 ```
 
-### main.ts 中导入
+main.ts 中导入
 
 ```ts
-import 'virtual:svg-icons-register'
+import "virtual:svg-icons-register"
 ```
 
 配置完成后，只需要在对应的 `iconDirs`下，放入不同的`svg图片`，即可实现自由的个人图标库！！！[快快开始吧](../examples/button.md)
