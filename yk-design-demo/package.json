@@ -1,5 +1,7 @@
 {
     "devDependencies": {
+        "sass": "^1.77.8",
+        "scss": "^0.2.4",
         "vitepress": "1.0.0-beta.7"
     },
     "scripts": {
