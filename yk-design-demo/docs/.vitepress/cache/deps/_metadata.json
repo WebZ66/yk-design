@@ -1,29 +1,35 @@
 {
-  "hash": "4fbd58fd",
-  "browserHash": "10f1aae8",
+  "hash": "db777b4f",
+  "browserHash": "7d5d4c9b",
   "optimized": {
     "vue": {
-      "src": "../../../../node_modules/.pnpm/registry.npmmirror.com+vue@3.3.7/node_modules/vue/dist/vue.runtime.esm-browser.js",
+      "src": "../../../../node_modules/.pnpm/vue@3.3.7/node_modules/vue/dist/vue.runtime.esm-browser.js",
       "file": "vue.js",
-      "fileHash": "de25cf2b",
+      "fileHash": "1158ed32",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
-      "src": "../../../../node_modules/.pnpm/registry.npmmirror.com+@vue+devtools-api@6.5.1/node_modules/@vue/devtools-api/lib/esm/index.js",
+      "src": "../../../../node_modules/.pnpm/@vue+devtools-api@6.5.1/node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "8125e328",
+      "fileHash": "33d07778",
       "needsInterop": false
     },
     "element-plus": {
-      "src": "../../../../node_modules/.pnpm/registry.npmmirror.com+element-plus@2.4.1_vue@3.3.7/node_modules/element-plus/es/index.mjs",
+      "src": "../../../../node_modules/.pnpm/element-plus@2.4.1_vue@3.3.7/node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "a660b857",
+      "fileHash": "21a6b83a",
+      "needsInterop": false
+    },
+    "yk-design": {
+      "src": "../../../../node_modules/yk-design/es/index.mjs",
+      "file": "yk-design.js",
+      "fileHash": "8bf18ede",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-LFRFGNN4": {
-      "file": "chunk-LFRFGNN4.js"
+    "chunk-IUZBPNKP": {
+      "file": "chunk-IUZBPNKP.js"
     },
     "chunk-UXIASGQL": {
       "file": "chunk-UXIASGQL.js"
