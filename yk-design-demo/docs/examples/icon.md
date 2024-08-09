@@ -7,4 +7,4 @@
 直接设置 `icon`属性即可(继承自 fontawesome 的所有属性)
 
 <YkIcon :icon="['fas', 'magnifying-glass']"></YkIcon>
-<YkIcon :icon="['fas', 'house']"></YkIcon>
+<YkIcon :icon="['fas', 'magnifying-glass']"></YkIcon>
