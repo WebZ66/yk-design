@@ -1,10 +1,10 @@
-import { Type } from '@/utils/constant'
+import { ButtonType } from '@/utils/constant'
 export interface PopconfirmProps {
   title: string
   confirmButtonText?: string
   cancelButtonText?: string
-  confirmButtonType?: Type
-  cancelButtonType?: Type
+  confirmButtonType?: ButtonType
+  cancelButtonType?: ButtonType
   icon?: string[]
   iconColor?: string
   hideIcon?: boolean
