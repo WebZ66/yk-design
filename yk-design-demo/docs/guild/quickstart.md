@@ -49,26 +49,26 @@ pnpm add vite-plugin-svg-icons
 **在`vite.config.ts`中配置插件**
 
 ```js
-import { createSvgIconsPlugin } from "vite-plugin-svg-icons"
-import path from "path"
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import path from 'path'
 export default () => {
-    return {
-        plugins: [
-            createSvgIconsPlugin({
-                // Specify the icon folder to be cached
-                iconDirs: [path.resolve(process.cwd(), "src/assets/icons")],
-                // Specify symbolId format
-                symbolId: "icon-[dir]-[name]",
-            }),
-        ],
-    }
+  return {
+    plugins: [
+      createSvgIconsPlugin({
+        // Specify the icon folder to be cached
+        iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+        // Specify symbolId format
+        symbolId: 'icon-[dir]-[name]'
+      })
+    ]
+  }
 }
 ```
 
 main.ts 中导入
 
 ```ts
-import "virtual:svg-icons-register"
+import 'virtual:svg-icons-register'
 ```
 
 配置完成后，只需要在对应的 `iconDirs`下，放入不同的`svg图片`，即可实现自由的个人图标库！！！[快快开始吧](../examples/button.md)
