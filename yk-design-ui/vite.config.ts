@@ -37,11 +37,6 @@ export default defineConfig({
       external: ['vue'],
       output: [
         {
-          dir: path.resolve(__dirname, './dist'),
-          formats: ['umd', 'iife'],
-          fileName: '[name].js',
-        },
-        {
           dir: path.resolve(__dirname, './dist/es'),
           //打包格式
           format: 'es',
@@ -60,6 +55,11 @@ export default defineConfig({
           //让打包目录和我们目录对应
           preserveModules: true,
           exports: 'named',
+        },
+        {
+          dir: path.resolve(__dirname, './src/packages/index.ts'),
+          entryFileNames: 'index',
+          format: 'umd',
         },
       ],
     },

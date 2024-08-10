@@ -1,9 +1,9 @@
 .main {
   position: relative;
-  width: fit-content;
+  width: fit-yk-popper__content;
 }
 
-.content {
+.yk-popper__content {
   width: 100px;
   box-sizing: border-box;
   margin-bottom: 12px;
@@ -18,18 +18,17 @@
   font-size: 14px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   word-break: break-all;
-  box-sizing: border-box;
 }
 
-.content[x-placement^='bottom'] {
+.yk-popper__content[x-placement^='bottom'] {
   margin-top: 12px;
 }
 
-.content[x-placement^='right'] {
+.yk-popper__content[x-placement^='right'] {
   margin-left: 12px;
 }
 
-.content[x-placement^='left'] {
+.yk-popper__content[x-placement^='left'] {
   margin-right: 12px;
 }
 
