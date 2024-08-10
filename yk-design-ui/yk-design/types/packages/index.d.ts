@@ -6,12 +6,12 @@ import { YkCheckbox } from '../components/checkbox/src';
 import { YkInput } from '../components/input/src';
 import { YkSelect, YkOption } from '../components/select/src';
 import { YkTooltip } from '../components/tooltip/src';
-import { YkPopover } from '../components/popover/src';
+import { YkPopconfirm } from '../components/popconfirm/src';
 import { default as Message } from '../components/message/src/methods';
 import { default as Notification } from '../components/notification/src/methods';
 import { App } from 'vue';
 
-export { YkButton, YkIcon, YkSelect, YkSwitch, YkRadio, YkCheckbox, YkInput, YkOption, YkTooltip, YkPopover, Message, Notification, };
+export { YkButton, YkIcon, YkSelect, YkSwitch, YkRadio, YkCheckbox, YkInput, YkOption, YkTooltip, YkPopconfirm, Message, Notification, };
 declare const _default: {
     install(app: App): void;
 };

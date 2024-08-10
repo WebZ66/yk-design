@@ -2,27 +2,52 @@
 
 常用的操作按钮
 
-## 基础用法
+## 不同类别的按钮
 
-基础的按钮用法
 <br/>
 
-<script>
-import '../style/button.scss'
+:::preview
 
-</script>
-<div class='btn_group'>
-      <YkButton size='l'>默认按钮</YkButton>
-      <YkButton type='primary' size='l'>主要按钮</YkButton>
-      <YkButton type='success' size='l'>成功按钮</YkButton>
-      <YkButton type='info' size='l'>信息按钮</YkButton>
-      <YkButton type='danger' size='l'>危险按钮</YkButton>
-</div>
-<details>
-<summary>详细代码</summary>
+demo-preview=../components/button/basic.vue
 
-```vue
-<template></template>
-```
+:::
 
-</details>
+## 不同大小的按钮
+
+<br/>
+
+:::preview
+
+demo-preview=../components/button/size.vue
+
+:::
+
+## 禁用状态
+
+<br/>
+
+:::preview
+
+demo-preview=../components/button/disable.vue
+
+:::
+
+## 带有图标的
+
+<br/>
+
+:::preview
+
+demo-preview=../components/button/icon.vue
+
+:::
+
+## 加载中
+
+<br/>
+
+:::preview
+
+demo-preview=../components/button/loading.vue
+
+:::

@@ -3,23 +3,39 @@ import { TooltipProps } from './tooltip';
 declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<TooltipProps>, {
     placement: string;
     trigger: string;
+    transition: string;
+    showTimeout: number;
+    hideTimeout: number;
     content: string;
-}>, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+    type: string;
+}>, {
+    show(): void;
+    hide(): void;
+}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     "visible-change": (value: boolean) => void;
-    "click-outside": (value: boolean) => void;
+    "click-outside": () => void;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<TooltipProps>, {
     placement: string;
     trigger: string;
+    transition: string;
+    showTimeout: number;
+    hideTimeout: number;
     content: string;
+    type: string;
 }>>> & {
     "onVisible-change"?: ((value: boolean) => any) | undefined;
-    "onClick-outside"?: ((value: boolean) => any) | undefined;
+    "onClick-outside"?: (() => any) | undefined;
 }, {
+    type: "light" | "dark";
+    transition: string;
     content: string;
-    placement: string;
-    trigger: "click" | "hover";
+    placement: import('@popperjs/core').Placement;
+    trigger: "click" | "contextmenu" | "hover";
+    showTimeout: number;
+    hideTimeout: number;
 }, {}>, {
     default?(_: {}): any;
+    content?(_: {}): any;
 }>;
 export default _default;
 type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;

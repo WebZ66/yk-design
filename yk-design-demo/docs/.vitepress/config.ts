@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-
+import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin'
 export default defineConfig({
   title: 'yk-design-ui',
   description: '一个通用的vue3组件库',
@@ -45,5 +45,11 @@ export default defineConfig({
     },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }]
+  },
+  markdown: {
+    config(md) {
+      md.use(containerPreview)
+      md.use(componentPreview)
+    }
   }
 })

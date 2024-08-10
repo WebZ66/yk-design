@@ -11,7 +11,7 @@ export declare const YkPopover: import('../../../utils').SFCWithInstall<{
             type: import('vue').PropType<string>;
         };
         placement: {
-            type: import('vue').PropType<"right" | "left" | "top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left-start" | "left-end" | "right-start" | "right-end">;
+            type: import('vue').PropType<"top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" | "right" | "right-start" | "right-end">;
             default: string;
         };
         trigger: {
@@ -42,7 +42,7 @@ export declare const YkPopover: import('../../../utils').SFCWithInstall<{
             type: import('vue').PropType<string>;
         };
         placement: {
-            type: import('vue').PropType<"right" | "left" | "top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left-start" | "left-end" | "right-start" | "right-end">;
+            type: import('vue').PropType<"top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" | "right" | "right-start" | "right-end">;
             default: string;
         };
         trigger: {
@@ -57,7 +57,7 @@ export declare const YkPopover: import('../../../utils').SFCWithInstall<{
         onHide?: (() => any) | undefined;
     }, {
         width: string | number;
-        placement: "right" | "left" | "top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left-start" | "left-end" | "right-start" | "right-end";
+        placement: "top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" | "right" | "right-start" | "right-end";
         trigger: "click" | "hover" | "manual";
     }, true, {}, {}, {
         P: {};
@@ -78,7 +78,7 @@ export declare const YkPopover: import('../../../utils').SFCWithInstall<{
             type: import('vue').PropType<string>;
         };
         placement: {
-            type: import('vue').PropType<"right" | "left" | "top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left-start" | "left-end" | "right-start" | "right-end">;
+            type: import('vue').PropType<"top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" | "right" | "right-start" | "right-end">;
             default: string;
         };
         trigger: {
@@ -96,7 +96,7 @@ export declare const YkPopover: import('../../../utils').SFCWithInstall<{
         hide(): void;
     }, {}, {}, {}, {
         width: string | number;
-        placement: "right" | "left" | "top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left-start" | "left-end" | "right-start" | "right-end";
+        placement: "top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" | "right" | "right-start" | "right-end";
         trigger: "click" | "hover" | "manual";
     }>;
     __isFragment?: undefined;
@@ -114,7 +114,7 @@ export declare const YkPopover: import('../../../utils').SFCWithInstall<{
         type: import('vue').PropType<string>;
     };
     placement: {
-        type: import('vue').PropType<"right" | "left" | "top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left-start" | "left-end" | "right-start" | "right-end">;
+        type: import('vue').PropType<"top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" | "right" | "right-start" | "right-end">;
         default: string;
     };
     trigger: {
@@ -135,7 +135,7 @@ export declare const YkPopover: import('../../../utils').SFCWithInstall<{
     hide: () => void;
 }, string, {
     width: string | number;
-    placement: "right" | "left" | "top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left-start" | "left-end" | "right-start" | "right-end";
+    placement: "top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" | "right" | "right-start" | "right-end";
     trigger: "click" | "hover" | "manual";
 }, {}, string, {}> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
     $slots: {

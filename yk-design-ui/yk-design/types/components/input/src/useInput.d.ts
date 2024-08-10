@@ -5,7 +5,7 @@ export declare const useInput: (props: InputProps, $emits: InputEmits) => {
     compValue: import('vue').WritableComputedRef<string>;
     clearValue: () => void;
     passwordVisible: import('vue').Ref<boolean>;
-    isPassword: import('vue').ComputedRef<"password" | "text">;
+    isPassword: import('vue').ComputedRef<"text" | "password">;
     togglePasswordVisible: () => void;
     handleFocus: (e: FocusEvent) => void;
     handleBlur: (e: FocusEvent) => void;

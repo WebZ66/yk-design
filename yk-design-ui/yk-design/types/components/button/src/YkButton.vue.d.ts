@@ -1,16 +1,12 @@
 import { ButtonProps } from './type';
 
 declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<ButtonProps>, {
-    type: string;
-    status: string;
     size: string;
     shape: string;
     long: boolean;
     loading: boolean;
     disabled: boolean;
 }>, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<ButtonProps>, {
-    type: string;
-    status: string;
     size: string;
     shape: string;
     long: boolean;
@@ -21,8 +17,6 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<__
     disabled: boolean;
     shape: "default" | "round" | "circle" | "square";
     size: "s" | "m" | "l" | "xl";
-    type: "primary" | "secondary" | "outline";
-    status: "primary" | "success" | "warning" | "danger";
     long: boolean;
 }, {}>, {
     icon?(_: {}): any;

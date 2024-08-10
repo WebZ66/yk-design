@@ -19,12 +19,7 @@ export declare const YkButton: import('../../../utils').SFCWithInstall<{
             default: string;
         };
         type: {
-            type: import('vue').PropType<"primary" | "secondary" | "outline">;
-            default: string;
-        };
-        status: {
-            type: import('vue').PropType<"primary" | "success" | "warning" | "danger">;
-            default: string;
+            type: import('vue').PropType<"primary" | "success" | "warning" | "danger" | "info" | "text">;
         };
         long: {
             type: import('vue').PropType<boolean>;
@@ -48,12 +43,7 @@ export declare const YkButton: import('../../../utils').SFCWithInstall<{
             default: string;
         };
         type: {
-            type: import('vue').PropType<"primary" | "secondary" | "outline">;
-            default: string;
-        };
-        status: {
-            type: import('vue').PropType<"primary" | "success" | "warning" | "danger">;
-            default: string;
+            type: import('vue').PropType<"primary" | "success" | "warning" | "danger" | "info" | "text">;
         };
         long: {
             type: import('vue').PropType<boolean>;
@@ -64,8 +54,6 @@ export declare const YkButton: import('../../../utils').SFCWithInstall<{
         disabled: boolean;
         shape: "default" | "round" | "circle" | "square";
         size: "s" | "m" | "l" | "xl";
-        type: "primary" | "secondary" | "outline";
-        status: "primary" | "success" | "warning" | "danger";
         long: boolean;
     }, true, {}, {}, {
         P: {};
@@ -92,12 +80,7 @@ export declare const YkButton: import('../../../utils').SFCWithInstall<{
             default: string;
         };
         type: {
-            type: import('vue').PropType<"primary" | "secondary" | "outline">;
-            default: string;
-        };
-        status: {
-            type: import('vue').PropType<"primary" | "success" | "warning" | "danger">;
-            default: string;
+            type: import('vue').PropType<"primary" | "success" | "warning" | "danger" | "info" | "text">;
         };
         long: {
             type: import('vue').PropType<boolean>;
@@ -108,8 +91,6 @@ export declare const YkButton: import('../../../utils').SFCWithInstall<{
         disabled: boolean;
         shape: "default" | "round" | "circle" | "square";
         size: "s" | "m" | "l" | "xl";
-        type: "primary" | "secondary" | "outline";
-        status: "primary" | "success" | "warning" | "danger";
         long: boolean;
     }>;
     __isFragment?: undefined;
@@ -133,12 +114,7 @@ export declare const YkButton: import('../../../utils').SFCWithInstall<{
         default: string;
     };
     type: {
-        type: import('vue').PropType<"primary" | "secondary" | "outline">;
-        default: string;
-    };
-    status: {
-        type: import('vue').PropType<"primary" | "success" | "warning" | "danger">;
-        default: string;
+        type: import('vue').PropType<"primary" | "success" | "warning" | "danger" | "info" | "text">;
     };
     long: {
         type: import('vue').PropType<boolean>;
@@ -149,8 +125,6 @@ export declare const YkButton: import('../../../utils').SFCWithInstall<{
     disabled: boolean;
     shape: "default" | "round" | "circle" | "square";
     size: "s" | "m" | "l" | "xl";
-    type: "primary" | "secondary" | "outline";
-    status: "primary" | "success" | "warning" | "danger";
     long: boolean;
 }, {}, string, {}> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
     $slots: {

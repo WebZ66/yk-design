@@ -16,7 +16,7 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<__
     transitionName: string;
     showClose: boolean;
 }>>>, {
-    type: "success" | "warning" | "danger" | "error" | "info";
+    type: "success" | "warning" | "danger" | "info" | "error";
     duration: number;
     showClose: boolean;
     offset: number;
