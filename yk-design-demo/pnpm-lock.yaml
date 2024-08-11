@@ -17,6 +17,9 @@ dependencies:
   element-plus:
     specifier: ^2.4.1
     version: 2.4.1(vue@3.4.37)
+  yk-design-zds:
+    specifier: ^1.0.1
+    version: 1.0.1
 
 devDependencies:
   sass:
@@ -1728,4 +1731,8 @@ packages:
       '@vue/runtime-dom': 3.4.37
       '@vue/server-renderer': 3.4.37(vue@3.4.37)
       '@vue/shared': 3.4.37
+    dev: false
+
+  /yk-design-zds@1.0.1:
+    resolution: {integrity: sha512-XOAadotQW5OoNZlN8PvrM4hDwxYM8DqSMQ2JGuucljyCt4J+gpEDxdZIt7H+rt/TwZ3DBjlRJWRtBXAYW6C2fw==}
     dev: false

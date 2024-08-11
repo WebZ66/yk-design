@@ -1,7 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { AntDesignContainer, ElementPlusContainer, NaiveUIContainer } from '@vitepress-demo-preview/component'
-import YkDesign from 'yk-design'
-import 'yk-design/style'
+import YkDesign from 'yk-design-zds'
+import 'yk-design-zds/style'
 import '@vitepress-demo-preview/component/dist/style.css'
 import '../../style/reset.css'
 
