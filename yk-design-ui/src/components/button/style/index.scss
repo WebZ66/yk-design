@@ -1,12 +1,14 @@
 .yk-button--loading {
   opacity: 0.7 !important;
 }
+
 .yk-button--loading svg {
   margin-right: 4px;
   width: 16px;
   transform-origin: center;
   animation: rotate4 2s linear infinite;
 }
+
 .yk-button--loading circle {
   fill: none;
   stroke: #dee0e7;
@@ -16,24 +18,31 @@
   stroke-linecap: round;
   animation: dash4 1.5s ease-in-out infinite;
 }
+
 @keyframes rotate4 {
   100% {
     transform: rotate(360deg);
   }
 }
+
 @keyframes dash4 {
   0% {
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
   }
+
   50% {
     stroke-dasharray: 90, 200;
     stroke-dashoffset: -35px;
   }
+
   100% {
     stroke-dashoffset: -125px;
   }
 }
+
+
+
 .yk-button {
   display: inline-flex;
   justify-content: center;
@@ -52,9 +61,14 @@
   user-select: none;
 
   position: relative;
+
+  .yk-icon {
+    margin-right: 5px;
+  }
 }
+
 .yk-button .circle {
-  position: absolute;
+
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -64,46 +78,44 @@
   border-bottom-color: #fff;
   border-left-color: rgba(0, 0, 0, 0);
   border-style: solid;
-  left: 2px;
   animation: rotate 0.9s linear infinite;
+  margin-right: 5px;
 }
 
 $yk-button-type: (
-  primary: (
-    bgcolor: #419eff,
+  primary: (bgcolor: #419eff,
     borderColor: #419eff,
     color: #fff,
   ),
-  success: (
-    bgcolor: #67c23a,
+  success: (bgcolor: #67c23a,
     borderColor: #67c23a,
     color: #fff,
   ),
-  info: (
-    bgcolor: #a6a9ad,
-    borderColor: #909399,
+  info: (bgcolor: #a6a9ad,
+    borderColor: #a6a9ad,
     color: #fff,
   ),
-  warning: (
-    bgcolor: #ebb563,
+  warning: (bgcolor: #ebb563,
     borderColor: #ebb563,
     color: #fff,
   ),
-  danger: (
-    bgcolor: #f56c6c,
+  danger: (bgcolor: #f56c6c,
     borderColor: #f56c6c,
     color: #fff,
   ),
 );
+
 @each $type, $map in $yk-button-type {
   .yk-button--#{$type} {
     background-color: map-get($map, bgcolor);
     border-color: map-get($map, borderColor);
     color: map-get($map, color);
+
     &:hover {
       background-color: lighten($color: map-get($map, bgcolor), $amount: 10%);
       border-color: lighten($color: map-get($map, borderColor), $amount: 10%);
     }
+
     &:disabled {
       background-color: lighten($color: map-get($map, bgcolor), $amount: 20%);
       border-color: lighten($color: map-get($map, borderColor), $amount: 20%);
@@ -118,6 +130,7 @@ $yk-button-type: (
   font-size: 12px;
   border-radius: 4px;
 }
+
 .yk-button--m {
   padding: 0px 16px;
   min-width: 32px;
@@ -125,12 +138,14 @@ $yk-button-type: (
   border-radius: 4px;
   font-size: 12px;
 }
+
 .yk-button--l {
   padding: 0px 18px;
   min-width: 36px;
   height: 36px;
   border-radius: 8px;
 }
+
 .yk-button--xl {
   padding: 0px 24px;
   min-width: 48px;
@@ -138,6 +153,7 @@ $yk-button-type: (
   font-size: 16px;
   border-radius: 8px;
 }
+
 .yk-button--long {
   display: block;
   width: 100%;
@@ -160,7 +176,12 @@ $yk-button-type: (
   from {
     transform: rotate(0);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.yk-button--disabled {
+  cursor: not-allowed;
 }

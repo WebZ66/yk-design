@@ -2,12 +2,10 @@ import { createApp } from 'vue'
 
 import router from './router'
 import App from './App.vue'
-
-import YkDesign from 'yk-design'
-import 'yk-design/style'
+import YkDesign from './packages/index'
 const app = createApp(App)
 
-app.use(YkDesign)
 app.use(router)
+app.use(YkDesign)
 
 app.mount('#app')
