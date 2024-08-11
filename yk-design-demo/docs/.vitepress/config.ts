@@ -32,12 +32,16 @@ export default defineConfig({
           text: '基础组件',
           items: [
             {
-              text: 'Icon图标',
+              text: 'Icon',
               link: '/examples/icon'
             },
             {
-              text: 'Button按钮',
+              text: 'Button',
               link: '/examples/button'
+            },
+            {
+              text: 'Switch',
+              link: '/examples/switch'
             }
           ]
         }
@@ -51,5 +55,6 @@ export default defineConfig({
       md.use(containerPreview)
       md.use(componentPreview)
     }
-  }
+  },
+  outDir: '../../../yk-design-doc/dist'
 })
