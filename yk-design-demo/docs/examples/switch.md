@@ -9,3 +9,13 @@
 demo-preview=../components/switch/basic.vue
 
 :::
+
+## 文字描述
+
+## 扩展的 value 属性
+
+:::preview
+
+demo-preview=../components/switch/extra-value.vue
+
+:::

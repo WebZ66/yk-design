@@ -6,7 +6,7 @@
 
 **vite 使用者请重点关注下面步骤**
 
-> 因为 vite 不支持 commonjs 的语法，需要额外安装`@rollup/plugin-commonjs`
+> ~~因为 vite 不支持 commonjs 的语法，需要额外安装`@rollup/plugin-commonjs`~~(1.0.0-1.0.1版本还需安装此插件)。**目前yk-design@1.0.2版本已打包成es-module格式，可直接导入使用。**
 
 安装
 

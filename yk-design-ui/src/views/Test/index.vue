@@ -1,6 +1,6 @@
 <template>
   <div class="test">
-    <YkSwitch v-model="value" active-text="激活" inactive-text="不激活"></YkSwitch>
+    <YkSwitch checkedValue="value1" unCheckedValue="value2" v-model="value" @change="handleValue"></YkSwitch>
   </div>
 </template>
 
@@ -8,6 +8,9 @@
 import { ref } from 'vue'
 
 const value = ref('')
+function handleValue(val) {
+  console.log('val', val)
+}
 </script>
 
 <style></style>

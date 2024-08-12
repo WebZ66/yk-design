@@ -37,21 +37,13 @@ const props = withDefaults(defineProps<ISwitchProps>(), {
 })
 //控制选中与非选中的值
 const currentValue = ref(props.modelValue)
-watch(
-  () => props.modelValue,
-  (newValue) => {
-    currentValue.value = newValue
-  },
-  { deep: true }
-)
+
 const handleClick = (e: Event) => {
   if (isDisabled.value) return
   //每次点击后取反，然后传递的默认选中值或非选中值给currentValue
-  if (!currentValue.value) {
-    currentValue.value = props.checkedValue
-  } else {
-    currentValue.value = props.unCheckedValue
-  }
+  currentValue.value === props.checkedValue
+    ? (currentValue.value = props.unCheckedValue)
+    : (currentValue.value = props.checkedValue)
   emits('update:modelValue', currentValue.value, e)
   emits('change', currentValue.value, e)
 }
@@ -77,7 +69,7 @@ const ykSwitchClass = computed(() => {
 
 const ykSwitchStyle = computed(() => {
   return {
-    backgroundColor: !!currentValue.value == !!props.checkedValue ? props.checkedColor : props.uncheckedColor,
+    backgroundColor: currentValue.value === props.checkedValue ? props.checkedColor : props.uncheckedColor,
   }
 })
 
