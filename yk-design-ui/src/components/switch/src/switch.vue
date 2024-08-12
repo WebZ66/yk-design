@@ -1,4 +1,7 @@
 <template>
+  <span :class="{ 'is-active-switch': isChecked, 'yk-switch__label--left': true }" v-if="activeText?.length">{{
+    activeText
+  }}</span>
   <button
     :class="ykSwitchClass"
     :style="ykSwitchStyle"
@@ -11,11 +14,15 @@
       <div :class="{ circle: props.loading }"></div>
     </div>
   </button>
+  <span :class="{ 'is-active-switch': !isChecked, 'yk-switch__label--right': true }" v-if="inactiveText?.length">{{
+    inactiveText
+  }}</span>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted, watch } from 'vue'
 import type { ISwitchProps, valueType } from './type'
+import '../style/index'
 defineOptions({
   name: 'YkSwitch',
 })
@@ -70,10 +77,7 @@ const ykSwitchClass = computed(() => {
 
 const ykSwitchStyle = computed(() => {
   return {
-    backgroundColor:
-      !!currentValue.value == !!props.checkedValue
-        ? props.checkedColor
-        : props.uncheckedColor,
+    backgroundColor: !!currentValue.value == !!props.checkedValue ? props.checkedColor : props.uncheckedColor,
   }
 })
 
@@ -82,7 +86,3 @@ const emits = defineEmits<{
   (e: 'change', value: valueType, event: Event): true
 }>()
 </script>
-
-<style lang="scss" scoped>
-@import url('../style/index.scss');
-</style>

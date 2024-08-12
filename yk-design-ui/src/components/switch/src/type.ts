@@ -8,4 +8,6 @@ export interface ISwitchProps {
   unCheckedValue?: valueType
   checkedColor?: string
   uncheckedColor?: string
+  activeText?: string
+  inactiveText?: string
 }

@@ -22,8 +22,6 @@
     color: #fff;
     background-color: #fff;
     transition: all 0.2s ease-in-out;
-
-
   }
 
   @keyframes rotate {
@@ -35,7 +33,6 @@
       transform: translate(-50%, 0) rotate(360deg);
     }
   }
-
 
   &--s.yk-switch--isChecked .yk-switch__dot {
     left: calc(100% - 17px);
@@ -126,13 +123,19 @@
     height: 14px;
   }
 
-
-
-
   &--disabled {
     opacity: 0.6 !important;
     cursor: not-allowed;
   }
-
-
+}
+.is-active-switch {
+  color: #409eff;
+}
+.yk-switch__label--left {
+  font-size: 14px;
+  margin-right: 5px;
+}
+.yk-switch__label--right {
+  font-size: 14px;
+  margin-left: 5px;
 }
