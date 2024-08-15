@@ -36,7 +36,7 @@ import { YkIcon } from '@/components/icon/src/index'
 import { useZIndex } from '@/hooks'
 import '../style'
 
-import Overlay from '@/components/Overlay/src/overlay.vue'
+import Overlay from '@/components/overlay/src/overlay.vue'
 
 defineOptions({
   name: 'YkMessageBox',
