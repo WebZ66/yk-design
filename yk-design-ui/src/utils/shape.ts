@@ -50,4 +50,12 @@ export const iconNameMap = {
     icon: ['fas', 'circle-exclamation'],
     color: '#f57879',
   },
+  primary: {
+    icon: ['fas', 'circle-info'],
+    color: '#66b1ff',
+  },
+  loading: {
+    icon: ['fas', 'triangle-exclamation'],
+    color: '#e6a23c',
+  },
 }

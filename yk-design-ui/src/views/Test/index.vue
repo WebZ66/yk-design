@@ -1,16 +1,12 @@
 <template>
   <div class="test">
-    <YkSwitch checkedValue="value1" unCheckedValue="value2" v-model="value" @change="handleValue"></YkSwitch>
+    <messagebox />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-
-const value = ref('')
-function handleValue(val) {
-  console.log('val', val)
-}
+import messagebox from '@/components/messagebox/src/messagebox.vue'
 </script>
 
 <style></style>
