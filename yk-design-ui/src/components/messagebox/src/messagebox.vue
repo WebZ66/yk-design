@@ -3,7 +3,7 @@
     <transition name="fade-in-linear" @after-leave="destroy">
       <Overlay :z-index="state.zIndex" :mask="true">
         <div ref="dialog" class="yk-message-box-wrapper" @click="handleWrapperClick">
-          <div ref="rootRef" :class="['yk-message-box', { 'is-center': state.center }]" @click.stop>
+          <div ref="rootRef" :class="['yk-message-box', { 'is-center': state.center }, `${customClass}`]" @click.stop>
             <div
               v-if="state.title?.length"
               ref="headerRef"
@@ -29,11 +29,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, watch, nextTick } from 'vue'
 import type { MessageBoxProps, MessageBoxAction } from './messagebox'
+import type { InputInstance } from '@/components/input/src/input'
+import { isFunction } from 'lodash-es'
 import { iconNameMap } from '@/utils/shape'
 import { YkIcon } from '@/components/icon/src/index'
 import { useZIndex } from '@/hooks'
+
 import '../style'
 
 import Overlay from '@/components/overlay/src/overlay.vue'
@@ -55,6 +58,7 @@ const props = withDefaults(defineProps<MessageBoxProps>(), {
   confirmButtonText: 'OK',
   cancelButtonText: 'cancel',
   showConfirmButton: true,
+  customClass: '',
 })
 const iconProp = computed(() => {
   return props.icon ? { icon: props.icon } : props.type ? iconNameMap[props.type] : null
@@ -63,14 +67,46 @@ const { nextZIndex } = useZIndex()
 
 const { doAction } = props
 
+const headerRef = ref<HTMLElement>()
+const inputRef = ref<InputInstance>()
+
 const state = reactive({
   ...props,
   zIndex: nextZIndex(),
 })
+watch(
+  () => props.visible,
+  (val) => {
+    if (val) state.zIndex = nextZIndex()
+    if (props.boxType != 'prompt') return
+    if (!val) return
+    nextTick(() => {
+      inputRef.value && inputRef.value.focus()
+    })
+  }
+)
 
 const hasMessage = computed(() => !!state.message)
 
-function handleWrapperClick() {}
+function handleWrapperClick() {
+  props.closeOnClickModal && handleAction('close')
+}
+
+function handlerInputEnter(e: KeyboardEvent) {
+  if (state.inputType === 'textarea') return
+  e.preventDefault()
+  return handleAction('confirm')
+}
+
+function handleAction(action: MessageBoxAction) {
+  isFunction(props.beforeClose)
+    ? props.beforeClose(action, state, () => doAction(action, state.inputValue))
+    : doAction(action, state.inputValue)
+}
+
+function handleClose() {
+  handleAction('close')
+}
 </script>
 
 <style scoped></style>

@@ -21,6 +21,7 @@ export interface MessageBoxOptions {
   boxType?: MessageBoxType
   icon?: string[]
   callback?: MessageBoxCallback
+  customClass?: string //自定义class
   showClose?: boolean
   showInput?: boolean
   showCancelButton?: boolean
