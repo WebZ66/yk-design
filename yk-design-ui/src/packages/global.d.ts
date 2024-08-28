@@ -7,6 +7,7 @@ import { YkCheckbox } from '@/components/checkbox/src'
 import { YkInput } from '@/components/input/src'
 import { YkSelect, YkOption } from '@/components/select/src'
 import { YkTooltip } from '@/components/tooltip/src'
+import { YkRate } from '@/components/rate/src'
 import Message from '@/components/message/src/methods'
 import Notification from '@/components/notification/src/methods'
 declare module 'vue' {
@@ -20,7 +21,7 @@ declare module 'vue' {
     YkInput: typeof YkInput
     YkTooltip: typeof YkTooltip
     YkPopconfirm: typeof YkPopconfirm
-
+    YkRate: typeof YkRate
     Message: typeof Message
     Notification: typeof Notification
   }

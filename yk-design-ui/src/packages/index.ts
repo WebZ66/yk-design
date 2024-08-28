@@ -10,6 +10,7 @@ import { YkInput } from '@/components/input/src'
 import { YkSelect, YkOption } from '@/components/select/src'
 import { YkTooltip } from '@/components/tooltip/src'
 import { YkPopconfirm } from '@/components/popconfirm/src'
+import { YkRate } from '@/components/rate/src'
 import Message from '@/components/message/src/methods'
 import Notification from '@/components/notification/src/methods'
 
@@ -28,6 +29,7 @@ const components: {
   YkOption,
   YkTooltip,
   YkPopconfirm,
+  YkRate,
 }
 export {
   YkButton,
@@ -40,6 +42,7 @@ export {
   YkOption,
   YkTooltip,
   YkPopconfirm,
+  YkRate,
   Message,
   Notification,
 }
