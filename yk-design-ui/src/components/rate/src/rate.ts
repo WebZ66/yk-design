@@ -7,6 +7,9 @@ export interface RateProps {
   lowThreshold?: number
   highThreshold?: number
   texts?: string[]
+  showText?: boolean
+  showScore?: boolean
+  textColor?: string
   iconClasses?: string[] | Record<string, string>
   colors?: string[]
   voidIconClass?: string

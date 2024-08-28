@@ -23,7 +23,7 @@
         />
       </YkIcon>
     </span>
-    <span class="yk-rate__text">{{ text }}</span>
+    <span v-if="showText || showScore" class="yk-rate__text" :style="{ color: textColor }">{{ text }}</span>
   </div>
 </template>
 
@@ -48,13 +48,23 @@ const props = withDefaults(defineProps<RateProps>(), {
   voidColor: '#C6D1DE',
   disabledVoidIconClass: 'fa-solid fa-star',
   disabledVoidColor: '#EFF2F7',
+  showText: false,
+  showScore: false,
+  textColor: '#000',
+  texts: () => ['极差', '失望', '一般', '满意', '惊喜'],
 })
 const $emits = defineEmits<RateEmits>()
 const rateDisabled = computed(() => {
   return props.disabled
 })
 const text = computed(() => {
-  return ''
+  let result = ''
+  if (props.showScore) {
+    result = `${currentValue.value}`
+  } else if (props.showText) {
+    result = props.texts[Math.ceil(currentValue.value) - 1]
+  }
+  return result
 })
 
 const currentValue = ref(props.value ?? props.modelValue)

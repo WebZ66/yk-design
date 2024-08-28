@@ -1,8 +1,7 @@
 <template>
   <div class="test">
     <!-- <messagebox /> -->
-    <rate :value="value" @change="changeValue" :allow-half="true" />
-    <rate :value="value" @change="changeValue" disabled />
+    <rate :value="value" @change="changeValue" :allow-half="true" show-score />
   </div>
 </template>
 
