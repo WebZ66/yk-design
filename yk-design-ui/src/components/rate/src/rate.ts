@@ -15,4 +15,5 @@ export interface RateProps {
 
 export interface RateEmits {
   (e: 'update:modelValue', value: RateProps['modelValue']): void
+  (e: 'change', value: RateProps['modelValue']): void
 }

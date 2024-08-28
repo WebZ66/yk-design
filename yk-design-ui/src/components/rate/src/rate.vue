@@ -5,8 +5,17 @@
       :key="key"
       class="yk-rate__item"
       :style="{ cursor: rateDisabled ? 'auto' : 'pointer' }"
+      @mousemove="setCurrentValue(item, $event)"
+      @mouseleave="resetCurrentValue"
+      @click="selectValue(item)"
     >
-      <YkIcon class="yk-rate__icon" :icon="classes[item - 1]" :style="getIconStyle(item)"></YkIcon>
+      <YkIcon
+        class="yk-rate__icon"
+        :icon="classes[item - 1]"
+        :style="getIconStyle(item)"
+        :class="[{ hover: hoverIndex === item }]"
+      >
+      </YkIcon>
     </span>
     <span class="yk-rate__text">{{ text }}</span>
   </div>
@@ -15,12 +24,12 @@
 <script lang="ts" setup>
 import { ref, reactive, computed } from 'vue'
 import { RateEmits, RateProps } from './rate'
+import '../style'
 defineOptions({
   name: 'YkRate',
 })
 const props = withDefaults(defineProps<RateProps>(), {
   max: 5,
-  value: 3,
   modelValue: 0,
   disabled: false,
   allowHalf: false,
@@ -87,7 +96,6 @@ const classes = computed(() => {
 const activeColor = computed(() => {
   return getValueFromMap(currentValue.value, colorMap.value)
 })
-console.log('activeColor', activeColor.value)
 
 function getIconStyle(item: number) {
   const voidColor = rateDisabled.value ? '' : props.voidColor
@@ -110,5 +118,39 @@ function getValueFromMap(value: number, map: any) {
     .sort((a: any, b: any) => a - b)
   const matchedValue = map[matchedKeys[0]]
   return matchedValue instanceof Object ? matchedValue.value : matchedValue || ''
+}
+
+/* 事件处理 */
+const hoverIndex = ref(0)
+
+function setCurrentValue(item: number, $event: Event) {
+  if (rateDisabled.value) return
+  if (props.allowHalf) {
+    console.log('半选情况')
+  } else {
+    currentValue.value = item
+  }
+
+  hoverIndex.value = item
+}
+
+function resetCurrentValue() {
+  if (rateDisabled.value) {
+    return
+  }
+  currentValue.value = props.value ?? props.modelValue
+  hoverIndex.value = -1
+}
+
+function selectValue(item: number) {
+  if (rateDisabled.value) {
+    return
+  }
+  if (props.allowHalf) {
+    console.log('半选情况')
+  } else {
+    $emits('update:modelValue', item)
+    $emits('change', item)
+  }
 }
 </script>

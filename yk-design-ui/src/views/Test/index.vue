@@ -1,7 +1,7 @@
 <template>
   <div class="test">
     <!-- <messagebox /> -->
-    <rate />
+    <rate :value="value" @change="changeValue" />
   </div>
 </template>
 
@@ -9,6 +9,11 @@
 import { ref } from 'vue'
 import messagebox from '@/components/messagebox/src/messagebox.vue'
 import rate from '@/components/rate/src/rate.vue'
+
+const value = ref(2)
+function changeValue(v) {
+  value.value = v
+}
 </script>
 
 <style></style>
