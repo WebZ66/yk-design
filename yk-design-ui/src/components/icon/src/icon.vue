@@ -1,6 +1,7 @@
 <template>
   <i ref="iconRef" class="yk-icon" :class="[props.type ? `yk-icon--${props.type}` : '']">
     <font-awesome-icon v-bind="props" />
+    <slot></slot>
   </i>
 </template>
 

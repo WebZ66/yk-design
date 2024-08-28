@@ -11,6 +11,8 @@ export interface RateProps {
   colors?: string[]
   voidIconClass?: string
   voidColor?: string
+  disabledVoidColor?: string
+  disabledVoidIconClass?: string
 }
 
 export interface RateEmits {

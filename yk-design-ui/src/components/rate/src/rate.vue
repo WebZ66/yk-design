@@ -15,6 +15,12 @@
         :style="getIconStyle(item)"
         :class="[{ hover: hoverIndex === item }]"
       >
+        <YkIcon
+          v-if="showDecimalIcon(item)"
+          class="yk-rate__decimal"
+          :style="decimalStyle"
+          :icon="'fa-solid fa-star'"
+        />
       </YkIcon>
     </span>
     <span class="yk-rate__text">{{ text }}</span>
@@ -22,8 +28,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, watch } from 'vue'
 import { RateEmits, RateProps } from './rate'
+
 import '../style'
 defineOptions({
   name: 'YkRate',
@@ -39,6 +46,8 @@ const props = withDefaults(defineProps<RateProps>(), {
   colors: () => ['#F7BA2A', 'red', 'blue'],
   voidIconClass: 'fa-regular fa-star', //空心
   voidColor: '#C6D1DE',
+  disabledVoidIconClass: 'fa-solid fa-star',
+  disabledVoidColor: '#EFF2F7',
 })
 const $emits = defineEmits<RateEmits>()
 const rateDisabled = computed(() => {
@@ -78,12 +87,16 @@ const activeClass = computed(() => {
 })
 //未选中的icon图标名
 const voidClass = computed(() => {
-  return rateDisabled.value ? '' : props.voidIconClass
+  return rateDisabled.value ? props.disabledVoidIconClass : props.voidIconClass
 })
 const classes = computed(() => {
   const result: string[] = []
   let i = 0
   let threshold = currentValue.value
+  //半选逻辑 2.2
+  if (props.allowHalf && currentValue.value !== Math.floor(currentValue.value)) {
+    threshold--
+  }
   for (; i < threshold; i++) {
     result.push(activeClass.value)
   }
@@ -97,8 +110,9 @@ const activeColor = computed(() => {
   return getValueFromMap(currentValue.value, colorMap.value)
 })
 
+//color
 function getIconStyle(item: number) {
-  const voidColor = rateDisabled.value ? '' : props.voidColor
+  const voidColor = rateDisabled.value ? props.disabledVoidColor : props.voidColor
   return {
     color: item <= currentValue.value ? activeColor.value : voidColor,
   }
@@ -120,23 +134,71 @@ function getValueFromMap(value: number, map: any) {
   return matchedValue instanceof Object ? matchedValue.value : matchedValue || ''
 }
 
+/* 半选 */
+//用于非只读模式下控制半星展示，当绑定之包含小数且大于0.5时为true
+const pointerAtLeftHalf = ref(true)
+
+const valueDecimal = computed(() => {
+  return currentValue.value * 100 - Math.floor(currentValue.value) * 100
+})
+watch(
+  currentValue,
+  (newValue) => {
+    pointerAtLeftHalf.value = newValue !== Math.floor(newValue)
+  },
+  {
+    immediate: true,
+    flush: 'post',
+  }
+)
+
+function showDecimalIcon(item: number) {
+  //只读模式disabled下，默认支持半选效果,且只有那一个有半选
+  let showWhenDisabled =
+    rateDisabled.value && valueDecimal.value > 0 && item - 1 < currentValue.value && item > currentValue.value
+  //非只读模式下，小数位要不小于0.5才会显示半选效果。
+  let showWhenAllowHalf =
+    pointerAtLeftHalf.value && props.allowHalf && item - 0.5 <= currentValue.value && item > currentValue.value
+  return showWhenAllowHalf || showWhenDisabled
+}
+
+const decimalStyle = computed(() => {
+  let width = ''
+  //只读模式
+  if (rateDisabled.value) {
+    width = `${valueDecimal.value}%`
+  } else if (props.allowHalf) {
+    width = '50%'
+  }
+  return {
+    color: activeColor.value,
+    width,
+  }
+})
+
 /* 事件处理 */
 const hoverIndex = ref(0)
 
-function setCurrentValue(item: number, $event: Event) {
+function setCurrentValue(item: number, $event: MouseEvent) {
   if (rateDisabled.value) return
   if (props.allowHalf) {
-    console.log('半选情况')
+    //半选
+    const YkRate = document.querySelector('.yk-rate')
+    let target = YkRate?.querySelector('.yk-rate__icon') as HTMLElement
+    pointerAtLeftHalf.value = $event.offsetX * 2 <= target?.clientWidth
+    currentValue.value = pointerAtLeftHalf.value ? item - 0.5 : item
   } else {
     currentValue.value = item
   }
-
   hoverIndex.value = item
 }
 
 function resetCurrentValue() {
   if (rateDisabled.value) {
     return
+  }
+  if (props.allowHalf) {
+    pointerAtLeftHalf.value = currentValue.value !== Math.floor(currentValue.value)
   }
   currentValue.value = props.value ?? props.modelValue
   hoverIndex.value = -1
@@ -147,7 +209,8 @@ function selectValue(item: number) {
     return
   }
   if (props.allowHalf) {
-    console.log('半选情况')
+    $emits('update:modelValue', currentValue.value)
+    $emits('change', currentValue.value)
   } else {
     $emits('update:modelValue', item)
     $emits('change', item)

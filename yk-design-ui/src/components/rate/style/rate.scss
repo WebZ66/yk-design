@@ -4,6 +4,13 @@
     .yk-rate__icon {
       margin-right: 6px;
       transition: transform 0.3s;
+      position: relative;
+      .yk-rate__decimal {
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+      }
     }
     .hover {
       transform: scale(1.15);
