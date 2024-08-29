@@ -154,7 +154,7 @@ const valueDecimal = computed(() => {
 watch(
   currentValue,
   (newValue) => {
-    pointerAtLeftHalf.value = newValue !== Math.floor(newValue)
+    // pointerAtLeftHalf.value = newValue !== Math.floor(newValue)
   },
   {
     immediate: true,
@@ -195,6 +195,7 @@ function setCurrentValue(item: number, $event: MouseEvent) {
     //半选
     const YkRate = document.querySelector('.yk-rate')
     let target = YkRate?.querySelector('.yk-rate__icon') as HTMLElement
+    //是否小于一半
     pointerAtLeftHalf.value = $event.offsetX * 2 <= target?.clientWidth
     currentValue.value = pointerAtLeftHalf.value ? item - 0.5 : item
   } else {
