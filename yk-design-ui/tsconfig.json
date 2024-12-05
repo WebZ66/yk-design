@@ -1,38 +1,26 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
-    /* Bundler mode */
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "preserve",
-    /* Linting */
+    "module": "ESNext",//打包模块类型
+    "declaration": false,//默认不需要声明文件 (声明文件通过打包时构建工具生成)
+    "noImplicitAny": false,//支持类型不标注可以any
+    "removeComments": true,//删除注释
+    "moduleResolution": "node", //按照node解析模块
+    "esModuleInterop": true,//支持es6和commonjs
+    "jsx": "preserve",//保留jsx
+    "noLib": false,//不处理类型
+    "target": "ES6",//遵循es6
+    "sourceMap": true,
+    "lib": ["ESNext","DOM"],//编译用到的库
+    "allowSyntheticDefaultImports": true,//允许没有导出的模块中导入
+    "experimentalDecorators": true,//装饰器语法
+    "forceConsistentCasingInFileNames": true,//强制区分大小写
+    "resolveJsonModule": true,//解析json模块
     "strict": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    /* resolve */
-    "baseUrl": "./",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    }
+    "skipLibCheck": true,//跳过类型检测
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+  "exclude": [
+    "node_modules",
+    "**/__tests__",
+    "dist/**"
+  ]//排除掉文件
 }
