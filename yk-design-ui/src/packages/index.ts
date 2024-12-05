@@ -11,6 +11,7 @@ import { YkSelect, YkOption } from '@/components/select/src'
 import { YkTooltip } from '@/components/tooltip/src'
 import { YkPopconfirm } from '@/components/popconfirm/src'
 import { YkRate } from '@/components/rate/src'
+import { YkTree } from '@/components/tree/src'
 import Message from '@/components/message/src/methods'
 import Notification from '@/components/notification/src/methods'
 
@@ -30,6 +31,7 @@ const components: {
   YkTooltip,
   YkPopconfirm,
   YkRate,
+  YkTree,
 }
 export {
   YkButton,
@@ -45,6 +47,7 @@ export {
   YkRate,
   Message,
   Notification,
+  YkTree,
 }
 
 export default {
