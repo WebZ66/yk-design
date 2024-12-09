@@ -2,8 +2,7 @@
   <div class="test">
     <!-- <messagebox /> -->
     <!-- <rate :value="value" @change="changeValue" :allow-half="true" show-score /> -->
-
-    <yk-tree />
+    
   </div>
 </template>
 

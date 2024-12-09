@@ -19,7 +19,7 @@
       <YkRadio v-model="radio1" :value="'2'" disabled>选项二</YkRadio>
       <div :style="{ padding: '10px 0' }"></div>
       <yk-radio-group v-model="radio2">
-        <YkRadio :value="'1'">选项一</YkRadio>
+        <YkRadio :value="'0'">选项一</YkRadio>
         <YkRadio :value="'2'">选项二</YkRadio>
       </yk-radio-group>
     </div>
