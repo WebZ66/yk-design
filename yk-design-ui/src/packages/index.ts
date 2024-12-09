@@ -4,7 +4,7 @@ import '@/assets/style/mix.scss'
 import { YkButton } from '@/components/button/src/index'
 import { YkIcon } from '@/components/icon/src'
 import { YkSwitch } from '@/components/switch/src'
-import { YkRadio } from '@/components/radio/src'
+import { YkRadio, YkRadioGroup } from '@/components/radio/src'
 import { YkCheckbox } from '@/components/checkbox/src'
 import { YkInput } from '@/components/input/src'
 import { YkSelect, YkOption } from '@/components/select/src'
@@ -32,6 +32,7 @@ const components: {
   YkPopconfirm,
   YkRate,
   YkTree,
+  YkRadioGroup,
 }
 export {
   YkButton,
@@ -48,6 +49,7 @@ export {
   Message,
   Notification,
   YkTree,
+  YkRadioGroup,
 }
 
 export default {

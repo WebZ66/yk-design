@@ -2,7 +2,7 @@ import { YkPopconfirm } from '@/components/popconfirm/src'
 import { YkButton } from '@/components/button/src/index'
 import { YkIcon } from '@/components/icon/src'
 import { YkSwitch } from '@/components/switch/src'
-import { YkRadio } from '@/components/radio/src'
+import { YkRadio, YkRadioGroup } from '@/components/radio/src'
 import { YkCheckbox } from '@/components/checkbox/src'
 import { YkInput } from '@/components/input/src'
 import { YkSelect, YkOption } from '@/components/select/src'
@@ -22,6 +22,7 @@ declare module 'vue' {
     YkTooltip: typeof YkTooltip
     YkPopconfirm: typeof YkPopconfirm
     YkRate: typeof YkRate
+    YkRadioGroup: typeof YkRadioGroup
     Message: typeof Message
     Notification: typeof Notification
   }

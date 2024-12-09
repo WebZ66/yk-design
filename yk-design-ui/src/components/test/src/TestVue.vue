@@ -19,9 +19,10 @@
       <YkRadio v-model="radio1" :value="'2'" disabled>选项二</YkRadio>
       <div :style="{ padding: '10px 0' }"></div>
       <yk-radio-group v-model="radio2">
-        <YkRadio :value="'0'">选项一</YkRadio>
-        <YkRadio :value="'2'">选项二</YkRadio>
+        <yk-radio :value="1">1</yk-radio>
+        <yk-radio :value="2">2</yk-radio>
       </yk-radio-group>
+      <router-view></router-view>
     </div>
     <hr />
     <div title="yk-checkbox">
