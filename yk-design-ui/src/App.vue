@@ -3,10 +3,7 @@
     <h1>测试</h1>
     <hr />
     <div></div>
-    <yk-radio-group v-model="value">
-      <yk-radio :value="1">1</yk-radio>
-      <yk-radio :value="2">2</yk-radio>
-    </yk-radio-group>
+    <YkTree :data="[]"></YkTree>
     <router-view></router-view>
   </div>
 </template>
