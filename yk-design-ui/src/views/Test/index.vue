@@ -13,6 +13,7 @@ const inputRef = ref()
 onMounted(() => {
   console.log(inputRef.value)
 })
+console.log('test1分支')
 </script>
 
 <style scoped></style>
