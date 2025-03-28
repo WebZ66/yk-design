@@ -3,7 +3,7 @@
     <h1>测试</h1>
     <hr />
     <div>
-      <YkCountDown time="61"/>
+      <YkCountDown :time="60*60*24*1"/>
     </div>
     <router-view></router-view>
   </div>
