@@ -11,3 +11,7 @@ export type TTimeType = {
   mm?: number
   ss?: number
 }
+
+export const CountDownEmits = {
+  change: (val: TTimeType) => val,
+}

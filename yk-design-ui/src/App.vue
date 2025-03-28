@@ -3,7 +3,7 @@
     <h1>测试</h1>
     <hr />
     <div>
-      <YkCountDown :time="12"/>
+      <YkCountDown :time="12" @change="handleChange">123</YkCountDown>
     </div>
     <router-view></router-view>
   </div>
@@ -12,6 +12,10 @@
 <script lang="ts" setup>
 import { ref, reactive, useSlots } from 'vue'
 const value = ref(1)
+
+function handleChange(value: any) {
+  console.log('value', value)
+}
 </script>
 
 <style scoped>
