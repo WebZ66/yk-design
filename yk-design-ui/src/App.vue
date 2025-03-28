@@ -2,8 +2,9 @@
   <div class="test-container">
     <h1>测试</h1>
     <hr />
-    <div></div>
-    <YkTree :data="[]"></YkTree>
+    <div>
+      <YkCountDown time="61"/>
+    </div>
     <router-view></router-view>
   </div>
 </template>

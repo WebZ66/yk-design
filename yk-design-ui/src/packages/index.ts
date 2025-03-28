@@ -12,6 +12,7 @@ import { YkTooltip } from '@/components/tooltip/src'
 import { YkPopconfirm } from '@/components/popconfirm/src'
 import { YkRate } from '@/components/rate/src'
 import { YkTree } from '@/components/tree/src'
+import { YkCountDown } from '@/components/count-down/src'
 import Message from '@/components/message/src/methods'
 import Notification from '@/components/notification/src/methods'
 
@@ -33,6 +34,7 @@ const components: {
   YkRate,
   YkTree,
   YkRadioGroup,
+  YkCountDown,
 }
 export {
   YkButton,
@@ -50,6 +52,7 @@ export {
   Notification,
   YkTree,
   YkRadioGroup,
+  YkCountDown,
 }
 
 export default {

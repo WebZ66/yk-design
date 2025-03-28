@@ -1,3 +1,4 @@
+import { YkCountDown } from './../components/count-down/src/index'
 import { YkPopconfirm } from '@/components/popconfirm/src'
 import { YkButton } from '@/components/button/src/index'
 import { YkIcon } from '@/components/icon/src'
@@ -23,6 +24,7 @@ declare module 'vue' {
     YkPopconfirm: typeof YkPopconfirm
     YkRate: typeof YkRate
     YkRadioGroup: typeof YkRadioGroup
+    YkCountDown:typeof YkCountDown
     Message: typeof Message
     Notification: typeof Notification
   }
