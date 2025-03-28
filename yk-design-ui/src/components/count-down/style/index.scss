@@ -1,0 +1,67 @@
+.yk-count-down {
+  display: flex;
+  --card-height: 30px;
+  --card-font-size: calc(var(--card-height)*1.2);
+
+  &__container {
+    position: relative;
+    color: #fff;
+
+    .block {
+      width: calc(var(--card-height)*1.8);
+      height: var(--card-height);
+      background-color: #000;
+      font-size: var(--card-font-size);
+      text-align: center;
+      overflow: hidden;
+
+      &.top {
+        line-height: calc(var(--card-height)*2);
+      }
+      &.bottom{
+        line-height: 0;
+      }
+    }
+
+    .box {
+      width: calc(var(--card-height)*1.8);
+      height: var(--card-height);
+      transform-style: preserve-3d;
+      transition: all 1s;
+      transform-origin: bottom;
+      position: absolute;
+      top: 0;
+
+      /* 把box放在.block上面 */
+      &>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        backface-visibility: hidden;
+        text-align: center;
+        font-size: var(--card-font-size);
+        overflow: hidden;
+      }
+
+      .front {
+        background-color: #000;
+        line-height: calc(var(--card-height)*2);
+        /* border-bottom: 1px solid #fff; */
+      }
+
+      .back {
+        background-color: #000;
+        line-height: 0;
+        transform: rotateY(180deg) rotateZ(180deg);
+      }
+    }
+
+    .box:hover {
+      transform: rotateX(-180deg);
+    }
+
+  }
+
+}
