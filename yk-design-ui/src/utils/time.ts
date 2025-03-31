@@ -2,26 +2,9 @@
 import { padZero } from './format'
 import { CurrentTime } from '@/components/count-down/src/count-down'
 /**
- * @description  将时间转化
+ * @description  时间转化
  * @param  time:number
  */
-export const durationFormatter = (time: number) => {
-  if (!time) return { ss: 0 }
-  let t = time
-  const ss = t % 60
-  t = (t - ss) / 60
-  if (t < 1) return { ss }
-  const mm = t % 60
-  t = (t - mm) / 60
-  if (t < 1) return { mm, ss }
-  const hh = t % 24
-  t = (t - hh) / 24
-  if (t < 1) return { hh, mm, ss }
-  const dd = t
-  return { dd, hh, mm, ss }
-}
-
-
 export function parseFormat(format: string, currentTime: CurrentTime): string {
   const { days } = currentTime
   let { hours, minutes, seconds, milliseconds } = currentTime

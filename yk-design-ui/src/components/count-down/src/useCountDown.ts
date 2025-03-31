@@ -32,6 +32,8 @@ export function useCountDown(options: TCountDownProps) {
         setRemain(getCurrentRemain())
         if (remain.value > 0) {
           microTick()
+        } else {
+          options.onFinish && options.onFinish()
         }
       }
     }, 16.67)
@@ -48,6 +50,8 @@ export function useCountDown(options: TCountDownProps) {
 
         if (remain.value > 0) {
           macroTick()
+        } else {
+          options.onFinish && options.onFinish()
         }
       }
     }, 16.67)

@@ -37,5 +37,7 @@ export function parseTime(time: number): CurrentTime {
   }
 }
 
-
-
+export const countDownEmits = {
+  change: (value: CurrentTime) => value,
+  finish: () => true,
+}

@@ -1,6 +1,6 @@
 <template>
   <div class="test">
-    <YkCountDown :time="5000" />
+    <YkCountDown :time="1000*10" @change="handleChange" @finish="onFinish" />
     <!-- <messagebox /> -->
     <!-- <rate :value="value" @change="changeValue" :allow-half="true" show-score /> -->
   </div>
@@ -8,6 +8,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+
+function handleChange(value){
+  // console.log('value',value)
+}
+function onFinish(){
+  // console.log('finish')
+}
 /* var app = new Vue({
   el: '#app',
   data: function () {
