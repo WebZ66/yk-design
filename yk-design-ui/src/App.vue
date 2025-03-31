@@ -3,7 +3,6 @@
     <h1>测试</h1>
     <hr />
     <div>
-      <YkCountDown :time="12" @change="handleChange">123</YkCountDown>
     </div>
     <router-view></router-view>
   </div>

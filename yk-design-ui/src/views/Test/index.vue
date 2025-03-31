@@ -1,5 +1,6 @@
 <template>
   <div class="test">
+    <YkCountDown :time="5000" />
     <!-- <messagebox /> -->
     <!-- <rate :value="value" @change="changeValue" :allow-half="true" show-score /> -->
   </div>

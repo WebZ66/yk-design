@@ -15,3 +15,13 @@ export function addUnit(val?: string | number, defaultUnit = 'px'): string {
   }
   return val + ''
 }
+
+export function padZero(num: number, targetLength = 2): string {
+  let str = num + ''
+
+  while (str.length < targetLength) {
+    str = '0' + str
+  }
+
+  return str
+}
