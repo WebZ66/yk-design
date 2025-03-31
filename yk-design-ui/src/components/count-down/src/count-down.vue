@@ -1,6 +1,6 @@
 <template>
   <div :class="bem()">
-    <div :class="bem('container')">{{parseFormatTime}}</div>
+    <div :class="bem('time')">{{ parseFormatTime }}</div>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<TCountDownProps>(), {
 })
 const $emits = defineEmits(countDownEmits)
 
-const { current, start } = useCountDown({
+const { current, start, pause, reset } = useCountDown({
   ...props,
   onChange: (res) => $emits('change', res),
   onFinish: () => $emits('finish'),
@@ -29,6 +29,13 @@ const { current, start } = useCountDown({
 // 什么是响应式，响应式数据和对应函数（watch、computed、render）关联。  当响应式数据发生变化后，函数会重新执行。 crrent.value响应式数据发生变化，导致computed重新执行，生成新的parseForamtTIme
 //parseFormatTime发生变化，重新render。因此，computed回调函数里面必须调用ref.value或者reactive.属性。这就是为什么有时候需要传递ref的属性
 const parseFormatTime = computed(() => parseFormat('HH:mm:ss', current.value))
+
+defineExpose({
+  current,
+  start,
+  pause,
+  reset,
+})
 </script>
 
 <style scoped></style>

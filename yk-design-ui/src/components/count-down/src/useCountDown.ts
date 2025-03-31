@@ -5,13 +5,13 @@ function isSameSecond(time1: number, time2: number) {
 }
 export function useCountDown(options: TCountDownProps) {
   let endTime: number
-  let counting: boolean
+  let counting: boolean = true
   const remain = ref(options.time)
   const current = computed(() => parseTime(remain.value))
   let rafId
   const getCurrentRemain = () => Math.max(endTime - Date.now(), 0)
   const start = () => {
-    if (!counting) {
+    if (counting) {
       endTime = Date.now() + remain.value
       counting = true
       tick()
@@ -65,7 +65,17 @@ export function useCountDown(options: TCountDownProps) {
       macroTick()
     }
   }
+
+  const pause = () => {
+    counting = !counting
+    if (counting) start()
+  }
+
+  const reset = () => {
+    setRemain(options.time)
+    start()
+  }
   //是否立即执行
   options.autoPlay && start()
-  return { start, current }
+  return { start, current, pause, reset }
 }
