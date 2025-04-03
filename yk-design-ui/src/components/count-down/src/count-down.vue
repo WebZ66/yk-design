@@ -1,6 +1,10 @@
 <template>
   <div :class="bem()">
-    <div :class="bem('time')">{{ parseFormatTime }}</div>
+    <div :class="bem('time')">
+      <slot>
+        {{ parseFormatTime }}
+      </slot>
+    </div>
   </div>
 </template>
 

@@ -9,6 +9,7 @@ import { YkInput } from '@/components/input/src'
 import { YkSelect, YkOption } from '@/components/select/src'
 import { YkTooltip } from '@/components/tooltip/src'
 import { YkRate } from '@/components/rate/src'
+import { YkCountDownCard } from '@/components/count-down-card/src/index'
 import Message from '@/components/message/src/methods'
 import Notification from '@/components/notification/src/methods'
 declare module 'vue' {
@@ -25,6 +26,7 @@ declare module 'vue' {
     YkRate: typeof YkRate
     YkRadioGroup: typeof YkRadioGroup
     YkCountDown:typeof YkCountDown
+    YkCountDownCard:typeof YkCountDownCard
     Message: typeof Message
     Notification: typeof Notification
   }

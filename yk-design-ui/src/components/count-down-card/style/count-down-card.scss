@@ -1,0 +1,71 @@
+.yk-count-down-card {
+  --count-down-card-width: 80px;
+  --count-down-card-height: 54px;
+  --count-down-card-fontsize: 48px;
+  position: relative;
+  box-sizing: border-box;
+  .yk-count-down__time{
+    display: flex;
+    .container {
+      height: calc(var(--count-down-card-height)*2);
+      margin-right: 10px;
+      &:last-child{
+        margin-right: 0;
+      }
+    } 
+  }
+ 
+  .yk-count-down-card__content {
+    width: var(--count-down-card-width);
+    height: var(--count-down-card-height);
+    font-size: var(--count-down-card-fontsize);
+    text-align: center;
+    line-height: calc(var(--count-down-card-height)*2);
+    color: #fff;
+    position: relative;
+
+    .bg {
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    .top {
+      position: relative;
+      top: 0;
+    }
+
+    .bottom {
+      line-height: 0;
+    }
+
+    .box {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transform-origin: bottom;
+      transition: all 1s;
+
+      .flod-block {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        overflow: hidden;
+      }
+
+      .front {
+        background-color: black;
+      }
+
+      .back {
+        background-color: black;
+        transform: rotateX(0deg) rotateY(-180deg) scale(-1);
+        line-height: 0px;
+      }
+    }
+  }
+}

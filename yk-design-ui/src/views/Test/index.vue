@@ -1,6 +1,6 @@
 <template>
   <div class="test">
-    <YkCountDown :time="1000*10" @change="handleChange" @finish="onFinish" />
+    <YkCountDownCard  :time="1000*70" />
     <!-- <messagebox /> -->
     <!-- <rate :value="value" @change="changeValue" :allow-half="true" show-score /> -->
   </div>
