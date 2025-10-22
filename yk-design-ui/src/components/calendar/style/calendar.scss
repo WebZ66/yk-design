@@ -1,0 +1,77 @@
+.yk-calendar {
+  .yk-calendar__header {
+    display: flex;
+    box-sizing: border-box;
+
+    .yk-calendar__week-item {
+      padding: 20px 16px;
+      color: #7d7d7f;
+      flex: 1;
+      text-align: center;
+    }
+  }
+
+  &__body {
+    border-left: 1px solid #eee;
+    border-top: 1px solid #eee;
+
+    .calendar-row {
+      display: flex;
+
+      .calendar-day-item {
+        padding: 20px 16px;
+        text-align: center;
+        color: #7d7d7f;
+        flex: 1;
+        border-right: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        min-height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        span{
+          display: inline-block;
+        }
+        &.current-month {
+          color: #000;
+        }
+
+        &.current-date {
+          position: relative;
+
+          &::after {
+            position: absolute;
+            content: '今日';
+            width: 30px;
+            height: 30px;
+            font-size: 12px;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          &.is-selected{
+            &::after{
+              color: #fff;
+            }
+          }
+        }
+
+        &.is-selected {
+          span{
+            width: 30px;
+            height: 30px;
+            background: #5697f5;
+            border-radius: 50%;
+            line-height: 30px;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

@@ -12,6 +12,7 @@ import { YkRate } from '@/components/rate/src'
 import { YkCountDownCard } from '@/components/count-down-card/src/index'
 import Message from '@/components/message/src/methods'
 import Notification from '@/components/notification/src/methods'
+import { YkSlider } from '@/components/slider/src'
 declare module 'vue' {
   /* 扩展全局组件接口类型 */
   export interface GlobalComponents {
@@ -25,8 +26,9 @@ declare module 'vue' {
     YkPopconfirm: typeof YkPopconfirm
     YkRate: typeof YkRate
     YkRadioGroup: typeof YkRadioGroup
-    YkCountDown:typeof YkCountDown
-    YkCountDownCard:typeof YkCountDownCard
+    YkCountDown: typeof YkCountDown
+    YkCountDownCard: typeof YkCountDownCard
+    YkSlider:typeof YkSlider
     Message: typeof Message
     Notification: typeof Notification
   }

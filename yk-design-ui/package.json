@@ -22,6 +22,7 @@
     "@fortawesome/vue-fontawesome": "3.0.6",
     "@popperjs/core": "^2.11.8",
     "axios": "^1.4.0",
+    "dayjs": "^1.11.18",
     "lodash-es": "^4.17.21",
     "vite-plugin-dts": "3.9.1",
     "vue": "^3.3.4",

@@ -8,16 +8,19 @@
       <!-- 间断点 -->
       <div class="el-slider__stop"></div>
     </div>
+    {{ $props }}
   </div>
 </template>
 
 <script setup lang='ts'>
-import { ref, reactive, computed, onMounted, watch } from 'vue'
+import { ref, reactive, computed, onMounted, watch, toRefs } from 'vue'
 import { createCssScope } from '@/utils/bem'
 import SliderButton from './slider-button.vue'
 import '../style'
 
 const bem = createCssScope('slider')
+
+const props = defineProps(['name'])
 
 const sliderSize = ref(0)
 const sliderRef = ref<HTMLElement>()
